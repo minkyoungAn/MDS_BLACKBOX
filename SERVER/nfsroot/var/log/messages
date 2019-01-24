@@ -1,0 +1,1498 @@
+Jan  1 00:00:10 mds2450 user.info kernel: VFS: Mounted root (nfs filesystem) on device 0:15.
+Jan  1 00:00:10 mds2450 user.info kernel: devtmpfs: mounted
+Jan  1 00:00:10 mds2450 user.info kernel: Freeing init memory: 172K
+Jan  1 00:00:11 mds2450 user.debug kernel: eth0: no IPv6 routers present
+Jan  1 02:19:58 mds2450 syslog.info syslogd started: BusyBox v1.17.1
+Jan  1 02:19:58 mds2450 user.notice kernel: klogd started: BusyBox v1.17.1 (2017-10-01 08:55:58 KST)
+Jan  1 02:19:58 mds2450 user.info kernel: Initializing cgroup subsys cpu
+Jan  1 02:19:58 mds2450 user.notice kernel: Linux version 3.0.22 (root@ip6) (gcc version 4.4.1 (crosstool-NG 1.16.0) ) #2 PREEMPT Fri Jan 11 09:54:49 KST 2019
+Jan  1 02:19:58 mds2450 user.warn kernel: CPU: ARM926EJ-S [41069265] revision 5 (ARMv5TEJ), cr=00053177
+Jan  1 02:19:58 mds2450 user.warn kernel: CPU: VIVT data cache, VIVT instruction cache
+Jan  1 02:19:58 mds2450 user.warn kernel: Machine: MDS2450
+Jan  1 02:19:58 mds2450 user.warn kernel: Memory policy: ECC disabled, Data cache writeback
+Jan  1 02:19:58 mds2450 user.warn kernel: CPU S3C2416/S3C2450 (id 0x32450003)
+Jan  1 02:19:58 mds2450 user.info kernel: S3C24XX Clocks, Copyright 2004 Simtec Electronics
+Jan  1 02:19:58 mds2450 user.warn kernel: CPU: MPLL on 534.000 MHz, cpu 534.000 MHz, mem 133.500 MHz, pclk 66.750 MHz
+Jan  1 02:19:58 mds2450 user.warn kernel: CPU: EPLL on 96.000 MHz, usb-bus 48.000 MHz
+Jan  1 02:19:58 mds2450 user.debug kernel: On node 0 totalpages: 16384
+Jan  1 02:19:58 mds2450 user.debug kernel: free_area_init_node: node 0, pgdat c0721f80, node_mem_map c074b000
+Jan  1 02:19:58 mds2450 user.debug kernel:   Normal zone: 128 pages used for memmap
+Jan  1 02:19:58 mds2450 user.debug kernel:   Normal zone: 0 pages reserved
+Jan  1 02:19:58 mds2450 daemon.info init: starting pid 1215, tty '/dev/ttySAC1': '/sbin/getty -L ttySAC1 115200 vt100 '
+Jan  1 02:19:58 mds2450 user.debug kernel:   Normal zone: 16256 pages, LIFO batch:3
+Jan  1 02:19:58 mds2450 user.debug kernel: pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
+Jan  1 02:19:58 mds2450 user.debug kernel: pcpu-alloc: [0] 0 
+Jan  1 02:19:58 mds2450 user.warn kernel: Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 16256
+Jan  1 02:19:58 mds2450 user.notice kernel: Kernel command line: root=/dev/nfs rw nfsroot=192.168.0.2:/nfsroot ip=192.168.0.102:192.168.0.2:192.168.0.1:255.255.255.0::eth0:off:netmask=255.255.255.0 console=ttySAC1,115200n81
+Jan  1 02:19:58 mds2450 user.info kernel: PID hash table entries: 256 (order: -2, 1024 bytes)
+Jan  1 02:19:58 mds2450 user.info kernel: Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
+Jan  1 02:19:58 mds2450 user.info kernel: Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
+Jan  1 02:19:58 mds2450 user.info kernel: Memory: 64MB = 64MB total
+Jan  1 02:19:58 mds2450 user.notice kernel: Memory: 57468k/57468k available, 8068k reserved, 0K highmem
+Jan  1 02:19:58 mds2450 user.notice kernel: Virtual kernel memory layout:
+Jan  1 02:19:58 mds2450 user.notice kernel:     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+Jan  1 02:19:58 mds2450 user.notice kernel:     fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+Jan  1 02:19:58 mds2450 user.notice kernel:     DMA     : 0xffc00000 - 0xffe00000   (   2 MB)
+Jan  1 02:19:58 mds2450 user.notice kernel:     vmalloc : 0xc4800000 - 0xf6000000   ( 792 MB)
+Jan  1 02:19:58 mds2450 user.notice kernel:     lowmem  : 0xc0000000 - 0xc4000000   (  64 MB)
+Jan  1 02:19:58 mds2450 user.notice kernel:     modules : 0xbf000000 - 0xc0000000   (  16 MB)
+Jan  1 02:19:58 mds2450 user.notice kernel:       .init : 0xc0008000 - 0xc0033000   ( 172 kB)
+Jan  1 02:19:58 mds2450 user.notice kernel:       .text : 0xc0033000 - 0xc06e2b70   (6847 kB)
+Jan  1 02:19:58 mds2450 user.notice kernel:       .data : 0xc06e4000 - 0xc0722600   ( 250 kB)
+Jan  1 02:19:58 mds2450 user.notice kernel:        .bss : 0xc0722624 - 0xc074a268   ( 160 kB)
+Jan  1 02:19:58 mds2450 user.info kernel: SLUB: Genslabs=13, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+Jan  1 02:19:58 mds2450 user.info kernel: Preemptible hierarchical RCU implementation.
+Jan  1 02:19:58 mds2450 user.info kernel: NR_IRQS:107
+Jan  1 02:19:58 mds2450 user.warn kernel: irq: clearing subpending status 00000010
+Jan  1 02:19:58 mds2450 user.debug kernel: timer tcon=00500000, tcnt d948, tcfg 00000200,00000000, usec 00001703
+Jan  1 02:19:58 mds2450 user.info kernel: Console: colour dummy device 80x30
+Jan  1 02:19:58 mds2450 user.info kernel: console [ttySAC1] enabled
+Jan  1 02:19:58 mds2450 user.info kernel: Calibrating delay loop... 266.03 BogoMIPS (lpj=665088)
+Jan  1 02:19:58 mds2450 user.info kernel: pid_max: default: 32768 minimum: 301
+Jan  1 02:19:58 mds2450 user.info kernel: Mount-cache hash table entries: 512
+Jan  1 02:19:58 mds2450 user.info kernel: Initializing cgroup subsys debug
+Jan  1 02:19:58 mds2450 user.info kernel: Initializing cgroup subsys cpuacct
+Jan  1 02:19:58 mds2450 user.info kernel: Initializing cgroup subsys freezer
+Jan  1 02:19:58 mds2450 user.info kernel: CPU: Testing write buffer coherency: ok
+Jan  1 02:19:58 mds2450 user.info kernel: devtmpfs: initialized
+Jan  1 02:19:58 mds2450 user.info kernel: gpiochip_add: registered GPIOs 0 to 23 on device: GPIOA
+Jan  1 02:19:58 mds2450 user.info kernel: gpiochip_add: registered GPIOs 32 to 47 on device: GPIOB
+Jan  1 02:19:58 mds2450 user.info kernel: gpiochip_add: registered GPIOs 64 to 79 on device: GPIOC
+Jan  1 02:19:58 mds2450 user.info kernel: gpiochip_add: registered GPIOs 96 to 111 on device: GPIOD
+Jan  1 02:19:58 mds2450 user.info kernel: gpiochip_add: registered GPIOs 128 to 143 on device: GPIOE
+Jan  1 02:19:58 mds2450 user.info kernel: gpiochip_add: registered GPIOs 160 to 167 on device: GPIOF
+Jan  1 02:19:58 mds2450 user.info kernel: gpiochip_add: registered GPIOs 192 to 207 on device: GPIOG
+Jan  1 02:19:58 mds2450 user.info kernel: gpiochip_add: registered GPIOs 224 to 234 on device: GPIOH
+Jan  1 02:19:58 mds2450 user.info kernel: gpiochip_add: registered GPIOs 256 to 271 on device: GPIOJ
+Jan  1 02:19:58 mds2450 user.info kernel: gpiochip_add: registered GPIOs 288 to 303 on device: GPIOK
+Jan  1 02:19:58 mds2450 user.info kernel: gpiochip_add: registered GPIOs 320 to 334 on device: GPIOL
+Jan  1 02:19:58 mds2450 user.info kernel: gpiochip_add: registered GPIOs 352 to 353 on device: GPIOM
+Jan  1 02:19:58 mds2450 user.info kernel: NET: Registered protocol family 16
+Jan  1 02:19:58 mds2450 user.warn kernel: S3C Power Management, Copyright 2004 Simtec Electronics
+Jan  1 02:19:58 mds2450 user.info kernel: S3C2416: Initializing architecture
+Jan  1 02:19:58 mds2450 user.info kernel: S3C2416: IRQ Support
+Jan  1 02:19:58 mds2450 user.warn kernel: S3C24XX DMA Driver, Copyright 2003-2006 Simtec Electronics
+Jan  1 02:19:58 mds2450 user.warn kernel: DMA channel 0 at c4804000, irq 88
+Jan  1 02:19:58 mds2450 user.warn kernel: DMA channel 1 at c4804100, irq 89
+Jan  1 02:19:58 mds2450 user.warn kernel: DMA channel 2 at c4804200, irq 90
+Jan  1 02:19:58 mds2450 user.warn kernel: DMA channel 3 at c4804300, irq 91
+Jan  1 02:19:58 mds2450 user.warn kernel: DMA channel 4 at c4804400, irq 92
+Jan  1 02:19:58 mds2450 user.warn kernel: DMA channel 5 at c4804500, irq 93
+Jan  1 02:19:58 mds2450 user.info kernel: s3c-adc s3c24xx-adc: attached adc driver
+Jan  1 02:19:58 mds2450 user.info kernel: s3c24xx-pwm s3c24xx-pwm.0: tin at 33375000, tdiv at 33375000, tin=divclk, base 0
+Jan  1 02:19:58 mds2450 user.info kernel: s3c24xx-pwm s3c24xx-pwm.1: tin at 33375000, tdiv at 33375000, tin=divclk, base 8
+Jan  1 02:19:58 mds2450 user.info kernel: s3c24xx-pwm s3c24xx-pwm.2: tin at 11125000, tdiv at 11125000, tin=divclk, base 12
+Jan  1 02:19:58 mds2450 user.info kernel: s3c24xx-pwm s3c24xx-pwm.3: tin at 11125000, tdiv at 11125000, tin=divclk, base 16
+Jan  1 02:19:58 mds2450 user.info kernel: bio: create slab <bio-0> at 0
+Jan  1 02:19:58 mds2450 user.notice kernel: SCSI subsystem initialized
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new interface driver usbfs
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new interface driver hub
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new device driver usb
+Jan  1 02:19:58 mds2450 user.info kernel: s3c-i2c s3c2410-i2c: slave address 0x10
+Jan  1 02:19:58 mds2450 user.info kernel: s3c-i2c s3c2410-i2c: bus frequency set to 65 KHz
+Jan  1 02:19:58 mds2450 user.info kernel: s3c-i2c s3c2410-i2c: i2c-0: S3C I2C adapter
+Jan  1 02:19:58 mds2450 user.info kernel: Advanced Linux Sound Architecture Driver Version 1.0.24.
+Jan  1 02:19:58 mds2450 user.info kernel: Bluetooth: Core ver 2.16
+Jan  1 02:19:58 mds2450 user.info kernel: NET: Registered protocol family 31
+Jan  1 02:19:58 mds2450 user.info kernel: Bluetooth: HCI device and connection manager initialized
+Jan  1 02:19:58 mds2450 user.info kernel: Bluetooth: HCI socket layer initialized
+Jan  1 02:19:58 mds2450 user.info kernel: Bluetooth: L2CAP socket layer initialized
+Jan  1 02:19:58 mds2450 user.info kernel: Bluetooth: SCO socket layer initialized
+Jan  1 02:19:58 mds2450 user.info kernel: cfg80211: Calling CRDA to update world regulatory domain
+Jan  1 02:19:58 mds2450 user.info kernel: NET: Registered protocol family 2
+Jan  1 02:19:58 mds2450 user.info kernel: IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+Jan  1 02:19:58 mds2450 user.info kernel: TCP established hash table entries: 2048 (order: 2, 16384 bytes)
+Jan  1 02:19:58 mds2450 user.info kernel: TCP bind hash table entries: 2048 (order: 1, 8192 bytes)
+Jan  1 02:19:58 mds2450 user.info kernel: TCP: Hash tables configured (established 2048 bind 2048)
+Jan  1 02:19:58 mds2450 user.info kernel: TCP reno registered
+Jan  1 02:19:58 mds2450 user.info kernel: UDP hash table entries: 256 (order: 0, 4096 bytes)
+Jan  1 02:19:58 mds2450 user.info kernel: UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+Jan  1 02:19:58 mds2450 user.info kernel: NET: Registered protocol family 1
+Jan  1 02:19:58 mds2450 user.info kernel: RPC: Registered named UNIX socket transport module.
+Jan  1 02:19:58 mds2450 user.info kernel: RPC: Registered udp transport module.
+Jan  1 02:19:58 mds2450 user.info kernel: RPC: Registered tcp transport module.
+Jan  1 02:19:58 mds2450 user.info kernel: RPC: Registered tcp NFSv4.1 backchannel transport module.
+Jan  1 02:19:58 mds2450 user.warn kernel: NetWinder Floating Point Emulator V0.97 (extended precision)
+Jan  1 02:19:58 mds2450 user.info kernel: nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+Jan  1 02:19:58 mds2450 user.info kernel: ROMFS MTD (C) 2007 Red Hat, Inc.
+Jan  1 02:19:58 mds2450 user.info kernel: fuse init (API version 7.16)
+Jan  1 02:19:58 mds2450 user.debug kernel: yaffs: yaffs built Dec  5 2018 10:00:01 Installing.
+Jan  1 02:19:58 mds2450 user.info kernel: msgmni has been set to 112
+Jan  1 02:19:58 mds2450 user.info kernel: io scheduler noop registered
+Jan  1 02:19:58 mds2450 user.info kernel: io scheduler deadline registered
+Jan  1 02:19:58 mds2450 user.info kernel: io scheduler cfq registered (default)
+Jan  1 02:19:58 mds2450 user.info kernel: Console: switching to colour frame buffer device 60x34
+Jan  1 02:19:58 mds2450 user.info kernel: s3c-fb s3c-fb: window 0: fb 
+Jan  1 02:19:58 mds2450 user.info kernel: Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+Jan  1 02:19:58 mds2450 user.info kernel: s3c2440-uart.0: ttySAC0 at MMIO 0x50000000 (irq = 70) is a S3C2440
+Jan  1 02:19:58 mds2450 user.info kernel: s3c2440-uart.1: ttySAC1 at MMIO 0x50004000 (irq = 73) is a S3C2440
+Jan  1 02:19:58 mds2450 user.info kernel: s3c2440-uart.2: ttySAC2 at MMIO 0x50008000 (irq = 76) is a S3C2440
+Jan  1 02:19:58 mds2450 user.info kernel: s3c2440-uart.3: ttySAC3 at MMIO 0x5000c000 (irq = 94) is a S3C2440
+Jan  1 02:19:58 mds2450 user.info kernel: brd: module loaded
+Jan  1 02:19:58 mds2450 user.info kernel: loop: module loaded
+Jan  1 02:19:58 mds2450 user.info kernel: SCSI Media Changer driver v0.25 
+Jan  1 02:19:58 mds2450 user.warn kernel: S3C24XX NAND Driver, (c) 2004 Simtec Electronics
+Jan  1 02:19:58 mds2450 user.debug kernel: s3c2410_nand_probe(c06ef1e8)
+Jan  1 02:19:58 mds2450 user.debug kernel: s3c24xx-nand s3c2412-nand: mapped registers at c4c00000
+Jan  1 02:19:58 mds2450 user.debug kernel: result 3 from 133500, 20
+Jan  1 02:19:58 mds2450 user.debug kernel: result 6 from 133500, 40
+Jan  1 02:19:58 mds2450 user.debug kernel: result 3 from 133500, 20
+Jan  1 02:19:58 mds2450 user.info kernel: s3c24xx-nand s3c2412-nand: Tacls=3, 22ns Twrph0=6 44ns, Twrph1=3 22ns
+Jan  1 02:19:58 mds2450 user.debug kernel: s3c24xx-nand s3c2412-nand: NF_CONF is 0x252f
+Jan  1 02:19:58 mds2450 user.debug kernel: initialising set 0 (c38fa400, info c3a6aa80)
+Jan  1 02:19:58 mds2450 user.info kernel: s3c24xx-nand s3c2412-nand: NAND hardware ECC
+Jan  1 02:19:58 mds2450 user.info kernel: NAND device: Manufacturer ID: 0xec, Chip ID: 0xda (Samsung NAND 256MiB 3,3V 8-bit)
+Jan  1 02:19:58 mds2450 user.debug kernel: s3c24xx-nand s3c2412-nand: chip c38fa5b0 => page shift 11
+Jan  1 02:19:58 mds2450 user.info kernel: Scanning device for bad blocks
+Jan  1 02:19:58 mds2450 user.debug kernel: s3c-nand: 1 bit error detected at byte 15, correcting from 0x26 
+Jan  1 02:19:58 mds2450 user.debug kernel: to 0x06...OK
+Jan  1 02:19:58 mds2450 user.warn kernel: Bad eraseblock 0 at 0x000000000000
+Jan  1 02:19:58 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 02:19:58 mds2450 user.warn kernel: Bad eraseblock 1 at 0x000000020000
+Jan  1 02:19:58 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 02:19:58 mds2450 user.warn kernel: Bad eraseblock 454 at 0x0000038c0000
+Jan  1 02:19:58 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 02:19:58 mds2450 user.warn kernel: Bad eraseblock 691 at 0x000005660000
+Jan  1 02:19:58 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 02:19:58 mds2450 user.warn kernel: Bad eraseblock 1264 at 0x000009e00000
+Jan  1 02:19:58 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 02:19:58 mds2450 user.warn kernel: Bad eraseblock 1603 at 0x00000c860000
+Jan  1 02:19:58 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 02:19:58 mds2450 user.warn kernel: Bad eraseblock 1710 at 0x00000d5c0000
+Jan  1 02:19:58 mds2450 user.notice kernel: Creating 3 MTD partitions on "NAND":
+Jan  1 02:19:58 mds2450 user.notice kernel: 0x000000000000-0x000000080000 : "Bootloader"
+Jan  1 02:19:58 mds2450 user.notice kernel: 0x000000080000-0x000000500000 : "Kernel"
+Jan  1 02:19:58 mds2450 user.notice kernel: 0x000000500000-0x000010000000 : "rootfs"
+Jan  1 02:19:58 mds2450 user.debug kernel: initialised ok
+Jan  1 02:19:58 mds2450 user.info kernel: PPP generic driver version 2.4.2
+Jan  1 02:19:58 mds2450 user.info kernel: NET: Registered protocol family 24
+Jan  1 02:19:58 mds2450 user.info kernel: smsc911x: Driver version 2008-10-21
+Jan  1 02:19:58 mds2450 user.info kernel: smsc911x-mdio: probed
+Jan  1 02:19:58 mds2450 user.info kernel: smsc911x smsc911x: eth0: attached PHY driver [Generic PHY] (mii_bus:phy_addr=ffffffff:01, irq=-1)
+Jan  1 02:19:58 mds2450 user.info kernel: smsc911x smsc911x: eth0: MAC Address: 00:80:00:23:45:67
+Jan  1 02:19:58 mds2450 user.info kernel: ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+Jan  1 02:19:58 mds2450 user.info kernel: s3c2410-ohci s3c2410-ohci: S3C24XX OHCI
+Jan  1 02:19:58 mds2450 user.info kernel: s3c2410-ohci s3c2410-ohci: new USB bus registered, assigned bus number 1
+Jan  1 02:19:58 mds2450 user.info kernel: s3c2410-ohci s3c2410-ohci: irq 42, io mem 0x49000000
+Jan  1 02:19:58 mds2450 user.info kernel: hub 1-0:1.0: USB hub found
+Jan  1 02:19:58 mds2450 user.info kernel: hub 1-0:1.0: 2 ports detected
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new interface driver cdc_wdm
+Jan  1 02:19:58 mds2450 user.info kernel: Initializing USB Mass Storage driver...
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new interface driver usb-storage
+Jan  1 02:19:58 mds2450 user.info kernel: USB Mass Storage support registered.
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new interface driver libusual
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new interface driver ums-alauda
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new interface driver ums-cypress
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new interface driver ums-datafab
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new interface driver ums-freecom
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new interface driver ums-isd200
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new interface driver ums-jumpshot
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new interface driver ums-karma
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new interface driver ums-onetouch
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new interface driver ums-sddr09
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new interface driver ums-sddr55
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new interface driver ums-usbat
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new interface driver usbserial
+Jan  1 02:19:58 mds2450 user.info kernel: USB Serial support registered for generic
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new interface driver usbserial_generic
+Jan  1 02:19:58 mds2450 user.info kernel: usbserial: USB Serial Driver core
+Jan  1 02:19:58 mds2450 user.info kernel: USB Serial support registered for FTDI USB Serial Device
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new interface driver ftdi_sio
+Jan  1 02:19:58 mds2450 user.info kernel: ftdi_sio: v1.6.0:USB FTDI Serial Converters Driver
+Jan  1 02:19:58 mds2450 user.info kernel: USB Serial support registered for pl2303
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new interface driver pl2303
+Jan  1 02:19:58 mds2450 user.info kernel: pl2303: Prolific PL2303 USB to serial adaptor driver
+Jan  1 02:19:58 mds2450 user.warn kernel: g_ether gadget: using random self ethernet address
+Jan  1 02:19:58 mds2450 user.warn kernel: g_ether gadget: using random host ethernet address
+Jan  1 02:19:58 mds2450 user.info kernel: usb0: MAC 8a:2d:67:91:1a:eb
+Jan  1 02:19:58 mds2450 user.info kernel: usb0: HOST MAC 2e:46:39:9d:3d:ae
+Jan  1 02:19:58 mds2450 user.info kernel: g_ether gadget: Ethernet Gadget, version: Memorial Day 2008
+Jan  1 02:19:58 mds2450 user.info kernel: g_ether gadget: g_ether ready
+Jan  1 02:19:58 mds2450 user.info kernel: s3c-hsudc s3c-hsudc: bound driver g_ether
+Jan  1 02:19:58 mds2450 user.info kernel: mousedev: PS/2 mouse device common for all mice
+Jan  1 02:19:58 mds2450 user.info kernel: samsung-ts s3c2410-ts: driver attached, registering input device
+Jan  1 02:19:58 mds2450 user.info kernel: input: S3C24XX TouchScreen as /devices/virtual/input/input0
+Jan  1 02:19:58 mds2450 user.warn kernel: S3C24XX RTC, (c) 2004,2006 Simtec Electronics
+Jan  1 02:19:58 mds2450 user.info kernel: s3c-rtc s3c2410-rtc: rtc disabled, re-enabling
+Jan  1 02:19:58 mds2450 user.info kernel: s3c-rtc s3c2410-rtc: rtc core: registered s3c as rtc0
+Jan  1 02:19:58 mds2450 user.info kernel: lirc_dev: IR Remote Control driver registered, major 252 
+Jan  1 02:19:58 mds2450 user.info kernel: IR NEC protocol handler initialized
+Jan  1 02:19:58 mds2450 user.info kernel: IR RC5(x) protocol handler initialized
+Jan  1 02:19:58 mds2450 user.info kernel: IR RC6 protocol handler initialized
+Jan  1 02:19:58 mds2450 user.info kernel: IR JVC protocol handler initialized
+Jan  1 02:19:58 mds2450 user.info kernel: IR Sony protocol handler initialized
+Jan  1 02:19:58 mds2450 user.info kernel: IR RC5 (streamzap) protocol handler initialized
+Jan  1 02:19:58 mds2450 user.info kernel: IR LIRC bridge handler initialized
+Jan  1 02:19:58 mds2450 user.info kernel: Linux video capture interface: v2.00
+Jan  1 02:19:58 mds2450 user.info kernel: gspca: v2.13.0 registered
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new interface driver uvcvideo
+Jan  1 02:19:58 mds2450 user.info kernel: USB Video Class driver (v1.1.0)
+Jan  1 02:19:58 mds2450 user.info kernel: S3C2410 Watchdog Timer, (c) 2004 Simtec Electronics
+Jan  1 02:19:58 mds2450 user.info kernel: s3c2410-wdt s3c2410-wdt: watchdog inactive, reset disabled, irq enabled
+Jan  1 02:19:58 mds2450 user.info kernel: Bluetooth: Virtual HCI driver ver 1.3
+Jan  1 02:19:58 mds2450 user.info kernel: Bluetooth: HCI UART driver ver 2.2
+Jan  1 02:19:58 mds2450 user.info kernel: Bluetooth: HCI H4 protocol initialized
+Jan  1 02:19:58 mds2450 user.info kernel: Bluetooth: HCI BCSP protocol initialized
+Jan  1 02:19:58 mds2450 user.info kernel: Bluetooth: HCILL protocol initialized
+Jan  1 02:19:58 mds2450 user.info kernel: Bluetooth: Broadcom Blutonium firmware driver ver 1.2
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new interface driver bcm203x
+Jan  1 02:19:58 mds2450 user.info kernel: Bluetooth: Digianswer Bluetooth USB driver ver 0.10
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new interface driver bpa10x
+Jan  1 02:19:58 mds2450 user.info kernel: Bluetooth: BlueFRITZ! USB driver ver 1.2
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new interface driver bfusb
+Jan  1 02:19:58 mds2450 user.info kernel: Bluetooth: Generic Bluetooth USB driver ver 0.6
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new interface driver btusb
+Jan  1 02:19:58 mds2450 user.info kernel: Bluetooth: Generic Bluetooth SDIO driver ver 0.1
+Jan  1 02:19:58 mds2450 user.info kernel: sdhci: Secure Digital Host Controller Interface driver
+Jan  1 02:19:58 mds2450 user.info kernel: sdhci: Copyright(c) Pierre Ossman
+Jan  1 02:19:58 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.0: clock source 0: hsmmc (133500000 Hz)
+Jan  1 02:19:58 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.0: clock source 1: hsmmc (133500000 Hz)
+Jan  1 02:19:58 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.0: clock source 2: hsmmc-if (32000000 Hz)
+Jan  1 02:19:58 mds2450 user.debug kernel: Registered led device: mmc0::
+Jan  1 02:19:58 mds2450 user.info kernel: mmc0: SDHCI controller on samsung-hsmmc [s3c-sdhci.0] using ADMA
+Jan  1 02:19:58 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.1: clock source 0: hsmmc (133500000 Hz)
+Jan  1 02:19:58 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.1: clock source 1: hsmmc (133500000 Hz)
+Jan  1 02:19:58 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.1: clock source 2: hsmmc-if (32000000 Hz)
+Jan  1 02:19:58 mds2450 user.info kernel: usb 1-1: new full speed USB device number 2 using s3c2410-ohci
+Jan  1 02:19:58 mds2450 user.debug kernel: Registered led device: mmc1::
+Jan  1 02:19:58 mds2450 user.info kernel: mmc1: SDHCI controller on samsung-hsmmc [s3c-sdhci.1] using ADMA
+Jan  1 02:19:58 mds2450 user.info kernel: usbcore: registered new interface driver usbhid
+Jan  1 02:19:58 mds2450 user.info kernel: usbhid: USB HID core driver
+Jan  1 02:19:58 mds2450 user.warn kernel: MDS2450 Audio Support
+Jan  1 02:19:58 mds2450 user.warn kernel: wm8960-codec 0-001a: No platform data supplied
+Jan  1 02:19:58 mds2450 user.info kernel: uvcvideo: Found UVC 1.00 device USB2.0 Camera (1871:0141)
+Jan  1 02:19:58 mds2450 user.info kernel: asoc: wm8960-hifi <-> samsung-i2s mapping ok
+Jan  1 02:19:58 mds2450 user.info kernel: input: USB2.0 Camera as /devices/platform/s3c2410-ohci/usb1/1-1/1-1:1.0/input/input1
+Jan  1 02:19:58 mds2450 user.info kernel: input: SMDK-I2S Headset Jack as /devices/platform/soc-audio/sound/card0/input2
+Jan  1 02:19:58 mds2450 user.info kernel: ALSA device list:
+Jan  1 02:19:58 mds2450 user.info kernel:   #0: SMDK-I2S
+Jan  1 02:19:58 mds2450 user.info kernel: Netfilter messages via NETLINK v0.30.
+Jan  1 02:19:58 mds2450 user.info kernel: nf_conntrack version 0.5.0 (897 buckets, 3588 max)
+Jan  1 02:19:58 mds2450 user.info kernel: NF_TPROXY: Transparent proxy support initialized, version 4.1.0
+Jan  1 02:19:58 mds2450 user.info kernel: NF_TPROXY: Copyright (c) 2006-2007 BalaBit IT Ltd.
+Jan  1 02:19:58 mds2450 user.info kernel: IPv4 over IPv4 tunneling driver
+Jan  1 02:19:58 mds2450 user.info kernel: ip_tables: (C) 2000-2006 Netfilter Core Team
+Jan  1 02:19:58 mds2450 user.info kernel: arp_tables: (C) 2002 David S. Miller
+Jan  1 02:19:58 mds2450 user.info kernel: TCP cubic registered
+Jan  1 02:19:58 mds2450 user.info kernel: NET: Registered protocol family 10
+Jan  1 02:19:58 mds2450 user.info kernel: ip6_tables: (C) 2000-2006 Netfilter Core Team
+Jan  1 02:19:58 mds2450 user.info kernel: IPv6 over IPv4 tunneling driver
+Jan  1 02:19:58 mds2450 user.info kernel: NET: Registered protocol family 17
+Jan  1 02:19:58 mds2450 user.info kernel: NET: Registered protocol family 15
+Jan  1 02:19:58 mds2450 user.info kernel: Bluetooth: RFCOMM TTY layer initialized
+Jan  1 02:19:58 mds2450 user.info kernel: Bluetooth: RFCOMM socket layer initialized
+Jan  1 02:19:58 mds2450 user.info kernel: Bluetooth: RFCOMM ver 1.11
+Jan  1 02:19:58 mds2450 user.info kernel: Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+Jan  1 02:19:58 mds2450 user.info kernel: Bluetooth: BNEP filters: protocol multicast
+Jan  1 02:19:58 mds2450 user.info kernel: lib80211: common routines for IEEE802.11 drivers
+Jan  1 02:19:58 mds2450 user.debug kernel: lib80211_crypt: registered algorithm 'NULL'
+Jan  1 02:19:58 mds2450 user.notice kernel: Registering the dns_resolver key type
+Jan  1 02:19:58 mds2450 user.info kernel: s3c-rtc s3c2410-rtc: setting system clock to 2000-01-01 02:19:47 UTC (946693187)
+Jan  1 02:19:58 mds2450 user.info kernel: smsc911x smsc911x: eth0: SMSC911x/921x identified at 0xc4820000, IRQ: 62
+Jan  1 02:19:58 mds2450 user.warn kernel: IP-Config: Complete:
+Jan  1 02:19:58 mds2450 user.warn kernel:      device=eth0, addr=192.168.0.102, mask=255.255.255.0, gw=192.168.0.1,
+Jan  1 02:19:58 mds2450 user.warn kernel:      host=192.168.0.102, domain=, nis-domain=(none),
+Jan  1 02:19:58 mds2450 user.warn kernel:      bootserver=192.168.0.2, rootserver=192.168.0.2, rootpath=
+Jan  1 02:19:58 mds2450 user.info kernel: VFS: Mounted root (nfs filesystem) on device 0:15.
+Jan  1 02:19:58 mds2450 user.info kernel: devtmpfs: mounted
+Jan  1 02:19:58 mds2450 user.info kernel: Freeing init memory: 172K
+Jan  1 02:19:58 mds2450 user.debug kernel: eth0: no IPv6 routers present
+Jan  1 02:20:04 mds2450 auth.info login[1215]: root login on 'ttySAC1'
+Jan  1 02:34:51 mds2450 syslog.info syslogd started: BusyBox v1.17.1
+Jan  1 02:34:52 mds2450 user.notice kernel: klogd started: BusyBox v1.17.1 (2017-10-01 08:55:58 KST)
+Jan  1 02:34:52 mds2450 user.info kernel: Initializing cgroup subsys cpu
+Jan  1 02:34:52 mds2450 user.notice kernel: Linux version 3.0.22 (root@ip6) (gcc version 4.4.1 (crosstool-NG 1.16.0) ) #2 PREEMPT Fri Jan 11 09:54:49 KST 2019
+Jan  1 02:34:52 mds2450 user.warn kernel: CPU: ARM926EJ-S [41069265] revision 5 (ARMv5TEJ), cr=00053177
+Jan  1 02:34:52 mds2450 user.warn kernel: CPU: VIVT data cache, VIVT instruction cache
+Jan  1 02:34:52 mds2450 user.warn kernel: Machine: MDS2450
+Jan  1 02:34:52 mds2450 user.warn kernel: Memory policy: ECC disabled, Data cache writeback
+Jan  1 02:34:52 mds2450 user.warn kernel: CPU S3C2416/S3C2450 (id 0x32450003)
+Jan  1 02:34:52 mds2450 user.info kernel: S3C24XX Clocks, Copyright 2004 Simtec Electronics
+Jan  1 02:34:52 mds2450 user.warn kernel: CPU: MPLL on 534.000 MHz, cpu 534.000 MHz, mem 133.500 MHz, pclk 66.750 MHz
+Jan  1 02:34:52 mds2450 user.warn kernel: CPU: EPLL on 96.000 MHz, usb-bus 48.000 MHz
+Jan  1 02:34:52 mds2450 user.debug kernel: On node 0 totalpages: 16384
+Jan  1 02:34:52 mds2450 user.debug kernel: free_area_init_node: node 0, pgdat c0721f80, node_mem_map c074b000
+Jan  1 02:34:52 mds2450 user.debug kernel:   Normal zone: 128 pages used for memmap
+Jan  1 02:34:52 mds2450 user.debug kernel:   Normal zone: 0 pages reserved
+Jan  1 02:34:52 mds2450 user.debug kernel:   Normal zone: 16256 pages, LIFO batch:3
+Jan  1 02:34:52 mds2450 user.debug kernel: pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
+Jan  1 02:34:52 mds2450 user.debug kernel: pcpu-alloc: [0] 0 
+Jan  1 02:34:52 mds2450 daemon.info init: starting pid 1216, tty '/dev/ttySAC1': '/sbin/getty -L ttySAC1 115200 vt100 '
+Jan  1 02:34:52 mds2450 user.warn kernel: Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 16256
+Jan  1 02:34:52 mds2450 user.notice kernel: Kernel command line: root=/dev/nfs rw nfsroot=192.168.0.2:/nfsroot ip=192.168.0.102:192.168.0.2:192.168.0.1:255.255.255.0::eth0:off:netmask=255.255.255.0 console=ttySAC1,115200n81
+Jan  1 02:34:52 mds2450 user.info kernel: PID hash table entries: 256 (order: -2, 1024 bytes)
+Jan  1 02:34:52 mds2450 user.info kernel: Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
+Jan  1 02:34:52 mds2450 user.info kernel: Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
+Jan  1 02:34:52 mds2450 user.info kernel: Memory: 64MB = 64MB total
+Jan  1 02:34:52 mds2450 user.notice kernel: Memory: 57468k/57468k available, 8068k reserved, 0K highmem
+Jan  1 02:34:52 mds2450 user.notice kernel: Virtual kernel memory layout:
+Jan  1 02:34:52 mds2450 user.notice kernel:     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+Jan  1 02:34:52 mds2450 user.notice kernel:     fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+Jan  1 02:34:52 mds2450 user.notice kernel:     DMA     : 0xffc00000 - 0xffe00000   (   2 MB)
+Jan  1 02:34:52 mds2450 user.notice kernel:     vmalloc : 0xc4800000 - 0xf6000000   ( 792 MB)
+Jan  1 02:34:52 mds2450 user.notice kernel:     lowmem  : 0xc0000000 - 0xc4000000   (  64 MB)
+Jan  1 02:34:52 mds2450 user.notice kernel:     modules : 0xbf000000 - 0xc0000000   (  16 MB)
+Jan  1 02:34:52 mds2450 user.notice kernel:       .init : 0xc0008000 - 0xc0033000   ( 172 kB)
+Jan  1 02:34:52 mds2450 user.notice kernel:       .text : 0xc0033000 - 0xc06e2b70   (6847 kB)
+Jan  1 02:34:52 mds2450 user.notice kernel:       .data : 0xc06e4000 - 0xc0722600   ( 250 kB)
+Jan  1 02:34:52 mds2450 user.notice kernel:        .bss : 0xc0722624 - 0xc074a268   ( 160 kB)
+Jan  1 02:34:52 mds2450 user.info kernel: SLUB: Genslabs=13, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+Jan  1 02:34:52 mds2450 user.info kernel: Preemptible hierarchical RCU implementation.
+Jan  1 02:34:52 mds2450 user.info kernel: NR_IRQS:107
+Jan  1 02:34:52 mds2450 user.warn kernel: irq: clearing subpending status 00000010
+Jan  1 02:34:52 mds2450 user.debug kernel: timer tcon=00500000, tcnt d948, tcfg 00000200,00000000, usec 00001703
+Jan  1 02:34:52 mds2450 user.info kernel: Console: colour dummy device 80x30
+Jan  1 02:34:52 mds2450 user.info kernel: console [ttySAC1] enabled
+Jan  1 02:34:52 mds2450 user.info kernel: Calibrating delay loop... 266.03 BogoMIPS (lpj=665088)
+Jan  1 02:34:52 mds2450 user.info kernel: pid_max: default: 32768 minimum: 301
+Jan  1 02:34:52 mds2450 user.info kernel: Mount-cache hash table entries: 512
+Jan  1 02:34:52 mds2450 user.info kernel: Initializing cgroup subsys debug
+Jan  1 02:34:52 mds2450 user.info kernel: Initializing cgroup subsys cpuacct
+Jan  1 02:34:52 mds2450 user.info kernel: Initializing cgroup subsys freezer
+Jan  1 02:34:52 mds2450 user.info kernel: CPU: Testing write buffer coherency: ok
+Jan  1 02:34:52 mds2450 user.info kernel: devtmpfs: initialized
+Jan  1 02:34:52 mds2450 user.info kernel: gpiochip_add: registered GPIOs 0 to 23 on device: GPIOA
+Jan  1 02:34:52 mds2450 user.info kernel: gpiochip_add: registered GPIOs 32 to 47 on device: GPIOB
+Jan  1 02:34:52 mds2450 user.info kernel: gpiochip_add: registered GPIOs 64 to 79 on device: GPIOC
+Jan  1 02:34:52 mds2450 user.info kernel: gpiochip_add: registered GPIOs 96 to 111 on device: GPIOD
+Jan  1 02:34:52 mds2450 user.info kernel: gpiochip_add: registered GPIOs 128 to 143 on device: GPIOE
+Jan  1 02:34:52 mds2450 user.info kernel: gpiochip_add: registered GPIOs 160 to 167 on device: GPIOF
+Jan  1 02:34:52 mds2450 user.info kernel: gpiochip_add: registered GPIOs 192 to 207 on device: GPIOG
+Jan  1 02:34:52 mds2450 user.info kernel: gpiochip_add: registered GPIOs 224 to 234 on device: GPIOH
+Jan  1 02:34:52 mds2450 user.info kernel: gpiochip_add: registered GPIOs 256 to 271 on device: GPIOJ
+Jan  1 02:34:52 mds2450 user.info kernel: gpiochip_add: registered GPIOs 288 to 303 on device: GPIOK
+Jan  1 02:34:52 mds2450 user.info kernel: gpiochip_add: registered GPIOs 320 to 334 on device: GPIOL
+Jan  1 02:34:52 mds2450 user.info kernel: gpiochip_add: registered GPIOs 352 to 353 on device: GPIOM
+Jan  1 02:34:52 mds2450 user.info kernel: NET: Registered protocol family 16
+Jan  1 02:34:52 mds2450 user.warn kernel: S3C Power Management, Copyright 2004 Simtec Electronics
+Jan  1 02:34:52 mds2450 user.info kernel: S3C2416: Initializing architecture
+Jan  1 02:34:52 mds2450 user.info kernel: S3C2416: IRQ Support
+Jan  1 02:34:52 mds2450 user.warn kernel: S3C24XX DMA Driver, Copyright 2003-2006 Simtec Electronics
+Jan  1 02:34:52 mds2450 user.warn kernel: DMA channel 0 at c4804000, irq 88
+Jan  1 02:34:52 mds2450 user.warn kernel: DMA channel 1 at c4804100, irq 89
+Jan  1 02:34:52 mds2450 user.warn kernel: DMA channel 2 at c4804200, irq 90
+Jan  1 02:34:52 mds2450 user.warn kernel: DMA channel 3 at c4804300, irq 91
+Jan  1 02:34:52 mds2450 user.warn kernel: DMA channel 4 at c4804400, irq 92
+Jan  1 02:34:52 mds2450 user.warn kernel: DMA channel 5 at c4804500, irq 93
+Jan  1 02:34:52 mds2450 user.info kernel: s3c-adc s3c24xx-adc: attached adc driver
+Jan  1 02:34:52 mds2450 user.info kernel: s3c24xx-pwm s3c24xx-pwm.0: tin at 33375000, tdiv at 33375000, tin=divclk, base 0
+Jan  1 02:34:52 mds2450 user.info kernel: s3c24xx-pwm s3c24xx-pwm.1: tin at 33375000, tdiv at 33375000, tin=divclk, base 8
+Jan  1 02:34:52 mds2450 user.info kernel: s3c24xx-pwm s3c24xx-pwm.2: tin at 11125000, tdiv at 11125000, tin=divclk, base 12
+Jan  1 02:34:52 mds2450 user.info kernel: s3c24xx-pwm s3c24xx-pwm.3: tin at 11125000, tdiv at 11125000, tin=divclk, base 16
+Jan  1 02:34:52 mds2450 user.info kernel: bio: create slab <bio-0> at 0
+Jan  1 02:34:52 mds2450 user.notice kernel: SCSI subsystem initialized
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new interface driver usbfs
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new interface driver hub
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new device driver usb
+Jan  1 02:34:52 mds2450 user.info kernel: s3c-i2c s3c2410-i2c: slave address 0x10
+Jan  1 02:34:52 mds2450 user.info kernel: s3c-i2c s3c2410-i2c: bus frequency set to 65 KHz
+Jan  1 02:34:52 mds2450 user.info kernel: s3c-i2c s3c2410-i2c: i2c-0: S3C I2C adapter
+Jan  1 02:34:52 mds2450 user.info kernel: Advanced Linux Sound Architecture Driver Version 1.0.24.
+Jan  1 02:34:52 mds2450 user.info kernel: Bluetooth: Core ver 2.16
+Jan  1 02:34:52 mds2450 user.info kernel: NET: Registered protocol family 31
+Jan  1 02:34:52 mds2450 user.info kernel: Bluetooth: HCI device and connection manager initialized
+Jan  1 02:34:52 mds2450 user.info kernel: Bluetooth: HCI socket layer initialized
+Jan  1 02:34:52 mds2450 user.info kernel: Bluetooth: L2CAP socket layer initialized
+Jan  1 02:34:52 mds2450 user.info kernel: Bluetooth: SCO socket layer initialized
+Jan  1 02:34:52 mds2450 user.info kernel: cfg80211: Calling CRDA to update world regulatory domain
+Jan  1 02:34:52 mds2450 user.info kernel: NET: Registered protocol family 2
+Jan  1 02:34:52 mds2450 user.info kernel: IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+Jan  1 02:34:52 mds2450 user.info kernel: TCP established hash table entries: 2048 (order: 2, 16384 bytes)
+Jan  1 02:34:52 mds2450 user.info kernel: TCP bind hash table entries: 2048 (order: 1, 8192 bytes)
+Jan  1 02:34:52 mds2450 user.info kernel: TCP: Hash tables configured (established 2048 bind 2048)
+Jan  1 02:34:52 mds2450 user.info kernel: TCP reno registered
+Jan  1 02:34:52 mds2450 user.info kernel: UDP hash table entries: 256 (order: 0, 4096 bytes)
+Jan  1 02:34:52 mds2450 user.info kernel: UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+Jan  1 02:34:52 mds2450 user.info kernel: NET: Registered protocol family 1
+Jan  1 02:34:52 mds2450 user.info kernel: RPC: Registered named UNIX socket transport module.
+Jan  1 02:34:52 mds2450 user.info kernel: RPC: Registered udp transport module.
+Jan  1 02:34:52 mds2450 user.info kernel: RPC: Registered tcp transport module.
+Jan  1 02:34:52 mds2450 user.info kernel: RPC: Registered tcp NFSv4.1 backchannel transport module.
+Jan  1 02:34:52 mds2450 user.warn kernel: NetWinder Floating Point Emulator V0.97 (extended precision)
+Jan  1 02:34:52 mds2450 user.info kernel: nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+Jan  1 02:34:52 mds2450 user.info kernel: ROMFS MTD (C) 2007 Red Hat, Inc.
+Jan  1 02:34:52 mds2450 user.info kernel: fuse init (API version 7.16)
+Jan  1 02:34:52 mds2450 user.debug kernel: yaffs: yaffs built Dec  5 2018 10:00:01 Installing.
+Jan  1 02:34:52 mds2450 user.info kernel: msgmni has been set to 112
+Jan  1 02:34:52 mds2450 user.info kernel: io scheduler noop registered
+Jan  1 02:34:52 mds2450 user.info kernel: io scheduler deadline registered
+Jan  1 02:34:52 mds2450 user.info kernel: io scheduler cfq registered (default)
+Jan  1 02:34:52 mds2450 user.info kernel: Console: switching to colour frame buffer device 60x34
+Jan  1 02:34:52 mds2450 user.info kernel: s3c-fb s3c-fb: window 0: fb 
+Jan  1 02:34:52 mds2450 user.info kernel: Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+Jan  1 02:34:52 mds2450 user.info kernel: s3c2440-uart.0: ttySAC0 at MMIO 0x50000000 (irq = 70) is a S3C2440
+Jan  1 02:34:52 mds2450 user.info kernel: s3c2440-uart.1: ttySAC1 at MMIO 0x50004000 (irq = 73) is a S3C2440
+Jan  1 02:34:52 mds2450 user.info kernel: s3c2440-uart.2: ttySAC2 at MMIO 0x50008000 (irq = 76) is a S3C2440
+Jan  1 02:34:52 mds2450 user.info kernel: s3c2440-uart.3: ttySAC3 at MMIO 0x5000c000 (irq = 94) is a S3C2440
+Jan  1 02:34:52 mds2450 user.info kernel: brd: module loaded
+Jan  1 02:34:52 mds2450 user.info kernel: loop: module loaded
+Jan  1 02:34:52 mds2450 user.info kernel: SCSI Media Changer driver v0.25 
+Jan  1 02:34:52 mds2450 user.warn kernel: S3C24XX NAND Driver, (c) 2004 Simtec Electronics
+Jan  1 02:34:52 mds2450 user.debug kernel: s3c2410_nand_probe(c06ef1e8)
+Jan  1 02:34:52 mds2450 user.debug kernel: s3c24xx-nand s3c2412-nand: mapped registers at c4c00000
+Jan  1 02:34:52 mds2450 user.debug kernel: result 3 from 133500, 20
+Jan  1 02:34:52 mds2450 user.debug kernel: result 6 from 133500, 40
+Jan  1 02:34:52 mds2450 user.debug kernel: result 3 from 133500, 20
+Jan  1 02:34:52 mds2450 user.info kernel: s3c24xx-nand s3c2412-nand: Tacls=3, 22ns Twrph0=6 44ns, Twrph1=3 22ns
+Jan  1 02:34:52 mds2450 user.debug kernel: s3c24xx-nand s3c2412-nand: NF_CONF is 0x252f
+Jan  1 02:34:52 mds2450 user.debug kernel: initialising set 0 (c392e400, info c3a63980)
+Jan  1 02:34:52 mds2450 user.info kernel: s3c24xx-nand s3c2412-nand: NAND hardware ECC
+Jan  1 02:34:52 mds2450 user.info kernel: NAND device: Manufacturer ID: 0xec, Chip ID: 0xda (Samsung NAND 256MiB 3,3V 8-bit)
+Jan  1 02:34:52 mds2450 user.debug kernel: s3c24xx-nand s3c2412-nand: chip c392e5b0 => page shift 11
+Jan  1 02:34:52 mds2450 user.info kernel: Scanning device for bad blocks
+Jan  1 02:34:52 mds2450 user.debug kernel: s3c-nand: 1 bit error detected at byte 15, correcting from 0x26 
+Jan  1 02:34:52 mds2450 user.debug kernel: to 0x06...OK
+Jan  1 02:34:52 mds2450 user.warn kernel: Bad eraseblock 0 at 0x000000000000
+Jan  1 02:34:52 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 02:34:52 mds2450 user.warn kernel: Bad eraseblock 1 at 0x000000020000
+Jan  1 02:34:52 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 02:34:52 mds2450 user.warn kernel: Bad eraseblock 454 at 0x0000038c0000
+Jan  1 02:34:52 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 02:34:52 mds2450 user.warn kernel: Bad eraseblock 691 at 0x000005660000
+Jan  1 02:34:52 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 02:34:52 mds2450 user.warn kernel: Bad eraseblock 1264 at 0x000009e00000
+Jan  1 02:34:52 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 02:34:52 mds2450 user.warn kernel: Bad eraseblock 1603 at 0x00000c860000
+Jan  1 02:34:52 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 02:34:52 mds2450 user.warn kernel: Bad eraseblock 1710 at 0x00000d5c0000
+Jan  1 02:34:52 mds2450 user.notice kernel: Creating 3 MTD partitions on "NAND":
+Jan  1 02:34:52 mds2450 user.notice kernel: 0x000000000000-0x000000080000 : "Bootloader"
+Jan  1 02:34:52 mds2450 user.notice kernel: 0x000000080000-0x000000500000 : "Kernel"
+Jan  1 02:34:52 mds2450 user.notice kernel: 0x000000500000-0x000010000000 : "rootfs"
+Jan  1 02:34:52 mds2450 user.debug kernel: initialised ok
+Jan  1 02:34:52 mds2450 user.info kernel: PPP generic driver version 2.4.2
+Jan  1 02:34:52 mds2450 user.info kernel: NET: Registered protocol family 24
+Jan  1 02:34:52 mds2450 user.info kernel: smsc911x: Driver version 2008-10-21
+Jan  1 02:34:52 mds2450 user.info kernel: smsc911x-mdio: probed
+Jan  1 02:34:52 mds2450 user.info kernel: smsc911x smsc911x: eth0: attached PHY driver [Generic PHY] (mii_bus:phy_addr=ffffffff:01, irq=-1)
+Jan  1 02:34:52 mds2450 user.info kernel: smsc911x smsc911x: eth0: MAC Address: 00:80:00:23:45:67
+Jan  1 02:34:52 mds2450 user.info kernel: ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+Jan  1 02:34:52 mds2450 user.info kernel: s3c2410-ohci s3c2410-ohci: S3C24XX OHCI
+Jan  1 02:34:52 mds2450 user.info kernel: s3c2410-ohci s3c2410-ohci: new USB bus registered, assigned bus number 1
+Jan  1 02:34:52 mds2450 user.info kernel: s3c2410-ohci s3c2410-ohci: irq 42, io mem 0x49000000
+Jan  1 02:34:52 mds2450 user.info kernel: hub 1-0:1.0: USB hub found
+Jan  1 02:34:52 mds2450 user.info kernel: hub 1-0:1.0: 2 ports detected
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new interface driver cdc_wdm
+Jan  1 02:34:52 mds2450 user.info kernel: Initializing USB Mass Storage driver...
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new interface driver usb-storage
+Jan  1 02:34:52 mds2450 user.info kernel: USB Mass Storage support registered.
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new interface driver libusual
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new interface driver ums-alauda
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new interface driver ums-cypress
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new interface driver ums-datafab
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new interface driver ums-freecom
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new interface driver ums-isd200
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new interface driver ums-jumpshot
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new interface driver ums-karma
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new interface driver ums-onetouch
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new interface driver ums-sddr09
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new interface driver ums-sddr55
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new interface driver ums-usbat
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new interface driver usbserial
+Jan  1 02:34:52 mds2450 user.info kernel: USB Serial support registered for generic
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new interface driver usbserial_generic
+Jan  1 02:34:52 mds2450 user.info kernel: usbserial: USB Serial Driver core
+Jan  1 02:34:52 mds2450 user.info kernel: USB Serial support registered for FTDI USB Serial Device
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new interface driver ftdi_sio
+Jan  1 02:34:52 mds2450 user.info kernel: ftdi_sio: v1.6.0:USB FTDI Serial Converters Driver
+Jan  1 02:34:52 mds2450 user.info kernel: USB Serial support registered for pl2303
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new interface driver pl2303
+Jan  1 02:34:52 mds2450 user.info kernel: pl2303: Prolific PL2303 USB to serial adaptor driver
+Jan  1 02:34:52 mds2450 user.warn kernel: g_ether gadget: using random self ethernet address
+Jan  1 02:34:52 mds2450 user.warn kernel: g_ether gadget: using random host ethernet address
+Jan  1 02:34:52 mds2450 user.info kernel: usb0: MAC 3a:9d:d2:51:83:1b
+Jan  1 02:34:52 mds2450 user.info kernel: usb0: HOST MAC 06:48:75:c9:69:24
+Jan  1 02:34:52 mds2450 user.info kernel: g_ether gadget: Ethernet Gadget, version: Memorial Day 2008
+Jan  1 02:34:52 mds2450 user.info kernel: g_ether gadget: g_ether ready
+Jan  1 02:34:52 mds2450 user.info kernel: s3c-hsudc s3c-hsudc: bound driver g_ether
+Jan  1 02:34:52 mds2450 user.info kernel: mousedev: PS/2 mouse device common for all mice
+Jan  1 02:34:52 mds2450 user.info kernel: samsung-ts s3c2410-ts: driver attached, registering input device
+Jan  1 02:34:52 mds2450 user.info kernel: input: S3C24XX TouchScreen as /devices/virtual/input/input0
+Jan  1 02:34:52 mds2450 user.warn kernel: S3C24XX RTC, (c) 2004,2006 Simtec Electronics
+Jan  1 02:34:52 mds2450 user.info kernel: s3c-rtc s3c2410-rtc: rtc disabled, re-enabling
+Jan  1 02:34:52 mds2450 user.info kernel: s3c-rtc s3c2410-rtc: rtc core: registered s3c as rtc0
+Jan  1 02:34:52 mds2450 user.info kernel: lirc_dev: IR Remote Control driver registered, major 252 
+Jan  1 02:34:52 mds2450 user.info kernel: IR NEC protocol handler initialized
+Jan  1 02:34:52 mds2450 user.info kernel: IR RC5(x) protocol handler initialized
+Jan  1 02:34:52 mds2450 user.info kernel: IR RC6 protocol handler initialized
+Jan  1 02:34:52 mds2450 user.info kernel: IR JVC protocol handler initialized
+Jan  1 02:34:52 mds2450 user.info kernel: IR Sony protocol handler initialized
+Jan  1 02:34:52 mds2450 user.info kernel: IR RC5 (streamzap) protocol handler initialized
+Jan  1 02:34:52 mds2450 user.info kernel: IR LIRC bridge handler initialized
+Jan  1 02:34:52 mds2450 user.info kernel: Linux video capture interface: v2.00
+Jan  1 02:34:52 mds2450 user.info kernel: gspca: v2.13.0 registered
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new interface driver uvcvideo
+Jan  1 02:34:52 mds2450 user.info kernel: USB Video Class driver (v1.1.0)
+Jan  1 02:34:52 mds2450 user.info kernel: S3C2410 Watchdog Timer, (c) 2004 Simtec Electronics
+Jan  1 02:34:52 mds2450 user.info kernel: s3c2410-wdt s3c2410-wdt: watchdog inactive, reset disabled, irq enabled
+Jan  1 02:34:52 mds2450 user.info kernel: Bluetooth: Virtual HCI driver ver 1.3
+Jan  1 02:34:52 mds2450 user.info kernel: Bluetooth: HCI UART driver ver 2.2
+Jan  1 02:34:52 mds2450 user.info kernel: Bluetooth: HCI H4 protocol initialized
+Jan  1 02:34:52 mds2450 user.info kernel: Bluetooth: HCI BCSP protocol initialized
+Jan  1 02:34:52 mds2450 user.info kernel: Bluetooth: HCILL protocol initialized
+Jan  1 02:34:52 mds2450 user.info kernel: Bluetooth: Broadcom Blutonium firmware driver ver 1.2
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new interface driver bcm203x
+Jan  1 02:34:52 mds2450 user.info kernel: Bluetooth: Digianswer Bluetooth USB driver ver 0.10
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new interface driver bpa10x
+Jan  1 02:34:52 mds2450 user.info kernel: Bluetooth: BlueFRITZ! USB driver ver 1.2
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new interface driver bfusb
+Jan  1 02:34:52 mds2450 user.info kernel: Bluetooth: Generic Bluetooth USB driver ver 0.6
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new interface driver btusb
+Jan  1 02:34:52 mds2450 user.info kernel: Bluetooth: Generic Bluetooth SDIO driver ver 0.1
+Jan  1 02:34:52 mds2450 user.info kernel: sdhci: Secure Digital Host Controller Interface driver
+Jan  1 02:34:52 mds2450 user.info kernel: sdhci: Copyright(c) Pierre Ossman
+Jan  1 02:34:52 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.0: clock source 0: hsmmc (133500000 Hz)
+Jan  1 02:34:52 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.0: clock source 1: hsmmc (133500000 Hz)
+Jan  1 02:34:52 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.0: clock source 2: hsmmc-if (32000000 Hz)
+Jan  1 02:34:52 mds2450 user.debug kernel: Registered led device: mmc0::
+Jan  1 02:34:52 mds2450 user.info kernel: mmc0: SDHCI controller on samsung-hsmmc [s3c-sdhci.0] using ADMA
+Jan  1 02:34:52 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.1: clock source 0: hsmmc (133500000 Hz)
+Jan  1 02:34:52 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.1: clock source 1: hsmmc (133500000 Hz)
+Jan  1 02:34:52 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.1: clock source 2: hsmmc-if (32000000 Hz)
+Jan  1 02:34:52 mds2450 user.info kernel: usb 1-1: new full speed USB device number 2 using s3c2410-ohci
+Jan  1 02:34:52 mds2450 user.debug kernel: Registered led device: mmc1::
+Jan  1 02:34:52 mds2450 user.info kernel: mmc1: SDHCI controller on samsung-hsmmc [s3c-sdhci.1] using ADMA
+Jan  1 02:34:52 mds2450 user.info kernel: usbcore: registered new interface driver usbhid
+Jan  1 02:34:52 mds2450 user.info kernel: usbhid: USB HID core driver
+Jan  1 02:34:52 mds2450 user.warn kernel: MDS2450 Audio Support
+Jan  1 02:34:52 mds2450 user.warn kernel: wm8960-codec 0-001a: No platform data supplied
+Jan  1 02:34:52 mds2450 user.info kernel: uvcvideo: Found UVC 1.00 device USB2.0 Camera (1871:0141)
+Jan  1 02:34:52 mds2450 user.info kernel: asoc: wm8960-hifi <-> samsung-i2s mapping ok
+Jan  1 02:34:52 mds2450 user.info kernel: input: USB2.0 Camera as /devices/platform/s3c2410-ohci/usb1/1-1/1-1:1.0/input/input1
+Jan  1 02:34:52 mds2450 user.info kernel: input: SMDK-I2S Headset Jack as /devices/platform/soc-audio/sound/card0/input2
+Jan  1 02:34:52 mds2450 user.info kernel: ALSA device list:
+Jan  1 02:34:52 mds2450 user.info kernel:   #0: SMDK-I2S
+Jan  1 02:34:52 mds2450 user.info kernel: Netfilter messages via NETLINK v0.30.
+Jan  1 02:34:52 mds2450 user.info kernel: nf_conntrack version 0.5.0 (897 buckets, 3588 max)
+Jan  1 02:34:52 mds2450 user.info kernel: NF_TPROXY: Transparent proxy support initialized, version 4.1.0
+Jan  1 02:34:52 mds2450 user.info kernel: NF_TPROXY: Copyright (c) 2006-2007 BalaBit IT Ltd.
+Jan  1 02:34:52 mds2450 user.info kernel: IPv4 over IPv4 tunneling driver
+Jan  1 02:34:52 mds2450 user.info kernel: ip_tables: (C) 2000-2006 Netfilter Core Team
+Jan  1 02:34:52 mds2450 user.info kernel: arp_tables: (C) 2002 David S. Miller
+Jan  1 02:34:52 mds2450 user.info kernel: TCP cubic registered
+Jan  1 02:34:52 mds2450 user.info kernel: NET: Registered protocol family 10
+Jan  1 02:34:52 mds2450 user.info kernel: ip6_tables: (C) 2000-2006 Netfilter Core Team
+Jan  1 02:34:52 mds2450 user.info kernel: IPv6 over IPv4 tunneling driver
+Jan  1 02:34:52 mds2450 user.info kernel: NET: Registered protocol family 17
+Jan  1 02:34:52 mds2450 user.info kernel: NET: Registered protocol family 15
+Jan  1 02:34:52 mds2450 user.info kernel: Bluetooth: RFCOMM TTY layer initialized
+Jan  1 02:34:52 mds2450 user.info kernel: Bluetooth: RFCOMM socket layer initialized
+Jan  1 02:34:52 mds2450 user.info kernel: Bluetooth: RFCOMM ver 1.11
+Jan  1 02:34:52 mds2450 user.info kernel: Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+Jan  1 02:34:52 mds2450 user.info kernel: Bluetooth: BNEP filters: protocol multicast
+Jan  1 02:34:52 mds2450 user.info kernel: lib80211: common routines for IEEE802.11 drivers
+Jan  1 02:34:52 mds2450 user.debug kernel: lib80211_crypt: registered algorithm 'NULL'
+Jan  1 02:34:52 mds2450 user.notice kernel: Registering the dns_resolver key type
+Jan  1 02:34:52 mds2450 user.info kernel: s3c-rtc s3c2410-rtc: setting system clock to 2000-01-01 02:34:39 UTC (946694079)
+Jan  1 02:34:52 mds2450 user.info kernel: smsc911x smsc911x: eth0: SMSC911x/921x identified at 0xc4820000, IRQ: 62
+Jan  1 02:34:52 mds2450 user.warn kernel: IP-Config: Complete:
+Jan  1 02:34:52 mds2450 user.warn kernel:      device=eth0, addr=192.168.0.102, mask=255.255.255.0, gw=192.168.0.1,
+Jan  1 02:34:52 mds2450 user.warn kernel:      host=192.168.0.102, domain=, nis-domain=(none),
+Jan  1 02:34:52 mds2450 user.warn kernel:      bootserver=192.168.0.2, rootserver=192.168.0.2, rootpath=
+Jan  1 02:34:52 mds2450 user.info kernel: VFS: Mounted root (nfs filesystem) on device 0:15.
+Jan  1 02:34:52 mds2450 user.info kernel: devtmpfs: mounted
+Jan  1 02:34:52 mds2450 user.info kernel: Freeing init memory: 172K
+Jan  1 02:34:52 mds2450 user.debug kernel: eth0: no IPv6 routers present
+Jan  1 02:34:59 mds2450 auth.info login[1216]: root login on 'ttySAC1'
+Jan  1 04:24:13 mds2450 syslog.info syslogd started: BusyBox v1.17.1
+Jan  1 04:24:14 mds2450 user.notice kernel: klogd started: BusyBox v1.17.1 (2017-10-01 08:55:58 KST)
+Jan  1 04:24:14 mds2450 user.info kernel: Initializing cgroup subsys cpu
+Jan  1 04:24:14 mds2450 user.notice kernel: Linux version 3.0.22 (root@ip6) (gcc version 4.4.1 (crosstool-NG 1.16.0) ) #2 PREEMPT Fri Jan 11 09:54:49 KST 2019
+Jan  1 04:24:14 mds2450 user.warn kernel: CPU: ARM926EJ-S [41069265] revision 5 (ARMv5TEJ), cr=00053177
+Jan  1 04:24:14 mds2450 user.warn kernel: CPU: VIVT data cache, VIVT instruction cache
+Jan  1 04:24:14 mds2450 user.warn kernel: Machine: MDS2450
+Jan  1 04:24:14 mds2450 user.warn kernel: Memory policy: ECC disabled, Data cache writeback
+Jan  1 04:24:14 mds2450 user.warn kernel: CPU S3C2416/S3C2450 (id 0x32450003)
+Jan  1 04:24:14 mds2450 user.info kernel: S3C24XX Clocks, Copyright 2004 Simtec Electronics
+Jan  1 04:24:14 mds2450 user.warn kernel: CPU: MPLL on 534.000 MHz, cpu 534.000 MHz, mem 133.500 MHz, pclk 66.750 MHz
+Jan  1 04:24:14 mds2450 user.warn kernel: CPU: EPLL on 96.000 MHz, usb-bus 48.000 MHz
+Jan  1 04:24:14 mds2450 user.debug kernel: On node 0 totalpages: 16384
+Jan  1 04:24:14 mds2450 user.debug kernel: free_area_init_node: node 0, pgdat c0721f80, node_mem_map c074b000
+Jan  1 04:24:14 mds2450 user.debug kernel:   Normal zone: 128 pages used for memmap
+Jan  1 04:24:14 mds2450 user.debug kernel:   Normal zone: 0 pages reserved
+Jan  1 04:24:14 mds2450 user.debug kernel:   Normal zone: 16256 pages, LIFO batch:3
+Jan  1 04:24:14 mds2450 user.debug kernel: pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
+Jan  1 04:24:14 mds2450 user.debug kernel: pcpu-alloc: [0] 0 
+Jan  1 04:24:14 mds2450 user.warn kernel: Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 16256
+Jan  1 04:24:14 mds2450 user.notice kernel: Kernel command line: root=/dev/nfs rw nfsroot=192.168.0.2:/nfsroot ip=192.168.0.102:192.168.0.2:192.168.0.1:255.255.255.0::eth0:off:netmask=255.255.255.0 console=ttySAC1,115200n81
+Jan  1 04:24:14 mds2450 user.info kernel: PID hash table entries: 256 (order: -2, 1024 bytes)
+Jan  1 04:24:14 mds2450 user.info kernel: Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
+Jan  1 04:24:14 mds2450 user.info kernel: Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
+Jan  1 04:24:14 mds2450 user.info kernel: Memory: 64MB = 64MB total
+Jan  1 04:24:14 mds2450 daemon.info init: starting pid 1216, tty '/dev/ttySAC1': '/sbin/getty -L ttySAC1 115200 vt100 '
+Jan  1 04:24:14 mds2450 user.notice kernel: Memory: 57468k/57468k available, 8068k reserved, 0K highmem
+Jan  1 04:24:14 mds2450 user.notice kernel: Virtual kernel memory layout:
+Jan  1 04:24:14 mds2450 user.notice kernel:     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+Jan  1 04:24:14 mds2450 user.notice kernel:     fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+Jan  1 04:24:14 mds2450 user.notice kernel:     DMA     : 0xffc00000 - 0xffe00000   (   2 MB)
+Jan  1 04:24:14 mds2450 user.notice kernel:     vmalloc : 0xc4800000 - 0xf6000000   ( 792 MB)
+Jan  1 04:24:14 mds2450 user.notice kernel:     lowmem  : 0xc0000000 - 0xc4000000   (  64 MB)
+Jan  1 04:24:14 mds2450 user.notice kernel:     modules : 0xbf000000 - 0xc0000000   (  16 MB)
+Jan  1 04:24:14 mds2450 user.notice kernel:       .init : 0xc0008000 - 0xc0033000   ( 172 kB)
+Jan  1 04:24:14 mds2450 user.notice kernel:       .text : 0xc0033000 - 0xc06e2b70   (6847 kB)
+Jan  1 04:24:14 mds2450 user.notice kernel:       .data : 0xc06e4000 - 0xc0722600   ( 250 kB)
+Jan  1 04:24:14 mds2450 user.notice kernel:        .bss : 0xc0722624 - 0xc074a268   ( 160 kB)
+Jan  1 04:24:14 mds2450 user.info kernel: SLUB: Genslabs=13, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+Jan  1 04:24:14 mds2450 user.info kernel: Preemptible hierarchical RCU implementation.
+Jan  1 04:24:14 mds2450 user.info kernel: NR_IRQS:107
+Jan  1 04:24:14 mds2450 user.warn kernel: irq: clearing subpending status 00000010
+Jan  1 04:24:14 mds2450 user.debug kernel: timer tcon=00500000, tcnt d948, tcfg 00000200,00000000, usec 00001703
+Jan  1 04:24:14 mds2450 user.info kernel: Console: colour dummy device 80x30
+Jan  1 04:24:14 mds2450 user.info kernel: console [ttySAC1] enabled
+Jan  1 04:24:14 mds2450 user.info kernel: Calibrating delay loop... 266.03 BogoMIPS (lpj=665088)
+Jan  1 04:24:14 mds2450 user.info kernel: pid_max: default: 32768 minimum: 301
+Jan  1 04:24:14 mds2450 user.info kernel: Mount-cache hash table entries: 512
+Jan  1 04:24:14 mds2450 user.info kernel: Initializing cgroup subsys debug
+Jan  1 04:24:14 mds2450 user.info kernel: Initializing cgroup subsys cpuacct
+Jan  1 04:24:14 mds2450 user.info kernel: Initializing cgroup subsys freezer
+Jan  1 04:24:14 mds2450 user.info kernel: CPU: Testing write buffer coherency: ok
+Jan  1 04:24:14 mds2450 user.info kernel: devtmpfs: initialized
+Jan  1 04:24:14 mds2450 user.info kernel: gpiochip_add: registered GPIOs 0 to 23 on device: GPIOA
+Jan  1 04:24:14 mds2450 user.info kernel: gpiochip_add: registered GPIOs 32 to 47 on device: GPIOB
+Jan  1 04:24:14 mds2450 user.info kernel: gpiochip_add: registered GPIOs 64 to 79 on device: GPIOC
+Jan  1 04:24:14 mds2450 user.info kernel: gpiochip_add: registered GPIOs 96 to 111 on device: GPIOD
+Jan  1 04:24:14 mds2450 user.info kernel: gpiochip_add: registered GPIOs 128 to 143 on device: GPIOE
+Jan  1 04:24:14 mds2450 user.info kernel: gpiochip_add: registered GPIOs 160 to 167 on device: GPIOF
+Jan  1 04:24:14 mds2450 user.info kernel: gpiochip_add: registered GPIOs 192 to 207 on device: GPIOG
+Jan  1 04:24:14 mds2450 user.info kernel: gpiochip_add: registered GPIOs 224 to 234 on device: GPIOH
+Jan  1 04:24:14 mds2450 user.info kernel: gpiochip_add: registered GPIOs 256 to 271 on device: GPIOJ
+Jan  1 04:24:14 mds2450 user.info kernel: gpiochip_add: registered GPIOs 288 to 303 on device: GPIOK
+Jan  1 04:24:14 mds2450 user.info kernel: gpiochip_add: registered GPIOs 320 to 334 on device: GPIOL
+Jan  1 04:24:14 mds2450 user.info kernel: gpiochip_add: registered GPIOs 352 to 353 on device: GPIOM
+Jan  1 04:24:14 mds2450 user.info kernel: NET: Registered protocol family 16
+Jan  1 04:24:14 mds2450 user.warn kernel: S3C Power Management, Copyright 2004 Simtec Electronics
+Jan  1 04:24:14 mds2450 user.info kernel: S3C2416: Initializing architecture
+Jan  1 04:24:14 mds2450 user.info kernel: S3C2416: IRQ Support
+Jan  1 04:24:14 mds2450 user.warn kernel: S3C24XX DMA Driver, Copyright 2003-2006 Simtec Electronics
+Jan  1 04:24:14 mds2450 user.warn kernel: DMA channel 0 at c4804000, irq 88
+Jan  1 04:24:14 mds2450 user.warn kernel: DMA channel 1 at c4804100, irq 89
+Jan  1 04:24:14 mds2450 user.warn kernel: DMA channel 2 at c4804200, irq 90
+Jan  1 04:24:14 mds2450 user.warn kernel: DMA channel 3 at c4804300, irq 91
+Jan  1 04:24:14 mds2450 user.warn kernel: DMA channel 4 at c4804400, irq 92
+Jan  1 04:24:14 mds2450 user.warn kernel: DMA channel 5 at c4804500, irq 93
+Jan  1 04:24:14 mds2450 user.info kernel: s3c-adc s3c24xx-adc: attached adc driver
+Jan  1 04:24:14 mds2450 user.info kernel: s3c24xx-pwm s3c24xx-pwm.0: tin at 33375000, tdiv at 33375000, tin=divclk, base 0
+Jan  1 04:24:14 mds2450 user.info kernel: s3c24xx-pwm s3c24xx-pwm.1: tin at 33375000, tdiv at 33375000, tin=divclk, base 8
+Jan  1 04:24:14 mds2450 user.info kernel: s3c24xx-pwm s3c24xx-pwm.2: tin at 11125000, tdiv at 11125000, tin=divclk, base 12
+Jan  1 04:24:14 mds2450 user.info kernel: s3c24xx-pwm s3c24xx-pwm.3: tin at 11125000, tdiv at 11125000, tin=divclk, base 16
+Jan  1 04:24:14 mds2450 user.info kernel: bio: create slab <bio-0> at 0
+Jan  1 04:24:14 mds2450 user.notice kernel: SCSI subsystem initialized
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new interface driver usbfs
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new interface driver hub
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new device driver usb
+Jan  1 04:24:14 mds2450 user.info kernel: s3c-i2c s3c2410-i2c: slave address 0x10
+Jan  1 04:24:14 mds2450 user.info kernel: s3c-i2c s3c2410-i2c: bus frequency set to 65 KHz
+Jan  1 04:24:14 mds2450 user.info kernel: s3c-i2c s3c2410-i2c: i2c-0: S3C I2C adapter
+Jan  1 04:24:14 mds2450 user.info kernel: Advanced Linux Sound Architecture Driver Version 1.0.24.
+Jan  1 04:24:14 mds2450 user.info kernel: Bluetooth: Core ver 2.16
+Jan  1 04:24:14 mds2450 user.info kernel: NET: Registered protocol family 31
+Jan  1 04:24:14 mds2450 user.info kernel: Bluetooth: HCI device and connection manager initialized
+Jan  1 04:24:14 mds2450 user.info kernel: Bluetooth: HCI socket layer initialized
+Jan  1 04:24:14 mds2450 user.info kernel: Bluetooth: L2CAP socket layer initialized
+Jan  1 04:24:14 mds2450 user.info kernel: Bluetooth: SCO socket layer initialized
+Jan  1 04:24:14 mds2450 user.info kernel: cfg80211: Calling CRDA to update world regulatory domain
+Jan  1 04:24:14 mds2450 user.info kernel: NET: Registered protocol family 2
+Jan  1 04:24:14 mds2450 user.info kernel: IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+Jan  1 04:24:14 mds2450 user.info kernel: TCP established hash table entries: 2048 (order: 2, 16384 bytes)
+Jan  1 04:24:14 mds2450 user.info kernel: TCP bind hash table entries: 2048 (order: 1, 8192 bytes)
+Jan  1 04:24:14 mds2450 user.info kernel: TCP: Hash tables configured (established 2048 bind 2048)
+Jan  1 04:24:14 mds2450 user.info kernel: TCP reno registered
+Jan  1 04:24:14 mds2450 user.info kernel: UDP hash table entries: 256 (order: 0, 4096 bytes)
+Jan  1 04:24:14 mds2450 user.info kernel: UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+Jan  1 04:24:14 mds2450 user.info kernel: NET: Registered protocol family 1
+Jan  1 04:24:14 mds2450 user.info kernel: RPC: Registered named UNIX socket transport module.
+Jan  1 04:24:14 mds2450 user.info kernel: RPC: Registered udp transport module.
+Jan  1 04:24:14 mds2450 user.info kernel: RPC: Registered tcp transport module.
+Jan  1 04:24:14 mds2450 user.info kernel: RPC: Registered tcp NFSv4.1 backchannel transport module.
+Jan  1 04:24:14 mds2450 user.warn kernel: NetWinder Floating Point Emulator V0.97 (extended precision)
+Jan  1 04:24:14 mds2450 user.info kernel: nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+Jan  1 04:24:14 mds2450 user.info kernel: ROMFS MTD (C) 2007 Red Hat, Inc.
+Jan  1 04:24:14 mds2450 user.info kernel: fuse init (API version 7.16)
+Jan  1 04:24:14 mds2450 user.debug kernel: yaffs: yaffs built Dec  5 2018 10:00:01 Installing.
+Jan  1 04:24:14 mds2450 user.info kernel: msgmni has been set to 112
+Jan  1 04:24:14 mds2450 user.info kernel: io scheduler noop registered
+Jan  1 04:24:14 mds2450 user.info kernel: io scheduler deadline registered
+Jan  1 04:24:14 mds2450 user.info kernel: io scheduler cfq registered (default)
+Jan  1 04:24:14 mds2450 user.info kernel: Console: switching to colour frame buffer device 60x34
+Jan  1 04:24:14 mds2450 user.info kernel: s3c-fb s3c-fb: window 0: fb 
+Jan  1 04:24:14 mds2450 user.info kernel: Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+Jan  1 04:24:14 mds2450 user.info kernel: s3c2440-uart.0: ttySAC0 at MMIO 0x50000000 (irq = 70) is a S3C2440
+Jan  1 04:24:14 mds2450 user.info kernel: s3c2440-uart.1: ttySAC1 at MMIO 0x50004000 (irq = 73) is a S3C2440
+Jan  1 04:24:14 mds2450 user.info kernel: s3c2440-uart.2: ttySAC2 at MMIO 0x50008000 (irq = 76) is a S3C2440
+Jan  1 04:24:14 mds2450 user.info kernel: s3c2440-uart.3: ttySAC3 at MMIO 0x5000c000 (irq = 94) is a S3C2440
+Jan  1 04:24:14 mds2450 user.info kernel: brd: module loaded
+Jan  1 04:24:14 mds2450 user.info kernel: loop: module loaded
+Jan  1 04:24:14 mds2450 user.info kernel: SCSI Media Changer driver v0.25 
+Jan  1 04:24:14 mds2450 user.warn kernel: S3C24XX NAND Driver, (c) 2004 Simtec Electronics
+Jan  1 04:24:14 mds2450 user.debug kernel: s3c2410_nand_probe(c06ef1e8)
+Jan  1 04:24:14 mds2450 user.debug kernel: s3c24xx-nand s3c2412-nand: mapped registers at c4c00000
+Jan  1 04:24:14 mds2450 user.debug kernel: result 3 from 133500, 20
+Jan  1 04:24:14 mds2450 user.debug kernel: result 6 from 133500, 40
+Jan  1 04:24:14 mds2450 user.debug kernel: result 3 from 133500, 20
+Jan  1 04:24:14 mds2450 user.info kernel: s3c24xx-nand s3c2412-nand: Tacls=3, 22ns Twrph0=6 44ns, Twrph1=3 22ns
+Jan  1 04:24:14 mds2450 user.debug kernel: s3c24xx-nand s3c2412-nand: NF_CONF is 0x252f
+Jan  1 04:24:14 mds2450 user.debug kernel: initialising set 0 (c38fe400, info c3a5d900)
+Jan  1 04:24:14 mds2450 user.info kernel: s3c24xx-nand s3c2412-nand: NAND hardware ECC
+Jan  1 04:24:14 mds2450 user.info kernel: NAND device: Manufacturer ID: 0xec, Chip ID: 0xda (Samsung NAND 256MiB 3,3V 8-bit)
+Jan  1 04:24:14 mds2450 user.debug kernel: s3c24xx-nand s3c2412-nand: chip c38fe5b0 => page shift 11
+Jan  1 04:24:14 mds2450 user.info kernel: Scanning device for bad blocks
+Jan  1 04:24:14 mds2450 user.debug kernel: s3c-nand: 1 bit error detected at byte 15, correcting from 0x26 
+Jan  1 04:24:14 mds2450 user.debug kernel: to 0x06...OK
+Jan  1 04:24:14 mds2450 user.warn kernel: Bad eraseblock 0 at 0x000000000000
+Jan  1 04:24:14 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 04:24:14 mds2450 user.warn kernel: Bad eraseblock 1 at 0x000000020000
+Jan  1 04:24:14 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 04:24:14 mds2450 user.warn kernel: Bad eraseblock 454 at 0x0000038c0000
+Jan  1 04:24:14 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 04:24:14 mds2450 user.warn kernel: Bad eraseblock 691 at 0x000005660000
+Jan  1 04:24:14 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 04:24:14 mds2450 user.warn kernel: Bad eraseblock 1264 at 0x000009e00000
+Jan  1 04:24:14 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 04:24:14 mds2450 user.warn kernel: Bad eraseblock 1603 at 0x00000c860000
+Jan  1 04:24:14 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 04:24:14 mds2450 user.warn kernel: Bad eraseblock 1710 at 0x00000d5c0000
+Jan  1 04:24:14 mds2450 user.notice kernel: Creating 3 MTD partitions on "NAND":
+Jan  1 04:24:14 mds2450 user.notice kernel: 0x000000000000-0x000000080000 : "Bootloader"
+Jan  1 04:24:14 mds2450 user.notice kernel: 0x000000080000-0x000000500000 : "Kernel"
+Jan  1 04:24:14 mds2450 user.notice kernel: 0x000000500000-0x000010000000 : "rootfs"
+Jan  1 04:24:14 mds2450 user.debug kernel: initialised ok
+Jan  1 04:24:14 mds2450 user.info kernel: PPP generic driver version 2.4.2
+Jan  1 04:24:14 mds2450 user.info kernel: NET: Registered protocol family 24
+Jan  1 04:24:14 mds2450 user.info kernel: smsc911x: Driver version 2008-10-21
+Jan  1 04:24:14 mds2450 user.info kernel: smsc911x-mdio: probed
+Jan  1 04:24:14 mds2450 user.info kernel: smsc911x smsc911x: eth0: attached PHY driver [Generic PHY] (mii_bus:phy_addr=ffffffff:01, irq=-1)
+Jan  1 04:24:14 mds2450 user.info kernel: smsc911x smsc911x: eth0: MAC Address: 00:80:00:23:45:67
+Jan  1 04:24:14 mds2450 user.info kernel: ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+Jan  1 04:24:14 mds2450 user.info kernel: s3c2410-ohci s3c2410-ohci: S3C24XX OHCI
+Jan  1 04:24:14 mds2450 user.info kernel: s3c2410-ohci s3c2410-ohci: new USB bus registered, assigned bus number 1
+Jan  1 04:24:14 mds2450 user.info kernel: s3c2410-ohci s3c2410-ohci: irq 42, io mem 0x49000000
+Jan  1 04:24:14 mds2450 user.info kernel: hub 1-0:1.0: USB hub found
+Jan  1 04:24:14 mds2450 user.info kernel: hub 1-0:1.0: 2 ports detected
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new interface driver cdc_wdm
+Jan  1 04:24:14 mds2450 user.info kernel: Initializing USB Mass Storage driver...
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new interface driver usb-storage
+Jan  1 04:24:14 mds2450 user.info kernel: USB Mass Storage support registered.
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new interface driver libusual
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new interface driver ums-alauda
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new interface driver ums-cypress
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new interface driver ums-datafab
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new interface driver ums-freecom
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new interface driver ums-isd200
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new interface driver ums-jumpshot
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new interface driver ums-karma
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new interface driver ums-onetouch
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new interface driver ums-sddr09
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new interface driver ums-sddr55
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new interface driver ums-usbat
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new interface driver usbserial
+Jan  1 04:24:14 mds2450 user.info kernel: USB Serial support registered for generic
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new interface driver usbserial_generic
+Jan  1 04:24:14 mds2450 user.info kernel: usbserial: USB Serial Driver core
+Jan  1 04:24:14 mds2450 user.info kernel: USB Serial support registered for FTDI USB Serial Device
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new interface driver ftdi_sio
+Jan  1 04:24:14 mds2450 user.info kernel: ftdi_sio: v1.6.0:USB FTDI Serial Converters Driver
+Jan  1 04:24:14 mds2450 user.info kernel: USB Serial support registered for pl2303
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new interface driver pl2303
+Jan  1 04:24:14 mds2450 user.info kernel: pl2303: Prolific PL2303 USB to serial adaptor driver
+Jan  1 04:24:14 mds2450 user.warn kernel: g_ether gadget: using random self ethernet address
+Jan  1 04:24:14 mds2450 user.warn kernel: g_ether gadget: using random host ethernet address
+Jan  1 04:24:14 mds2450 user.info kernel: usb0: MAC 42:5b:6f:e9:7a:8b
+Jan  1 04:24:14 mds2450 user.info kernel: usb0: HOST MAC 0e:3a:96:2e:49:60
+Jan  1 04:24:14 mds2450 user.info kernel: g_ether gadget: Ethernet Gadget, version: Memorial Day 2008
+Jan  1 04:24:14 mds2450 user.info kernel: g_ether gadget: g_ether ready
+Jan  1 04:24:14 mds2450 user.info kernel: s3c-hsudc s3c-hsudc: bound driver g_ether
+Jan  1 04:24:14 mds2450 user.info kernel: mousedev: PS/2 mouse device common for all mice
+Jan  1 04:24:14 mds2450 user.info kernel: samsung-ts s3c2410-ts: driver attached, registering input device
+Jan  1 04:24:14 mds2450 user.info kernel: input: S3C24XX TouchScreen as /devices/virtual/input/input0
+Jan  1 04:24:14 mds2450 user.warn kernel: S3C24XX RTC, (c) 2004,2006 Simtec Electronics
+Jan  1 04:24:14 mds2450 user.info kernel: s3c-rtc s3c2410-rtc: rtc disabled, re-enabling
+Jan  1 04:24:14 mds2450 user.info kernel: s3c-rtc s3c2410-rtc: rtc core: registered s3c as rtc0
+Jan  1 04:24:14 mds2450 user.info kernel: lirc_dev: IR Remote Control driver registered, major 252 
+Jan  1 04:24:14 mds2450 user.info kernel: IR NEC protocol handler initialized
+Jan  1 04:24:14 mds2450 user.info kernel: IR RC5(x) protocol handler initialized
+Jan  1 04:24:14 mds2450 user.info kernel: IR RC6 protocol handler initialized
+Jan  1 04:24:14 mds2450 user.info kernel: IR JVC protocol handler initialized
+Jan  1 04:24:14 mds2450 user.info kernel: IR Sony protocol handler initialized
+Jan  1 04:24:14 mds2450 user.info kernel: IR RC5 (streamzap) protocol handler initialized
+Jan  1 04:24:14 mds2450 user.info kernel: IR LIRC bridge handler initialized
+Jan  1 04:24:14 mds2450 user.info kernel: Linux video capture interface: v2.00
+Jan  1 04:24:14 mds2450 user.info kernel: gspca: v2.13.0 registered
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new interface driver uvcvideo
+Jan  1 04:24:14 mds2450 user.info kernel: USB Video Class driver (v1.1.0)
+Jan  1 04:24:14 mds2450 user.info kernel: S3C2410 Watchdog Timer, (c) 2004 Simtec Electronics
+Jan  1 04:24:14 mds2450 user.info kernel: s3c2410-wdt s3c2410-wdt: watchdog inactive, reset disabled, irq enabled
+Jan  1 04:24:14 mds2450 user.info kernel: Bluetooth: Virtual HCI driver ver 1.3
+Jan  1 04:24:14 mds2450 user.info kernel: Bluetooth: HCI UART driver ver 2.2
+Jan  1 04:24:14 mds2450 user.info kernel: Bluetooth: HCI H4 protocol initialized
+Jan  1 04:24:14 mds2450 user.info kernel: Bluetooth: HCI BCSP protocol initialized
+Jan  1 04:24:14 mds2450 user.info kernel: Bluetooth: HCILL protocol initialized
+Jan  1 04:24:14 mds2450 user.info kernel: Bluetooth: Broadcom Blutonium firmware driver ver 1.2
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new interface driver bcm203x
+Jan  1 04:24:14 mds2450 user.info kernel: Bluetooth: Digianswer Bluetooth USB driver ver 0.10
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new interface driver bpa10x
+Jan  1 04:24:14 mds2450 user.info kernel: Bluetooth: BlueFRITZ! USB driver ver 1.2
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new interface driver bfusb
+Jan  1 04:24:14 mds2450 user.info kernel: Bluetooth: Generic Bluetooth USB driver ver 0.6
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new interface driver btusb
+Jan  1 04:24:14 mds2450 user.info kernel: Bluetooth: Generic Bluetooth SDIO driver ver 0.1
+Jan  1 04:24:14 mds2450 user.info kernel: sdhci: Secure Digital Host Controller Interface driver
+Jan  1 04:24:14 mds2450 user.info kernel: sdhci: Copyright(c) Pierre Ossman
+Jan  1 04:24:14 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.0: clock source 0: hsmmc (133500000 Hz)
+Jan  1 04:24:14 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.0: clock source 1: hsmmc (133500000 Hz)
+Jan  1 04:24:14 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.0: clock source 2: hsmmc-if (32000000 Hz)
+Jan  1 04:24:14 mds2450 user.debug kernel: Registered led device: mmc0::
+Jan  1 04:24:14 mds2450 user.info kernel: mmc0: SDHCI controller on samsung-hsmmc [s3c-sdhci.0] using ADMA
+Jan  1 04:24:14 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.1: clock source 0: hsmmc (133500000 Hz)
+Jan  1 04:24:14 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.1: clock source 1: hsmmc (133500000 Hz)
+Jan  1 04:24:14 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.1: clock source 2: hsmmc-if (32000000 Hz)
+Jan  1 04:24:14 mds2450 user.info kernel: usb 1-1: new full speed USB device number 2 using s3c2410-ohci
+Jan  1 04:24:14 mds2450 user.debug kernel: Registered led device: mmc1::
+Jan  1 04:24:14 mds2450 user.info kernel: mmc1: SDHCI controller on samsung-hsmmc [s3c-sdhci.1] using ADMA
+Jan  1 04:24:14 mds2450 user.info kernel: usbcore: registered new interface driver usbhid
+Jan  1 04:24:14 mds2450 user.info kernel: usbhid: USB HID core driver
+Jan  1 04:24:14 mds2450 user.warn kernel: MDS2450 Audio Support
+Jan  1 04:24:14 mds2450 user.warn kernel: wm8960-codec 0-001a: No platform data supplied
+Jan  1 04:24:14 mds2450 user.info kernel: uvcvideo: Found UVC 1.00 device USB2.0 Camera (1871:0141)
+Jan  1 04:24:14 mds2450 user.info kernel: input: USB2.0 Camera as /devices/platform/s3c2410-ohci/usb1/1-1/1-1:1.0/input/input1
+Jan  1 04:24:14 mds2450 user.info kernel: asoc: wm8960-hifi <-> samsung-i2s mapping ok
+Jan  1 04:24:14 mds2450 user.info kernel: input: SMDK-I2S Headset Jack as /devices/platform/soc-audio/sound/card0/input2
+Jan  1 04:24:14 mds2450 user.info kernel: ALSA device list:
+Jan  1 04:24:14 mds2450 user.info kernel:   #0: SMDK-I2S
+Jan  1 04:24:14 mds2450 user.info kernel: Netfilter messages via NETLINK v0.30.
+Jan  1 04:24:14 mds2450 user.info kernel: nf_conntrack version 0.5.0 (897 buckets, 3588 max)
+Jan  1 04:24:14 mds2450 user.info kernel: NF_TPROXY: Transparent proxy support initialized, version 4.1.0
+Jan  1 04:24:14 mds2450 user.info kernel: NF_TPROXY: Copyright (c) 2006-2007 BalaBit IT Ltd.
+Jan  1 04:24:14 mds2450 user.info kernel: IPv4 over IPv4 tunneling driver
+Jan  1 04:24:14 mds2450 user.info kernel: ip_tables: (C) 2000-2006 Netfilter Core Team
+Jan  1 04:24:14 mds2450 user.info kernel: arp_tables: (C) 2002 David S. Miller
+Jan  1 04:24:14 mds2450 user.info kernel: TCP cubic registered
+Jan  1 04:24:14 mds2450 user.info kernel: NET: Registered protocol family 10
+Jan  1 04:24:14 mds2450 user.info kernel: ip6_tables: (C) 2000-2006 Netfilter Core Team
+Jan  1 04:24:14 mds2450 user.info kernel: IPv6 over IPv4 tunneling driver
+Jan  1 04:24:14 mds2450 user.info kernel: NET: Registered protocol family 17
+Jan  1 04:24:14 mds2450 user.info kernel: NET: Registered protocol family 15
+Jan  1 04:24:14 mds2450 user.info kernel: Bluetooth: RFCOMM TTY layer initialized
+Jan  1 04:24:14 mds2450 user.info kernel: Bluetooth: RFCOMM socket layer initialized
+Jan  1 04:24:14 mds2450 user.info kernel: Bluetooth: RFCOMM ver 1.11
+Jan  1 04:24:14 mds2450 user.info kernel: Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+Jan  1 04:24:14 mds2450 user.info kernel: Bluetooth: BNEP filters: protocol multicast
+Jan  1 04:24:14 mds2450 user.info kernel: lib80211: common routines for IEEE802.11 drivers
+Jan  1 04:24:14 mds2450 user.debug kernel: lib80211_crypt: registered algorithm 'NULL'
+Jan  1 04:24:14 mds2450 user.notice kernel: Registering the dns_resolver key type
+Jan  1 04:24:14 mds2450 user.info kernel: s3c-rtc s3c2410-rtc: setting system clock to 2000-01-01 04:24:02 UTC (946700642)
+Jan  1 04:24:14 mds2450 user.info kernel: smsc911x smsc911x: eth0: SMSC911x/921x identified at 0xc4820000, IRQ: 62
+Jan  1 04:24:14 mds2450 user.warn kernel: IP-Config: Complete:
+Jan  1 04:24:14 mds2450 user.warn kernel:      device=eth0, addr=192.168.0.102, mask=255.255.255.0, gw=192.168.0.1,
+Jan  1 04:24:14 mds2450 user.warn kernel:      host=192.168.0.102, domain=, nis-domain=(none),
+Jan  1 04:24:14 mds2450 user.warn kernel:      bootserver=192.168.0.2, rootserver=192.168.0.2, rootpath=
+Jan  1 04:24:14 mds2450 user.info kernel: VFS: Mounted root (nfs filesystem) on device 0:15.
+Jan  1 04:24:14 mds2450 user.info kernel: devtmpfs: mounted
+Jan  1 04:24:14 mds2450 user.info kernel: Freeing init memory: 172K
+Jan  1 04:24:14 mds2450 user.debug kernel: eth0: no IPv6 routers present
+Jan  1 04:24:20 mds2450 auth.info login[1216]: root login on 'ttySAC1'
+Jan  1 07:10:56 mds2450 syslog.info syslogd started: BusyBox v1.17.1
+Jan  1 07:10:56 mds2450 user.notice kernel: klogd started: BusyBox v1.17.1 (2017-10-01 08:55:58 KST)
+Jan  1 07:10:56 mds2450 user.info kernel: Initializing cgroup subsys cpu
+Jan  1 07:10:56 mds2450 user.notice kernel: Linux version 3.0.22 (root@ip6) (gcc version 4.4.1 (crosstool-NG 1.16.0) ) #1 PREEMPT Thu Jan 24 16:24:02 KST 2019
+Jan  1 07:10:56 mds2450 user.warn kernel: CPU: ARM926EJ-S [41069265] revision 5 (ARMv5TEJ), cr=00053177
+Jan  1 07:10:56 mds2450 user.warn kernel: CPU: VIVT data cache, VIVT instruction cache
+Jan  1 07:10:56 mds2450 user.warn kernel: Machine: MDS2450
+Jan  1 07:10:56 mds2450 user.warn kernel: Memory policy: ECC disabled, Data cache writeback
+Jan  1 07:10:56 mds2450 user.warn kernel: CPU S3C2416/S3C2450 (id 0x32450003)
+Jan  1 07:10:56 mds2450 user.info kernel: S3C24XX Clocks, Copyright 2004 Simtec Electronics
+Jan  1 07:10:56 mds2450 user.warn kernel: CPU: MPLL on 534.000 MHz, cpu 534.000 MHz, mem 133.500 MHz, pclk 66.750 MHz
+Jan  1 07:10:56 mds2450 user.warn kernel: CPU: EPLL on 96.000 MHz, usb-bus 48.000 MHz
+Jan  1 07:10:56 mds2450 user.debug kernel: On node 0 totalpages: 16384
+Jan  1 07:10:56 mds2450 user.debug kernel: free_area_init_node: node 0, pgdat c0722070, node_mem_map c074b000
+Jan  1 07:10:56 mds2450 user.debug kernel:   Normal zone: 128 pages used for memmap
+Jan  1 07:10:56 mds2450 user.debug kernel:   Normal zone: 0 pages reserved
+Jan  1 07:10:56 mds2450 user.debug kernel:   Normal zone: 16256 pages, LIFO batch:3
+Jan  1 07:10:56 mds2450 daemon.info init: starting pid 1216, tty '/dev/ttySAC1': '/sbin/getty -L ttySAC1 115200 vt100 '
+Jan  1 07:10:56 mds2450 user.debug kernel: pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
+Jan  1 07:10:56 mds2450 user.debug kernel: pcpu-alloc: [0] 0 
+Jan  1 07:10:56 mds2450 user.warn kernel: Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 16256
+Jan  1 07:10:56 mds2450 user.notice kernel: Kernel command line: root=/dev/nfs rw nfsroot=192.168.0.2:/nfsroot ip=192.168.0.102:192.168.0.2:192.168.0.1:255.255.255.0::eth0:off:netmask=255.255.255.0 console=ttySAC1,115200n81
+Jan  1 07:10:56 mds2450 user.info kernel: PID hash table entries: 256 (order: -2, 1024 bytes)
+Jan  1 07:10:56 mds2450 user.info kernel: Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
+Jan  1 07:10:56 mds2450 user.info kernel: Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
+Jan  1 07:10:56 mds2450 user.info kernel: Memory: 64MB = 64MB total
+Jan  1 07:10:56 mds2450 user.notice kernel: Memory: 57468k/57468k available, 8068k reserved, 0K highmem
+Jan  1 07:10:56 mds2450 user.notice kernel: Virtual kernel memory layout:
+Jan  1 07:10:56 mds2450 user.notice kernel:     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+Jan  1 07:10:56 mds2450 user.notice kernel:     fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+Jan  1 07:10:56 mds2450 user.notice kernel:     DMA     : 0xffc00000 - 0xffe00000   (   2 MB)
+Jan  1 07:10:56 mds2450 user.notice kernel:     vmalloc : 0xc4800000 - 0xf6000000   ( 792 MB)
+Jan  1 07:10:56 mds2450 user.notice kernel:     lowmem  : 0xc0000000 - 0xc4000000   (  64 MB)
+Jan  1 07:10:56 mds2450 user.notice kernel:     modules : 0xbf000000 - 0xc0000000   (  16 MB)
+Jan  1 07:10:56 mds2450 user.notice kernel:       .init : 0xc0008000 - 0xc0033000   ( 172 kB)
+Jan  1 07:10:56 mds2450 user.notice kernel:       .text : 0xc0033000 - 0xc06e3bb0   (6851 kB)
+Jan  1 07:10:56 mds2450 user.notice kernel:       .data : 0xc06e4000 - 0xc0722700   ( 250 kB)
+Jan  1 07:10:56 mds2450 user.notice kernel:        .bss : 0xc0722724 - 0xc074a368   ( 160 kB)
+Jan  1 07:10:56 mds2450 user.info kernel: SLUB: Genslabs=13, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+Jan  1 07:10:56 mds2450 user.info kernel: Preemptible hierarchical RCU implementation.
+Jan  1 07:10:56 mds2450 user.info kernel: NR_IRQS:107
+Jan  1 07:10:56 mds2450 user.warn kernel: irq: clearing subpending status 00000010
+Jan  1 07:10:56 mds2450 user.debug kernel: timer tcon=00500000, tcnt d948, tcfg 00000200,00000000, usec 00001703
+Jan  1 07:10:56 mds2450 user.info kernel: Console: colour dummy device 80x30
+Jan  1 07:10:56 mds2450 user.info kernel: console [ttySAC1] enabled
+Jan  1 07:10:56 mds2450 user.info kernel: Calibrating delay loop... 266.03 BogoMIPS (lpj=665088)
+Jan  1 07:10:56 mds2450 user.info kernel: pid_max: default: 32768 minimum: 301
+Jan  1 07:10:56 mds2450 user.info kernel: Mount-cache hash table entries: 512
+Jan  1 07:10:56 mds2450 user.info kernel: Initializing cgroup subsys debug
+Jan  1 07:10:56 mds2450 user.info kernel: Initializing cgroup subsys cpuacct
+Jan  1 07:10:56 mds2450 user.info kernel: Initializing cgroup subsys freezer
+Jan  1 07:10:56 mds2450 user.info kernel: CPU: Testing write buffer coherency: ok
+Jan  1 07:10:56 mds2450 user.info kernel: devtmpfs: initialized
+Jan  1 07:10:56 mds2450 user.info kernel: gpiochip_add: registered GPIOs 0 to 23 on device: GPIOA
+Jan  1 07:10:56 mds2450 user.info kernel: gpiochip_add: registered GPIOs 32 to 47 on device: GPIOB
+Jan  1 07:10:56 mds2450 user.info kernel: gpiochip_add: registered GPIOs 64 to 79 on device: GPIOC
+Jan  1 07:10:56 mds2450 user.info kernel: gpiochip_add: registered GPIOs 96 to 111 on device: GPIOD
+Jan  1 07:10:56 mds2450 user.info kernel: gpiochip_add: registered GPIOs 128 to 143 on device: GPIOE
+Jan  1 07:10:56 mds2450 user.info kernel: gpiochip_add: registered GPIOs 160 to 167 on device: GPIOF
+Jan  1 07:10:56 mds2450 user.info kernel: gpiochip_add: registered GPIOs 192 to 207 on device: GPIOG
+Jan  1 07:10:56 mds2450 user.info kernel: gpiochip_add: registered GPIOs 224 to 234 on device: GPIOH
+Jan  1 07:10:56 mds2450 user.info kernel: gpiochip_add: registered GPIOs 256 to 271 on device: GPIOJ
+Jan  1 07:10:56 mds2450 user.info kernel: gpiochip_add: registered GPIOs 288 to 303 on device: GPIOK
+Jan  1 07:10:56 mds2450 user.info kernel: gpiochip_add: registered GPIOs 320 to 334 on device: GPIOL
+Jan  1 07:10:56 mds2450 user.info kernel: gpiochip_add: registered GPIOs 352 to 353 on device: GPIOM
+Jan  1 07:10:56 mds2450 user.info kernel: NET: Registered protocol family 16
+Jan  1 07:10:56 mds2450 user.warn kernel: S3C Power Management, Copyright 2004 Simtec Electronics
+Jan  1 07:10:56 mds2450 user.info kernel: S3C2416: Initializing architecture
+Jan  1 07:10:56 mds2450 user.info kernel: S3C2416: IRQ Support
+Jan  1 07:10:56 mds2450 user.warn kernel: S3C24XX DMA Driver, Copyright 2003-2006 Simtec Electronics
+Jan  1 07:10:56 mds2450 user.warn kernel: DMA channel 0 at c4804000, irq 88
+Jan  1 07:10:56 mds2450 user.warn kernel: DMA channel 1 at c4804100, irq 89
+Jan  1 07:10:56 mds2450 user.warn kernel: DMA channel 2 at c4804200, irq 90
+Jan  1 07:10:56 mds2450 user.warn kernel: DMA channel 3 at c4804300, irq 91
+Jan  1 07:10:56 mds2450 user.warn kernel: DMA channel 4 at c4804400, irq 92
+Jan  1 07:10:56 mds2450 user.warn kernel: DMA channel 5 at c4804500, irq 93
+Jan  1 07:10:56 mds2450 user.info kernel: s3c-adc s3c24xx-adc: attached adc driver
+Jan  1 07:10:56 mds2450 user.info kernel: s3c24xx-pwm s3c24xx-pwm.0: tin at 33375000, tdiv at 33375000, tin=divclk, base 0
+Jan  1 07:10:56 mds2450 user.info kernel: s3c24xx-pwm s3c24xx-pwm.1: tin at 33375000, tdiv at 33375000, tin=divclk, base 8
+Jan  1 07:10:56 mds2450 user.info kernel: s3c24xx-pwm s3c24xx-pwm.2: tin at 11125000, tdiv at 11125000, tin=divclk, base 12
+Jan  1 07:10:56 mds2450 user.info kernel: s3c24xx-pwm s3c24xx-pwm.3: tin at 11125000, tdiv at 11125000, tin=divclk, base 16
+Jan  1 07:10:56 mds2450 user.info kernel: bio: create slab <bio-0> at 0
+Jan  1 07:10:56 mds2450 user.notice kernel: SCSI subsystem initialized
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new interface driver usbfs
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new interface driver hub
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new device driver usb
+Jan  1 07:10:56 mds2450 user.info kernel: s3c-i2c s3c2410-i2c: slave address 0x10
+Jan  1 07:10:56 mds2450 user.info kernel: s3c-i2c s3c2410-i2c: bus frequency set to 65 KHz
+Jan  1 07:10:56 mds2450 user.info kernel: s3c-i2c s3c2410-i2c: i2c-0: S3C I2C adapter
+Jan  1 07:10:56 mds2450 user.info kernel: Advanced Linux Sound Architecture Driver Version 1.0.24.
+Jan  1 07:10:56 mds2450 user.info kernel: Bluetooth: Core ver 2.16
+Jan  1 07:10:56 mds2450 user.info kernel: NET: Registered protocol family 31
+Jan  1 07:10:56 mds2450 user.info kernel: Bluetooth: HCI device and connection manager initialized
+Jan  1 07:10:56 mds2450 user.info kernel: Bluetooth: HCI socket layer initialized
+Jan  1 07:10:56 mds2450 user.info kernel: Bluetooth: L2CAP socket layer initialized
+Jan  1 07:10:56 mds2450 user.info kernel: Bluetooth: SCO socket layer initialized
+Jan  1 07:10:56 mds2450 user.info kernel: cfg80211: Calling CRDA to update world regulatory domain
+Jan  1 07:10:56 mds2450 user.info kernel: NET: Registered protocol family 2
+Jan  1 07:10:56 mds2450 user.info kernel: IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+Jan  1 07:10:56 mds2450 user.info kernel: TCP established hash table entries: 2048 (order: 2, 16384 bytes)
+Jan  1 07:10:56 mds2450 user.info kernel: TCP bind hash table entries: 2048 (order: 1, 8192 bytes)
+Jan  1 07:10:56 mds2450 user.info kernel: TCP: Hash tables configured (established 2048 bind 2048)
+Jan  1 07:10:56 mds2450 user.info kernel: TCP reno registered
+Jan  1 07:10:56 mds2450 user.info kernel: UDP hash table entries: 256 (order: 0, 4096 bytes)
+Jan  1 07:10:56 mds2450 user.info kernel: UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+Jan  1 07:10:56 mds2450 user.info kernel: NET: Registered protocol family 1
+Jan  1 07:10:56 mds2450 user.info kernel: RPC: Registered named UNIX socket transport module.
+Jan  1 07:10:56 mds2450 user.info kernel: RPC: Registered udp transport module.
+Jan  1 07:10:56 mds2450 user.info kernel: RPC: Registered tcp transport module.
+Jan  1 07:10:56 mds2450 user.info kernel: RPC: Registered tcp NFSv4.1 backchannel transport module.
+Jan  1 07:10:56 mds2450 user.warn kernel: NetWinder Floating Point Emulator V0.97 (extended precision)
+Jan  1 07:10:56 mds2450 user.info kernel: nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+Jan  1 07:10:56 mds2450 user.info kernel: ROMFS MTD (C) 2007 Red Hat, Inc.
+Jan  1 07:10:56 mds2450 user.info kernel: fuse init (API version 7.16)
+Jan  1 07:10:56 mds2450 user.debug kernel: yaffs: yaffs built Jan 24 2019 16:06:31 Installing.
+Jan  1 07:10:56 mds2450 user.info kernel: msgmni has been set to 112
+Jan  1 07:10:56 mds2450 user.info kernel: io scheduler noop registered
+Jan  1 07:10:56 mds2450 user.info kernel: io scheduler deadline registered
+Jan  1 07:10:56 mds2450 user.info kernel: io scheduler cfq registered (default)
+Jan  1 07:10:56 mds2450 user.info kernel: Console: switching to colour frame buffer device 60x34
+Jan  1 07:10:56 mds2450 user.info kernel: s3c-fb s3c-fb: window 0: fb 
+Jan  1 07:10:56 mds2450 user.info kernel: Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+Jan  1 07:10:56 mds2450 user.info kernel: s3c2440-uart.0: ttySAC0 at MMIO 0x50000000 (irq = 70) is a S3C2440
+Jan  1 07:10:56 mds2450 user.info kernel: s3c2440-uart.1: ttySAC1 at MMIO 0x50004000 (irq = 73) is a S3C2440
+Jan  1 07:10:56 mds2450 user.info kernel: s3c2440-uart.2: ttySAC2 at MMIO 0x50008000 (irq = 76) is a S3C2440
+Jan  1 07:10:56 mds2450 user.info kernel: s3c2440-uart.3: ttySAC3 at MMIO 0x5000c000 (irq = 94) is a S3C2440
+Jan  1 07:10:56 mds2450 user.info kernel: brd: module loaded
+Jan  1 07:10:56 mds2450 user.info kernel: loop: module loaded
+Jan  1 07:10:56 mds2450 user.info kernel: SCSI Media Changer driver v0.25 
+Jan  1 07:10:56 mds2450 user.warn kernel: S3C24XX NAND Driver, (c) 2004 Simtec Electronics
+Jan  1 07:10:56 mds2450 user.debug kernel: s3c2410_nand_probe(c06ef1e8)
+Jan  1 07:10:56 mds2450 user.debug kernel: s3c24xx-nand s3c2412-nand: mapped registers at c4c00000
+Jan  1 07:10:56 mds2450 user.debug kernel: result 3 from 133500, 20
+Jan  1 07:10:56 mds2450 user.debug kernel: result 6 from 133500, 40
+Jan  1 07:10:56 mds2450 user.debug kernel: result 3 from 133500, 20
+Jan  1 07:10:56 mds2450 user.info kernel: s3c24xx-nand s3c2412-nand: Tacls=3, 22ns Twrph0=6 44ns, Twrph1=3 22ns
+Jan  1 07:10:56 mds2450 user.debug kernel: s3c24xx-nand s3c2412-nand: NF_CONF is 0x252f
+Jan  1 07:10:56 mds2450 user.debug kernel: initialising set 0 (c38f0400, info c3a64840)
+Jan  1 07:10:56 mds2450 user.info kernel: s3c24xx-nand s3c2412-nand: NAND hardware ECC
+Jan  1 07:10:56 mds2450 user.info kernel: NAND device: Manufacturer ID: 0xec, Chip ID: 0xda (Samsung NAND 256MiB 3,3V 8-bit)
+Jan  1 07:10:56 mds2450 user.debug kernel: s3c24xx-nand s3c2412-nand: chip c38f05b0 => page shift 11
+Jan  1 07:10:56 mds2450 user.info kernel: Scanning device for bad blocks
+Jan  1 07:10:56 mds2450 user.debug kernel: s3c-nand: 1 bit error detected at byte 15, correcting from 0x26 
+Jan  1 07:10:56 mds2450 user.debug kernel: to 0x06...OK
+Jan  1 07:10:56 mds2450 user.warn kernel: Bad eraseblock 0 at 0x000000000000
+Jan  1 07:10:56 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 07:10:56 mds2450 user.warn kernel: Bad eraseblock 1 at 0x000000020000
+Jan  1 07:10:56 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 07:10:56 mds2450 user.warn kernel: Bad eraseblock 454 at 0x0000038c0000
+Jan  1 07:10:56 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 07:10:56 mds2450 user.warn kernel: Bad eraseblock 691 at 0x000005660000
+Jan  1 07:10:56 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 07:10:56 mds2450 user.warn kernel: Bad eraseblock 1264 at 0x000009e00000
+Jan  1 07:10:56 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 07:10:56 mds2450 user.warn kernel: Bad eraseblock 1603 at 0x00000c860000
+Jan  1 07:10:56 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 07:10:56 mds2450 user.warn kernel: Bad eraseblock 1710 at 0x00000d5c0000
+Jan  1 07:10:56 mds2450 user.notice kernel: Creating 3 MTD partitions on "NAND":
+Jan  1 07:10:56 mds2450 user.notice kernel: 0x000000000000-0x000000080000 : "Bootloader"
+Jan  1 07:10:56 mds2450 user.notice kernel: 0x000000080000-0x000000500000 : "Kernel"
+Jan  1 07:10:56 mds2450 user.notice kernel: 0x000000500000-0x000010000000 : "rootfs"
+Jan  1 07:10:56 mds2450 user.debug kernel: initialised ok
+Jan  1 07:10:56 mds2450 user.info kernel: PPP generic driver version 2.4.2
+Jan  1 07:10:56 mds2450 user.info kernel: NET: Registered protocol family 24
+Jan  1 07:10:56 mds2450 user.info kernel: smsc911x: Driver version 2008-10-21
+Jan  1 07:10:56 mds2450 user.info kernel: smsc911x-mdio: probed
+Jan  1 07:10:56 mds2450 user.info kernel: smsc911x smsc911x: eth0: attached PHY driver [Generic PHY] (mii_bus:phy_addr=ffffffff:01, irq=-1)
+Jan  1 07:10:56 mds2450 user.info kernel: smsc911x smsc911x: eth0: MAC Address: 00:80:00:23:45:67
+Jan  1 07:10:56 mds2450 user.info kernel: ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+Jan  1 07:10:56 mds2450 user.info kernel: s3c2410-ohci s3c2410-ohci: S3C24XX OHCI
+Jan  1 07:10:56 mds2450 user.info kernel: s3c2410-ohci s3c2410-ohci: new USB bus registered, assigned bus number 1
+Jan  1 07:10:56 mds2450 user.info kernel: s3c2410-ohci s3c2410-ohci: irq 42, io mem 0x49000000
+Jan  1 07:10:56 mds2450 user.info kernel: hub 1-0:1.0: USB hub found
+Jan  1 07:10:56 mds2450 user.info kernel: hub 1-0:1.0: 2 ports detected
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new interface driver cdc_wdm
+Jan  1 07:10:56 mds2450 user.info kernel: Initializing USB Mass Storage driver...
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new interface driver usb-storage
+Jan  1 07:10:56 mds2450 user.info kernel: USB Mass Storage support registered.
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new interface driver libusual
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new interface driver ums-alauda
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new interface driver ums-cypress
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new interface driver ums-datafab
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new interface driver ums-freecom
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new interface driver ums-isd200
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new interface driver ums-jumpshot
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new interface driver ums-karma
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new interface driver ums-onetouch
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new interface driver ums-sddr09
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new interface driver ums-sddr55
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new interface driver ums-usbat
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new interface driver usbserial
+Jan  1 07:10:56 mds2450 user.info kernel: USB Serial support registered for generic
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new interface driver usbserial_generic
+Jan  1 07:10:56 mds2450 user.info kernel: usbserial: USB Serial Driver core
+Jan  1 07:10:56 mds2450 user.info kernel: USB Serial support registered for FTDI USB Serial Device
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new interface driver ftdi_sio
+Jan  1 07:10:56 mds2450 user.info kernel: ftdi_sio: v1.6.0:USB FTDI Serial Converters Driver
+Jan  1 07:10:56 mds2450 user.info kernel: USB Serial support registered for pl2303
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new interface driver pl2303
+Jan  1 07:10:56 mds2450 user.info kernel: pl2303: Prolific PL2303 USB to serial adaptor driver
+Jan  1 07:10:56 mds2450 user.warn kernel: g_ether gadget: using random self ethernet address
+Jan  1 07:10:56 mds2450 user.warn kernel: g_ether gadget: using random host ethernet address
+Jan  1 07:10:56 mds2450 user.info kernel: usb0: MAC ba:07:79:04:c9:da
+Jan  1 07:10:56 mds2450 user.info kernel: usb0: HOST MAC 2e:51:f6:26:c4:5d
+Jan  1 07:10:56 mds2450 user.info kernel: g_ether gadget: Ethernet Gadget, version: Memorial Day 2008
+Jan  1 07:10:56 mds2450 user.info kernel: g_ether gadget: g_ether ready
+Jan  1 07:10:56 mds2450 user.info kernel: s3c-hsudc s3c-hsudc: bound driver g_ether
+Jan  1 07:10:56 mds2450 user.info kernel: mousedev: PS/2 mouse device common for all mice
+Jan  1 07:10:56 mds2450 user.info kernel: samsung-ts s3c2410-ts: driver attached, registering input device
+Jan  1 07:10:56 mds2450 user.info kernel: input: S3C24XX TouchScreen as /devices/virtual/input/input0
+Jan  1 07:10:56 mds2450 user.warn kernel: S3C24XX RTC, (c) 2004,2006 Simtec Electronics
+Jan  1 07:10:56 mds2450 user.info kernel: s3c-rtc s3c2410-rtc: rtc disabled, re-enabling
+Jan  1 07:10:56 mds2450 user.info kernel: s3c-rtc s3c2410-rtc: rtc core: registered s3c as rtc0
+Jan  1 07:10:56 mds2450 user.info kernel: lirc_dev: IR Remote Control driver registered, major 252 
+Jan  1 07:10:56 mds2450 user.info kernel: IR NEC protocol handler initialized
+Jan  1 07:10:56 mds2450 user.info kernel: IR RC5(x) protocol handler initialized
+Jan  1 07:10:56 mds2450 user.info kernel: IR RC6 protocol handler initialized
+Jan  1 07:10:56 mds2450 user.info kernel: IR JVC protocol handler initialized
+Jan  1 07:10:56 mds2450 user.info kernel: IR Sony protocol handler initialized
+Jan  1 07:10:56 mds2450 user.info kernel: IR RC5 (streamzap) protocol handler initialized
+Jan  1 07:10:56 mds2450 user.info kernel: IR LIRC bridge handler initialized
+Jan  1 07:10:56 mds2450 user.info kernel: Linux video capture interface: v2.00
+Jan  1 07:10:56 mds2450 user.info kernel: gspca: v2.13.0 registered
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new interface driver uvcvideo
+Jan  1 07:10:56 mds2450 user.info kernel: USB Video Class driver (v1.1.0)
+Jan  1 07:10:56 mds2450 user.info kernel: S3C2410 Watchdog Timer, (c) 2004 Simtec Electronics
+Jan  1 07:10:56 mds2450 user.info kernel: s3c2410-wdt s3c2410-wdt: watchdog inactive, reset disabled, irq enabled
+Jan  1 07:10:56 mds2450 user.info kernel: Bluetooth: Virtual HCI driver ver 1.3
+Jan  1 07:10:56 mds2450 user.info kernel: Bluetooth: HCI UART driver ver 2.2
+Jan  1 07:10:56 mds2450 user.info kernel: Bluetooth: HCI H4 protocol initialized
+Jan  1 07:10:56 mds2450 user.info kernel: Bluetooth: HCI BCSP protocol initialized
+Jan  1 07:10:56 mds2450 user.info kernel: Bluetooth: HCILL protocol initialized
+Jan  1 07:10:56 mds2450 user.info kernel: Bluetooth: Broadcom Blutonium firmware driver ver 1.2
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new interface driver bcm203x
+Jan  1 07:10:56 mds2450 user.info kernel: Bluetooth: Digianswer Bluetooth USB driver ver 0.10
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new interface driver bpa10x
+Jan  1 07:10:56 mds2450 user.info kernel: Bluetooth: BlueFRITZ! USB driver ver 1.2
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new interface driver bfusb
+Jan  1 07:10:56 mds2450 user.info kernel: Bluetooth: Generic Bluetooth USB driver ver 0.6
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new interface driver btusb
+Jan  1 07:10:56 mds2450 user.info kernel: Bluetooth: Generic Bluetooth SDIO driver ver 0.1
+Jan  1 07:10:56 mds2450 user.info kernel: sdhci: Secure Digital Host Controller Interface driver
+Jan  1 07:10:56 mds2450 user.info kernel: sdhci: Copyright(c) Pierre Ossman
+Jan  1 07:10:56 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.0: clock source 0: hsmmc (133500000 Hz)
+Jan  1 07:10:56 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.0: clock source 1: hsmmc (133500000 Hz)
+Jan  1 07:10:56 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.0: clock source 2: hsmmc-if (32000000 Hz)
+Jan  1 07:10:56 mds2450 user.debug kernel: Registered led device: mmc0::
+Jan  1 07:10:56 mds2450 user.info kernel: mmc0: SDHCI controller on samsung-hsmmc [s3c-sdhci.0] using ADMA
+Jan  1 07:10:56 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.1: clock source 0: hsmmc (133500000 Hz)
+Jan  1 07:10:56 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.1: clock source 1: hsmmc (133500000 Hz)
+Jan  1 07:10:56 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.1: clock source 2: hsmmc-if (32000000 Hz)
+Jan  1 07:10:56 mds2450 user.info kernel: usb 1-1: new full speed USB device number 2 using s3c2410-ohci
+Jan  1 07:10:56 mds2450 user.debug kernel: Registered led device: mmc1::
+Jan  1 07:10:56 mds2450 user.info kernel: mmc1: SDHCI controller on samsung-hsmmc [s3c-sdhci.1] using ADMA
+Jan  1 07:10:56 mds2450 user.info kernel: usbcore: registered new interface driver usbhid
+Jan  1 07:10:56 mds2450 user.info kernel: usbhid: USB HID core driver
+Jan  1 07:10:56 mds2450 user.warn kernel: MDS2450 Audio Support
+Jan  1 07:10:56 mds2450 user.warn kernel: wm8960-codec 0-001a: No platform data supplied
+Jan  1 07:10:56 mds2450 user.info kernel: uvcvideo: Found UVC 1.00 device USB2.0 Camera (1871:0141)
+Jan  1 07:10:56 mds2450 user.info kernel: input: USB2.0 Camera as /devices/platform/s3c2410-ohci/usb1/1-1/1-1:1.0/input/input1
+Jan  1 07:10:56 mds2450 user.info kernel: asoc: wm8960-hifi <-> samsung-i2s mapping ok
+Jan  1 07:10:56 mds2450 user.info kernel: input: SMDK-I2S Headset Jack as /devices/platform/soc-audio/sound/card0/input2
+Jan  1 07:10:56 mds2450 user.info kernel: ALSA device list:
+Jan  1 07:10:56 mds2450 user.info kernel:   #0: SMDK-I2S
+Jan  1 07:10:56 mds2450 user.info kernel: Netfilter messages via NETLINK v0.30.
+Jan  1 07:10:56 mds2450 user.info kernel: nf_conntrack version 0.5.0 (897 buckets, 3588 max)
+Jan  1 07:10:56 mds2450 user.info kernel: NF_TPROXY: Transparent proxy support initialized, version 4.1.0
+Jan  1 07:10:56 mds2450 user.info kernel: NF_TPROXY: Copyright (c) 2006-2007 BalaBit IT Ltd.
+Jan  1 07:10:56 mds2450 user.info kernel: IPv4 over IPv4 tunneling driver
+Jan  1 07:10:56 mds2450 user.info kernel: ip_tables: (C) 2000-2006 Netfilter Core Team
+Jan  1 07:10:56 mds2450 user.info kernel: arp_tables: (C) 2002 David S. Miller
+Jan  1 07:10:56 mds2450 user.info kernel: TCP cubic registered
+Jan  1 07:10:56 mds2450 user.info kernel: NET: Registered protocol family 10
+Jan  1 07:10:56 mds2450 user.info kernel: ip6_tables: (C) 2000-2006 Netfilter Core Team
+Jan  1 07:10:56 mds2450 user.info kernel: IPv6 over IPv4 tunneling driver
+Jan  1 07:10:56 mds2450 user.info kernel: NET: Registered protocol family 17
+Jan  1 07:10:56 mds2450 user.info kernel: NET: Registered protocol family 15
+Jan  1 07:10:56 mds2450 user.info kernel: Bluetooth: RFCOMM TTY layer initialized
+Jan  1 07:10:56 mds2450 user.info kernel: Bluetooth: RFCOMM socket layer initialized
+Jan  1 07:10:56 mds2450 user.info kernel: Bluetooth: RFCOMM ver 1.11
+Jan  1 07:10:56 mds2450 user.info kernel: Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+Jan  1 07:10:56 mds2450 user.info kernel: Bluetooth: BNEP filters: protocol multicast
+Jan  1 07:10:56 mds2450 user.info kernel: lib80211: common routines for IEEE802.11 drivers
+Jan  1 07:10:56 mds2450 user.debug kernel: lib80211_crypt: registered algorithm 'NULL'
+Jan  1 07:10:56 mds2450 user.notice kernel: Registering the dns_resolver key type
+Jan  1 07:10:56 mds2450 user.info kernel: s3c-rtc s3c2410-rtc: setting system clock to 2000-01-01 07:10:44 UTC (946710644)
+Jan  1 07:10:56 mds2450 user.info kernel: smsc911x smsc911x: eth0: SMSC911x/921x identified at 0xc4820000, IRQ: 62
+Jan  1 07:10:56 mds2450 user.warn kernel: IP-Config: Complete:
+Jan  1 07:10:56 mds2450 user.warn kernel:      device=eth0, addr=192.168.0.102, mask=255.255.255.0, gw=192.168.0.1,
+Jan  1 07:10:56 mds2450 user.warn kernel:      host=192.168.0.102, domain=, nis-domain=(none),
+Jan  1 07:10:56 mds2450 user.warn kernel:      bootserver=192.168.0.2, rootserver=192.168.0.2, rootpath=
+Jan  1 07:10:56 mds2450 user.info kernel: VFS: Mounted root (nfs filesystem) on device 0:15.
+Jan  1 07:10:56 mds2450 user.info kernel: devtmpfs: mounted
+Jan  1 07:10:56 mds2450 user.info kernel: Freeing init memory: 172K
+Jan  1 07:10:56 mds2450 user.debug kernel: eth0: no IPv6 routers present
+Jan  1 07:11:00 mds2450 auth.info login[1216]: root login on 'ttySAC1'
+Jan  1 07:12:02 mds2450 user.info kernel: yaffs: dev is 32505858 name is "mtdblock2" rw
+Jan  1 07:12:02 mds2450 user.info kernel: yaffs: passed flags ""
+Jan  1 07:12:02 mds2450 user.debug kernel: yaffs: yaffs: Attempting MTD mount of 31.2,"mtdblock2"
+Jan  1 07:12:02 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 07:12:02 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 07:12:02 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 07:12:02 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 07:12:02 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 07:12:02 mds2450 user.debug kernel: yaffs: block 415 is bad
+Jan  1 07:12:02 mds2450 user.debug kernel: yaffs: block 652 is bad
+Jan  1 07:12:02 mds2450 user.debug kernel: yaffs: block 1225 is bad
+Jan  1 07:12:02 mds2450 user.debug kernel: yaffs: block 1564 is bad
+Jan  1 07:12:02 mds2450 user.debug kernel: yaffs: block 1671 is bad
+Jan  1 07:12:02 mds2450 user.debug kernel: yaffs: 457 blocks to be sorted...
+Jan  1 07:12:03 mds2450 user.debug kernel: yaffs: yaffs_read_super: is_checkpointed 0
+Jan  1 07:14:41 mds2450 syslog.info syslogd started: BusyBox v1.17.1
+Jan  1 07:14:41 mds2450 user.notice kernel: klogd started: BusyBox v1.17.1 (2017-10-01 08:55:58 KST)
+Jan  1 07:14:41 mds2450 user.info kernel: Initializing cgroup subsys cpu
+Jan  1 07:14:41 mds2450 user.notice kernel: Linux version 3.0.22 (root@ip6) (gcc version 4.4.1 (crosstool-NG 1.16.0) ) #1 PREEMPT Thu Jan 24 16:24:02 KST 2019
+Jan  1 07:14:41 mds2450 user.warn kernel: CPU: ARM926EJ-S [41069265] revision 5 (ARMv5TEJ), cr=00053177
+Jan  1 07:14:41 mds2450 user.warn kernel: CPU: VIVT data cache, VIVT instruction cache
+Jan  1 07:14:41 mds2450 user.warn kernel: Machine: MDS2450
+Jan  1 07:14:41 mds2450 user.warn kernel: Memory policy: ECC disabled, Data cache writeback
+Jan  1 07:14:41 mds2450 user.warn kernel: CPU S3C2416/S3C2450 (id 0x32450003)
+Jan  1 07:14:41 mds2450 user.info kernel: S3C24XX Clocks, Copyright 2004 Simtec Electronics
+Jan  1 07:14:41 mds2450 user.warn kernel: CPU: MPLL on 534.000 MHz, cpu 534.000 MHz, mem 133.500 MHz, pclk 66.750 MHz
+Jan  1 07:14:41 mds2450 user.warn kernel: CPU: EPLL on 96.000 MHz, usb-bus 48.000 MHz
+Jan  1 07:14:41 mds2450 user.debug kernel: On node 0 totalpages: 16384
+Jan  1 07:14:41 mds2450 user.debug kernel: free_area_init_node: node 0, pgdat c0722070, node_mem_map c074b000
+Jan  1 07:14:41 mds2450 user.debug kernel:   Normal zone: 128 pages used for memmap
+Jan  1 07:14:41 mds2450 user.debug kernel:   Normal zone: 0 pages reserved
+Jan  1 07:14:41 mds2450 user.debug kernel:   Normal zone: 16256 pages, LIFO batch:3
+Jan  1 07:14:41 mds2450 user.debug kernel: pcpu-alloc: s0 r0 d32768 u32768 alloc=1*32768
+Jan  1 07:14:41 mds2450 user.debug kernel: pcpu-alloc: [0] 0 
+Jan  1 07:14:41 mds2450 user.warn kernel: Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 16256
+Jan  1 07:14:41 mds2450 user.notice kernel: Kernel command line: root=/dev/nfs rw nfsroot=192.168.0.2:/nfsroot ip=192.168.0.102:192.168.0.2:192.168.0.1:255.255.255.0::eth0:off:netmask=255.255.255.0 console=ttySAC1,115200n81
+Jan  1 07:14:41 mds2450 daemon.info init: starting pid 1216, tty '/dev/ttySAC1': '/sbin/getty -L ttySAC1 115200 vt100 '
+Jan  1 07:14:41 mds2450 user.info kernel: PID hash table entries: 256 (order: -2, 1024 bytes)
+Jan  1 07:14:41 mds2450 user.info kernel: Dentry cache hash table entries: 8192 (order: 3, 32768 bytes)
+Jan  1 07:14:41 mds2450 user.info kernel: Inode-cache hash table entries: 4096 (order: 2, 16384 bytes)
+Jan  1 07:14:41 mds2450 user.info kernel: Memory: 64MB = 64MB total
+Jan  1 07:14:41 mds2450 user.notice kernel: Memory: 57468k/57468k available, 8068k reserved, 0K highmem
+Jan  1 07:14:41 mds2450 user.notice kernel: Virtual kernel memory layout:
+Jan  1 07:14:41 mds2450 user.notice kernel:     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+Jan  1 07:14:41 mds2450 user.notice kernel:     fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+Jan  1 07:14:41 mds2450 user.notice kernel:     DMA     : 0xffc00000 - 0xffe00000   (   2 MB)
+Jan  1 07:14:41 mds2450 user.notice kernel:     vmalloc : 0xc4800000 - 0xf6000000   ( 792 MB)
+Jan  1 07:14:41 mds2450 user.notice kernel:     lowmem  : 0xc0000000 - 0xc4000000   (  64 MB)
+Jan  1 07:14:41 mds2450 user.notice kernel:     modules : 0xbf000000 - 0xc0000000   (  16 MB)
+Jan  1 07:14:41 mds2450 user.notice kernel:       .init : 0xc0008000 - 0xc0033000   ( 172 kB)
+Jan  1 07:14:41 mds2450 user.notice kernel:       .text : 0xc0033000 - 0xc06e3bb0   (6851 kB)
+Jan  1 07:14:41 mds2450 user.notice kernel:       .data : 0xc06e4000 - 0xc0722700   ( 250 kB)
+Jan  1 07:14:41 mds2450 user.notice kernel:        .bss : 0xc0722724 - 0xc074a368   ( 160 kB)
+Jan  1 07:14:41 mds2450 user.info kernel: SLUB: Genslabs=13, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+Jan  1 07:14:41 mds2450 user.info kernel: Preemptible hierarchical RCU implementation.
+Jan  1 07:14:41 mds2450 user.info kernel: NR_IRQS:107
+Jan  1 07:14:41 mds2450 user.warn kernel: irq: clearing subpending status 00000010
+Jan  1 07:14:41 mds2450 user.debug kernel: timer tcon=00500000, tcnt d948, tcfg 00000200,00000000, usec 00001703
+Jan  1 07:14:41 mds2450 user.info kernel: Console: colour dummy device 80x30
+Jan  1 07:14:41 mds2450 user.info kernel: console [ttySAC1] enabled
+Jan  1 07:14:41 mds2450 user.info kernel: Calibrating delay loop... 266.03 BogoMIPS (lpj=665088)
+Jan  1 07:14:41 mds2450 user.info kernel: pid_max: default: 32768 minimum: 301
+Jan  1 07:14:41 mds2450 user.info kernel: Mount-cache hash table entries: 512
+Jan  1 07:14:41 mds2450 user.info kernel: Initializing cgroup subsys debug
+Jan  1 07:14:41 mds2450 user.info kernel: Initializing cgroup subsys cpuacct
+Jan  1 07:14:41 mds2450 user.info kernel: Initializing cgroup subsys freezer
+Jan  1 07:14:41 mds2450 user.info kernel: CPU: Testing write buffer coherency: ok
+Jan  1 07:14:41 mds2450 user.info kernel: devtmpfs: initialized
+Jan  1 07:14:41 mds2450 user.info kernel: gpiochip_add: registered GPIOs 0 to 23 on device: GPIOA
+Jan  1 07:14:41 mds2450 user.info kernel: gpiochip_add: registered GPIOs 32 to 47 on device: GPIOB
+Jan  1 07:14:41 mds2450 user.info kernel: gpiochip_add: registered GPIOs 64 to 79 on device: GPIOC
+Jan  1 07:14:41 mds2450 user.info kernel: gpiochip_add: registered GPIOs 96 to 111 on device: GPIOD
+Jan  1 07:14:41 mds2450 user.info kernel: gpiochip_add: registered GPIOs 128 to 143 on device: GPIOE
+Jan  1 07:14:41 mds2450 user.info kernel: gpiochip_add: registered GPIOs 160 to 167 on device: GPIOF
+Jan  1 07:14:41 mds2450 user.info kernel: gpiochip_add: registered GPIOs 192 to 207 on device: GPIOG
+Jan  1 07:14:41 mds2450 user.info kernel: gpiochip_add: registered GPIOs 224 to 234 on device: GPIOH
+Jan  1 07:14:41 mds2450 user.info kernel: gpiochip_add: registered GPIOs 256 to 271 on device: GPIOJ
+Jan  1 07:14:41 mds2450 user.info kernel: gpiochip_add: registered GPIOs 288 to 303 on device: GPIOK
+Jan  1 07:14:41 mds2450 user.info kernel: gpiochip_add: registered GPIOs 320 to 334 on device: GPIOL
+Jan  1 07:14:41 mds2450 user.info kernel: gpiochip_add: registered GPIOs 352 to 353 on device: GPIOM
+Jan  1 07:14:41 mds2450 user.info kernel: NET: Registered protocol family 16
+Jan  1 07:14:41 mds2450 user.warn kernel: S3C Power Management, Copyright 2004 Simtec Electronics
+Jan  1 07:14:41 mds2450 user.info kernel: S3C2416: Initializing architecture
+Jan  1 07:14:41 mds2450 user.info kernel: S3C2416: IRQ Support
+Jan  1 07:14:41 mds2450 user.warn kernel: S3C24XX DMA Driver, Copyright 2003-2006 Simtec Electronics
+Jan  1 07:14:41 mds2450 user.warn kernel: DMA channel 0 at c4804000, irq 88
+Jan  1 07:14:41 mds2450 user.warn kernel: DMA channel 1 at c4804100, irq 89
+Jan  1 07:14:41 mds2450 user.warn kernel: DMA channel 2 at c4804200, irq 90
+Jan  1 07:14:41 mds2450 user.warn kernel: DMA channel 3 at c4804300, irq 91
+Jan  1 07:14:41 mds2450 user.warn kernel: DMA channel 4 at c4804400, irq 92
+Jan  1 07:14:41 mds2450 user.warn kernel: DMA channel 5 at c4804500, irq 93
+Jan  1 07:14:41 mds2450 user.info kernel: s3c-adc s3c24xx-adc: attached adc driver
+Jan  1 07:14:41 mds2450 user.info kernel: s3c24xx-pwm s3c24xx-pwm.0: tin at 33375000, tdiv at 33375000, tin=divclk, base 0
+Jan  1 07:14:41 mds2450 user.info kernel: s3c24xx-pwm s3c24xx-pwm.1: tin at 33375000, tdiv at 33375000, tin=divclk, base 8
+Jan  1 07:14:41 mds2450 user.info kernel: s3c24xx-pwm s3c24xx-pwm.2: tin at 11125000, tdiv at 11125000, tin=divclk, base 12
+Jan  1 07:14:41 mds2450 user.info kernel: s3c24xx-pwm s3c24xx-pwm.3: tin at 11125000, tdiv at 11125000, tin=divclk, base 16
+Jan  1 07:14:41 mds2450 user.info kernel: bio: create slab <bio-0> at 0
+Jan  1 07:14:41 mds2450 user.notice kernel: SCSI subsystem initialized
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new interface driver usbfs
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new interface driver hub
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new device driver usb
+Jan  1 07:14:41 mds2450 user.info kernel: s3c-i2c s3c2410-i2c: slave address 0x10
+Jan  1 07:14:41 mds2450 user.info kernel: s3c-i2c s3c2410-i2c: bus frequency set to 65 KHz
+Jan  1 07:14:41 mds2450 user.info kernel: s3c-i2c s3c2410-i2c: i2c-0: S3C I2C adapter
+Jan  1 07:14:41 mds2450 user.info kernel: Advanced Linux Sound Architecture Driver Version 1.0.24.
+Jan  1 07:14:41 mds2450 user.info kernel: Bluetooth: Core ver 2.16
+Jan  1 07:14:41 mds2450 user.info kernel: NET: Registered protocol family 31
+Jan  1 07:14:41 mds2450 user.info kernel: Bluetooth: HCI device and connection manager initialized
+Jan  1 07:14:41 mds2450 user.info kernel: Bluetooth: HCI socket layer initialized
+Jan  1 07:14:41 mds2450 user.info kernel: Bluetooth: L2CAP socket layer initialized
+Jan  1 07:14:41 mds2450 user.info kernel: Bluetooth: SCO socket layer initialized
+Jan  1 07:14:41 mds2450 user.info kernel: cfg80211: Calling CRDA to update world regulatory domain
+Jan  1 07:14:41 mds2450 user.info kernel: NET: Registered protocol family 2
+Jan  1 07:14:41 mds2450 user.info kernel: IP route cache hash table entries: 1024 (order: 0, 4096 bytes)
+Jan  1 07:14:41 mds2450 user.info kernel: TCP established hash table entries: 2048 (order: 2, 16384 bytes)
+Jan  1 07:14:41 mds2450 user.info kernel: TCP bind hash table entries: 2048 (order: 1, 8192 bytes)
+Jan  1 07:14:41 mds2450 user.info kernel: TCP: Hash tables configured (established 2048 bind 2048)
+Jan  1 07:14:41 mds2450 user.info kernel: TCP reno registered
+Jan  1 07:14:41 mds2450 user.info kernel: UDP hash table entries: 256 (order: 0, 4096 bytes)
+Jan  1 07:14:41 mds2450 user.info kernel: UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+Jan  1 07:14:41 mds2450 user.info kernel: NET: Registered protocol family 1
+Jan  1 07:14:41 mds2450 user.info kernel: RPC: Registered named UNIX socket transport module.
+Jan  1 07:14:41 mds2450 user.info kernel: RPC: Registered udp transport module.
+Jan  1 07:14:41 mds2450 user.info kernel: RPC: Registered tcp transport module.
+Jan  1 07:14:41 mds2450 user.info kernel: RPC: Registered tcp NFSv4.1 backchannel transport module.
+Jan  1 07:14:41 mds2450 user.warn kernel: NetWinder Floating Point Emulator V0.97 (extended precision)
+Jan  1 07:14:41 mds2450 user.info kernel: nfs4filelayout_init: NFSv4 File Layout Driver Registering...
+Jan  1 07:14:41 mds2450 user.info kernel: ROMFS MTD (C) 2007 Red Hat, Inc.
+Jan  1 07:14:41 mds2450 user.info kernel: fuse init (API version 7.16)
+Jan  1 07:14:41 mds2450 user.debug kernel: yaffs: yaffs built Jan 24 2019 16:06:31 Installing.
+Jan  1 07:14:41 mds2450 user.info kernel: msgmni has been set to 112
+Jan  1 07:14:41 mds2450 user.info kernel: io scheduler noop registered
+Jan  1 07:14:41 mds2450 user.info kernel: io scheduler deadline registered
+Jan  1 07:14:41 mds2450 user.info kernel: io scheduler cfq registered (default)
+Jan  1 07:14:41 mds2450 user.info kernel: Console: switching to colour frame buffer device 60x34
+Jan  1 07:14:41 mds2450 user.info kernel: s3c-fb s3c-fb: window 0: fb 
+Jan  1 07:14:41 mds2450 user.info kernel: Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+Jan  1 07:14:41 mds2450 user.info kernel: s3c2440-uart.0: ttySAC0 at MMIO 0x50000000 (irq = 70) is a S3C2440
+Jan  1 07:14:41 mds2450 user.info kernel: s3c2440-uart.1: ttySAC1 at MMIO 0x50004000 (irq = 73) is a S3C2440
+Jan  1 07:14:41 mds2450 user.info kernel: s3c2440-uart.2: ttySAC2 at MMIO 0x50008000 (irq = 76) is a S3C2440
+Jan  1 07:14:41 mds2450 user.info kernel: s3c2440-uart.3: ttySAC3 at MMIO 0x5000c000 (irq = 94) is a S3C2440
+Jan  1 07:14:41 mds2450 user.info kernel: brd: module loaded
+Jan  1 07:14:41 mds2450 user.info kernel: loop: module loaded
+Jan  1 07:14:41 mds2450 user.info kernel: SCSI Media Changer driver v0.25 
+Jan  1 07:14:41 mds2450 user.warn kernel: S3C24XX NAND Driver, (c) 2004 Simtec Electronics
+Jan  1 07:14:41 mds2450 user.debug kernel: s3c2410_nand_probe(c06ef1e8)
+Jan  1 07:14:41 mds2450 user.debug kernel: s3c24xx-nand s3c2412-nand: mapped registers at c4c00000
+Jan  1 07:14:41 mds2450 user.debug kernel: result 3 from 133500, 20
+Jan  1 07:14:41 mds2450 user.debug kernel: result 6 from 133500, 40
+Jan  1 07:14:41 mds2450 user.debug kernel: result 3 from 133500, 20
+Jan  1 07:14:41 mds2450 user.info kernel: s3c24xx-nand s3c2412-nand: Tacls=3, 22ns Twrph0=6 44ns, Twrph1=3 22ns
+Jan  1 07:14:41 mds2450 user.debug kernel: s3c24xx-nand s3c2412-nand: NF_CONF is 0x252f
+Jan  1 07:14:41 mds2450 user.debug kernel: initialising set 0 (c38d2400, info c3a64840)
+Jan  1 07:14:41 mds2450 user.info kernel: s3c24xx-nand s3c2412-nand: NAND hardware ECC
+Jan  1 07:14:41 mds2450 user.info kernel: NAND device: Manufacturer ID: 0xec, Chip ID: 0xda (Samsung NAND 256MiB 3,3V 8-bit)
+Jan  1 07:14:41 mds2450 user.debug kernel: s3c24xx-nand s3c2412-nand: chip c38d25b0 => page shift 11
+Jan  1 07:14:41 mds2450 user.info kernel: Scanning device for bad blocks
+Jan  1 07:14:41 mds2450 user.debug kernel: s3c-nand: 1 bit error detected at byte 15, correcting from 0x26 
+Jan  1 07:14:41 mds2450 user.debug kernel: to 0x06...OK
+Jan  1 07:14:41 mds2450 user.warn kernel: Bad eraseblock 0 at 0x000000000000
+Jan  1 07:14:41 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 07:14:41 mds2450 user.warn kernel: Bad eraseblock 1 at 0x000000020000
+Jan  1 07:14:41 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 07:14:41 mds2450 user.warn kernel: Bad eraseblock 454 at 0x0000038c0000
+Jan  1 07:14:41 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 07:14:41 mds2450 user.warn kernel: Bad eraseblock 691 at 0x000005660000
+Jan  1 07:14:41 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 07:14:41 mds2450 user.warn kernel: Bad eraseblock 1264 at 0x000009e00000
+Jan  1 07:14:41 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 07:14:41 mds2450 user.warn kernel: Bad eraseblock 1603 at 0x00000c860000
+Jan  1 07:14:41 mds2450 user.debug kernel: s3c-nand: ECC uncorrectable error detected
+Jan  1 07:14:41 mds2450 user.warn kernel: Bad eraseblock 1710 at 0x00000d5c0000
+Jan  1 07:14:41 mds2450 user.notice kernel: Creating 3 MTD partitions on "NAND":
+Jan  1 07:14:41 mds2450 user.notice kernel: 0x000000000000-0x000000080000 : "Bootloader"
+Jan  1 07:14:41 mds2450 user.notice kernel: 0x000000080000-0x000000500000 : "Kernel"
+Jan  1 07:14:41 mds2450 user.notice kernel: 0x000000500000-0x000010000000 : "rootfs"
+Jan  1 07:14:41 mds2450 user.debug kernel: initialised ok
+Jan  1 07:14:41 mds2450 user.info kernel: PPP generic driver version 2.4.2
+Jan  1 07:14:41 mds2450 user.info kernel: NET: Registered protocol family 24
+Jan  1 07:14:41 mds2450 user.info kernel: smsc911x: Driver version 2008-10-21
+Jan  1 07:14:41 mds2450 user.info kernel: smsc911x-mdio: probed
+Jan  1 07:14:41 mds2450 user.info kernel: smsc911x smsc911x: eth0: attached PHY driver [Generic PHY] (mii_bus:phy_addr=ffffffff:01, irq=-1)
+Jan  1 07:14:41 mds2450 user.info kernel: smsc911x smsc911x: eth0: MAC Address: 00:80:00:23:45:67
+Jan  1 07:14:41 mds2450 user.info kernel: ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+Jan  1 07:14:41 mds2450 user.info kernel: s3c2410-ohci s3c2410-ohci: S3C24XX OHCI
+Jan  1 07:14:41 mds2450 user.info kernel: s3c2410-ohci s3c2410-ohci: new USB bus registered, assigned bus number 1
+Jan  1 07:14:41 mds2450 user.info kernel: s3c2410-ohci s3c2410-ohci: irq 42, io mem 0x49000000
+Jan  1 07:14:41 mds2450 user.info kernel: hub 1-0:1.0: USB hub found
+Jan  1 07:14:41 mds2450 user.info kernel: hub 1-0:1.0: 2 ports detected
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new interface driver cdc_wdm
+Jan  1 07:14:41 mds2450 user.info kernel: Initializing USB Mass Storage driver...
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new interface driver usb-storage
+Jan  1 07:14:41 mds2450 user.info kernel: USB Mass Storage support registered.
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new interface driver libusual
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new interface driver ums-alauda
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new interface driver ums-cypress
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new interface driver ums-datafab
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new interface driver ums-freecom
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new interface driver ums-isd200
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new interface driver ums-jumpshot
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new interface driver ums-karma
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new interface driver ums-onetouch
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new interface driver ums-sddr09
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new interface driver ums-sddr55
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new interface driver ums-usbat
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new interface driver usbserial
+Jan  1 07:14:41 mds2450 user.info kernel: USB Serial support registered for generic
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new interface driver usbserial_generic
+Jan  1 07:14:41 mds2450 user.info kernel: usbserial: USB Serial Driver core
+Jan  1 07:14:41 mds2450 user.info kernel: USB Serial support registered for FTDI USB Serial Device
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new interface driver ftdi_sio
+Jan  1 07:14:41 mds2450 user.info kernel: ftdi_sio: v1.6.0:USB FTDI Serial Converters Driver
+Jan  1 07:14:41 mds2450 user.info kernel: USB Serial support registered for pl2303
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new interface driver pl2303
+Jan  1 07:14:41 mds2450 user.info kernel: pl2303: Prolific PL2303 USB to serial adaptor driver
+Jan  1 07:14:41 mds2450 user.warn kernel: g_ether gadget: using random self ethernet address
+Jan  1 07:14:41 mds2450 user.warn kernel: g_ether gadget: using random host ethernet address
+Jan  1 07:14:41 mds2450 user.info kernel: usb0: MAC be:f3:95:af:66:ac
+Jan  1 07:14:41 mds2450 user.info kernel: usb0: HOST MAC 0a:80:19:35:ad:b8
+Jan  1 07:14:41 mds2450 user.info kernel: g_ether gadget: Ethernet Gadget, version: Memorial Day 2008
+Jan  1 07:14:41 mds2450 user.info kernel: g_ether gadget: g_ether ready
+Jan  1 07:14:41 mds2450 user.info kernel: s3c-hsudc s3c-hsudc: bound driver g_ether
+Jan  1 07:14:41 mds2450 user.info kernel: mousedev: PS/2 mouse device common for all mice
+Jan  1 07:14:41 mds2450 user.info kernel: samsung-ts s3c2410-ts: driver attached, registering input device
+Jan  1 07:14:41 mds2450 user.info kernel: input: S3C24XX TouchScreen as /devices/virtual/input/input0
+Jan  1 07:14:41 mds2450 user.warn kernel: S3C24XX RTC, (c) 2004,2006 Simtec Electronics
+Jan  1 07:14:41 mds2450 user.info kernel: s3c-rtc s3c2410-rtc: rtc disabled, re-enabling
+Jan  1 07:14:41 mds2450 user.info kernel: s3c-rtc s3c2410-rtc: rtc core: registered s3c as rtc0
+Jan  1 07:14:41 mds2450 user.info kernel: lirc_dev: IR Remote Control driver registered, major 252 
+Jan  1 07:14:41 mds2450 user.info kernel: IR NEC protocol handler initialized
+Jan  1 07:14:41 mds2450 user.info kernel: IR RC5(x) protocol handler initialized
+Jan  1 07:14:41 mds2450 user.info kernel: IR RC6 protocol handler initialized
+Jan  1 07:14:41 mds2450 user.info kernel: IR JVC protocol handler initialized
+Jan  1 07:14:41 mds2450 user.info kernel: IR Sony protocol handler initialized
+Jan  1 07:14:41 mds2450 user.info kernel: IR RC5 (streamzap) protocol handler initialized
+Jan  1 07:14:41 mds2450 user.info kernel: IR LIRC bridge handler initialized
+Jan  1 07:14:41 mds2450 user.info kernel: Linux video capture interface: v2.00
+Jan  1 07:14:41 mds2450 user.info kernel: gspca: v2.13.0 registered
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new interface driver uvcvideo
+Jan  1 07:14:41 mds2450 user.info kernel: USB Video Class driver (v1.1.0)
+Jan  1 07:14:41 mds2450 user.info kernel: S3C2410 Watchdog Timer, (c) 2004 Simtec Electronics
+Jan  1 07:14:41 mds2450 user.info kernel: s3c2410-wdt s3c2410-wdt: watchdog inactive, reset disabled, irq enabled
+Jan  1 07:14:41 mds2450 user.info kernel: Bluetooth: Virtual HCI driver ver 1.3
+Jan  1 07:14:41 mds2450 user.info kernel: Bluetooth: HCI UART driver ver 2.2
+Jan  1 07:14:41 mds2450 user.info kernel: Bluetooth: HCI H4 protocol initialized
+Jan  1 07:14:41 mds2450 user.info kernel: Bluetooth: HCI BCSP protocol initialized
+Jan  1 07:14:41 mds2450 user.info kernel: Bluetooth: HCILL protocol initialized
+Jan  1 07:14:41 mds2450 user.info kernel: Bluetooth: Broadcom Blutonium firmware driver ver 1.2
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new interface driver bcm203x
+Jan  1 07:14:41 mds2450 user.info kernel: Bluetooth: Digianswer Bluetooth USB driver ver 0.10
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new interface driver bpa10x
+Jan  1 07:14:41 mds2450 user.info kernel: Bluetooth: BlueFRITZ! USB driver ver 1.2
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new interface driver bfusb
+Jan  1 07:14:41 mds2450 user.info kernel: Bluetooth: Generic Bluetooth USB driver ver 0.6
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new interface driver btusb
+Jan  1 07:14:41 mds2450 user.info kernel: Bluetooth: Generic Bluetooth SDIO driver ver 0.1
+Jan  1 07:14:41 mds2450 user.info kernel: sdhci: Secure Digital Host Controller Interface driver
+Jan  1 07:14:41 mds2450 user.info kernel: sdhci: Copyright(c) Pierre Ossman
+Jan  1 07:14:41 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.0: clock source 0: hsmmc (133500000 Hz)
+Jan  1 07:14:41 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.0: clock source 1: hsmmc (133500000 Hz)
+Jan  1 07:14:41 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.0: clock source 2: hsmmc-if (32000000 Hz)
+Jan  1 07:14:41 mds2450 user.debug kernel: Registered led device: mmc0::
+Jan  1 07:14:41 mds2450 user.info kernel: mmc0: SDHCI controller on samsung-hsmmc [s3c-sdhci.0] using ADMA
+Jan  1 07:14:41 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.1: clock source 0: hsmmc (133500000 Hz)
+Jan  1 07:14:41 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.1: clock source 1: hsmmc (133500000 Hz)
+Jan  1 07:14:41 mds2450 user.info kernel: s3c-sdhci s3c-sdhci.1: clock source 2: hsmmc-if (32000000 Hz)
+Jan  1 07:14:41 mds2450 user.info kernel: usb 1-1: new full speed USB device number 2 using s3c2410-ohci
+Jan  1 07:14:41 mds2450 user.debug kernel: Registered led device: mmc1::
+Jan  1 07:14:41 mds2450 user.info kernel: mmc1: SDHCI controller on samsung-hsmmc [s3c-sdhci.1] using ADMA
+Jan  1 07:14:41 mds2450 user.info kernel: usbcore: registered new interface driver usbhid
+Jan  1 07:14:41 mds2450 user.info kernel: usbhid: USB HID core driver
+Jan  1 07:14:41 mds2450 user.warn kernel: MDS2450 Audio Support
+Jan  1 07:14:41 mds2450 user.warn kernel: wm8960-codec 0-001a: No platform data supplied
+Jan  1 07:14:41 mds2450 user.info kernel: uvcvideo: Found UVC 1.00 device USB2.0 Camera (1871:0141)
+Jan  1 07:14:41 mds2450 user.info kernel: asoc: wm8960-hifi <-> samsung-i2s mapping ok
+Jan  1 07:14:41 mds2450 user.info kernel: input: SMDK-I2S Headset Jack as /devices/platform/soc-audio/sound/card0/input2
+Jan  1 07:14:41 mds2450 user.info kernel: input: USB2.0 Camera as /devices/platform/s3c2410-ohci/usb1/1-1/1-1:1.0/input/input1
+Jan  1 07:14:41 mds2450 user.info kernel: ALSA device list:
+Jan  1 07:14:41 mds2450 user.info kernel:   #0: SMDK-I2S
+Jan  1 07:14:41 mds2450 user.info kernel: Netfilter messages via NETLINK v0.30.
+Jan  1 07:14:41 mds2450 user.info kernel: nf_conntrack version 0.5.0 (897 buckets, 3588 max)
+Jan  1 07:14:41 mds2450 user.info kernel: NF_TPROXY: Transparent proxy support initialized, version 4.1.0
+Jan  1 07:14:41 mds2450 user.info kernel: NF_TPROXY: Copyright (c) 2006-2007 BalaBit IT Ltd.
+Jan  1 07:14:41 mds2450 user.info kernel: IPv4 over IPv4 tunneling driver
+Jan  1 07:14:41 mds2450 user.info kernel: ip_tables: (C) 2000-2006 Netfilter Core Team
+Jan  1 07:14:41 mds2450 user.info kernel: arp_tables: (C) 2002 David S. Miller
+Jan  1 07:14:41 mds2450 user.info kernel: TCP cubic registered
+Jan  1 07:14:41 mds2450 user.info kernel: NET: Registered protocol family 10
+Jan  1 07:14:41 mds2450 user.info kernel: ip6_tables: (C) 2000-2006 Netfilter Core Team
+Jan  1 07:14:41 mds2450 user.info kernel: IPv6 over IPv4 tunneling driver
+Jan  1 07:14:41 mds2450 user.info kernel: NET: Registered protocol family 17
+Jan  1 07:14:41 mds2450 user.info kernel: NET: Registered protocol family 15
+Jan  1 07:14:41 mds2450 user.info kernel: Bluetooth: RFCOMM TTY layer initialized
+Jan  1 07:14:41 mds2450 user.info kernel: Bluetooth: RFCOMM socket layer initialized
+Jan  1 07:14:41 mds2450 user.info kernel: Bluetooth: RFCOMM ver 1.11
+Jan  1 07:14:41 mds2450 user.info kernel: Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+Jan  1 07:14:41 mds2450 user.info kernel: Bluetooth: BNEP filters: protocol multicast
+Jan  1 07:14:41 mds2450 user.info kernel: lib80211: common routines for IEEE802.11 drivers
+Jan  1 07:14:41 mds2450 user.debug kernel: lib80211_crypt: registered algorithm 'NULL'
+Jan  1 07:14:41 mds2450 user.notice kernel: Registering the dns_resolver key type
+Jan  1 07:14:41 mds2450 user.info kernel: s3c-rtc s3c2410-rtc: setting system clock to 2000-01-01 07:14:29 UTC (946710869)
+Jan  1 07:14:41 mds2450 user.info kernel: smsc911x smsc911x: eth0: SMSC911x/921x identified at 0xc4820000, IRQ: 62
+Jan  1 07:14:41 mds2450 user.warn kernel: IP-Config: Complete:
+Jan  1 07:14:41 mds2450 user.warn kernel:      device=eth0, addr=192.168.0.102, mask=255.255.255.0, gw=192.168.0.1,
+Jan  1 07:14:41 mds2450 user.warn kernel:      host=192.168.0.102, domain=, nis-domain=(none),
+Jan  1 07:14:41 mds2450 user.warn kernel:      bootserver=192.168.0.2, rootserver=192.168.0.2, rootpath=
+Jan  1 07:14:41 mds2450 user.info kernel: VFS: Mounted root (nfs filesystem) on device 0:15.
+Jan  1 07:14:41 mds2450 user.info kernel: devtmpfs: mounted
+Jan  1 07:14:41 mds2450 user.info kernel: Freeing init memory: 172K
+Jan  1 07:14:41 mds2450 user.debug kernel: eth0: no IPv6 routers present
