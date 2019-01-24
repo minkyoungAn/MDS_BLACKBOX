@@ -1,0 +1,8 @@
+busybox
+lib.minimal
+etc.minimal
+zlib-1.2.8
+libmad-0.15.1b
+libid3tag-0.15.1b
+madplay-0.15.2b
+demosong.mp3
