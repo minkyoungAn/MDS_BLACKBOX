@@ -1,4 +1,4 @@
-prefix=/work/SERVER/linux-3.0.22/installs/openssl-1.0.2n/_install
+prefix=/home/mds/installs/openssl-1.0.2n/_install
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include

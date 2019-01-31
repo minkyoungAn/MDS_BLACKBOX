@@ -1,0 +1,7 @@
+export TSLIB_TSDEVICE=/dev/input/event0
+export TSLIB_CONFFILE=/etc/ts.conf
+export TSLIB_PLUGINDIR=/lib/ts
+export TSLIB_CALIBFILE=/etc/pointercal
+export SDL_MOUSEDRV=TSLIB
+export SDL_MOUSEDEV=$TSLIB_TSDEVICE
+

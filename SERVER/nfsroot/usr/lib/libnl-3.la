@@ -38,4 +38,4 @@ dlopen=''
 dlpreopen=''
 
 # Directory that this library needs to be installed in:
-libdir='/home/mds/git/rc_car/MDS_BLACKBOX/CLIENT/linux-3.0.22/installs/libnl-3.4.0/_install/lib'
+libdir='/home/mds/installs/libnl-3.4.0/_install/lib'

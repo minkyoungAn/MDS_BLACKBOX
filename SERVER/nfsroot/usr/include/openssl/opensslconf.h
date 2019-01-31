@@ -118,8 +118,8 @@ extern "C" {
 
 #if !(defined(VMS) || defined(__VMS)) /* VMS uses logical names instead */
 #if defined(HEADER_CRYPTLIB_H) && !defined(OPENSSLDIR)
-#define ENGINESDIR "/work/SERVER/linux-3.0.22/installs/openssl-1.0.2n/_install/lib/engines"
-#define OPENSSLDIR "/work/SERVER/linux-3.0.22/installs/openssl-1.0.2n/_install/ssl"
+#define ENGINESDIR "/home/mds/installs/openssl-1.0.2n/_install/lib/engines"
+#define OPENSSLDIR "/home/mds/installs/openssl-1.0.2n/_install/ssl"
 #endif
 #endif
 
