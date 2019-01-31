@@ -14,7 +14,7 @@
 
 static int sig_flag = 0 ;
 
-void *ultra_fun(void *parameter)
+void *ultrasonic_fun(void *parameter)
 {
 	int retn;
 	int fd;
@@ -44,8 +44,10 @@ void *ultra_fun(void *parameter)
 		{
 			//warning
 			sig_flag=1;
+			// tcp send
 			
 		}
+		else sig_flag=0;
 
 	}
 
@@ -57,11 +59,11 @@ void *ultra_fun(void *parameter)
 int main(void)
 {
 
-	pthread_t ultra_th;
+	pthread_t ultrasonic_th;
 
-	pthread_create(&ultra_th,NULL,&ultra_fun,NULL);
+	pthread_create(&ultrasonic_th,NULL,&ultrasonic_fun,NULL);
 
-	pthread_join(ultra_th,NULL);
+	pthread_join(ultrasonic_th,NULL);
 
 	return 0;
 }

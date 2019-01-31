@@ -4,6 +4,11 @@ KDIR := /work/linux
 
 all:
 	make -C $(KDIR) SUBDIRS=$(PWD) modules 
+	arm-none-linux-gnueabi-gcc -o ultrasonic main.c -lpthread
+
+	cp ultrasonic.ko /nfsroot/root
+	cp ultrasonic /nfsroot/root
+	
 clean:
 	make -C $(KDIR) SUBDIRS=$(PWD) clean 
 
