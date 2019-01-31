@@ -1,4 +1,4 @@
-prefix=/home/mds/git/rc_car/MDS_BLACKBOX/CLIENT/linux-3.0.22/installs/libnl-3.4.0/_install
+prefix=/work/SERVER/linux-3.0.22/installs/libnl-3.4.0/_install
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include
