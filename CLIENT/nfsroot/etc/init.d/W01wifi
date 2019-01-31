@@ -12,7 +12,7 @@ case "$1" in
 	sleep 10
 	wpa_supplicant -iwlan0 -Dwext -c/root/wificonf.conf &
 	ifconfig wlan0 192.168.1.159 
-	route add default gw 192.168.0.1 dev wlan0
+	route add default gw 192.168.1.1 dev wlan0
 	;;
 	stop)
 	rmmod /root/8192cu.ko
