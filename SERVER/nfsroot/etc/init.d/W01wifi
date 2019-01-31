@@ -1,0 +1,26 @@
+#!/bin/sh
+#
+#wifi init
+#
+
+case "$1" in
+	start)
+	print "Wifi init step 1"
+	insmod /root/8192cu.ko
+	sleep 5
+	ifconfig wlan0 up
+	sleep 10
+	wpa_supplicant -iwlan0 -Dwext -c/root/wificonf.conf &
+	ifconfig wlan0 192.168.0.159 
+	route add default gw 192.168.0.1 dev wlan0
+	;;
+	stop)
+	rmmod /root/8192cu.ko
+	;;
+	restrt|reload)
+	;;
+	*)
+	exit 1
+esac
+
+exit $?	
