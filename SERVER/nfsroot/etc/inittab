@@ -24,7 +24,8 @@ null::sysinit:/bin/hostname -F /etc/hostname
 ::sysinit:/etc/init.d/rcS
 
 # Put a getty on the serial port
-ttySAC1::respawn:/sbin/getty -L ttySAC1 115200 vt100 # GENERIC_SERIAL
+#ttySAC1::respawn:/sbin/getty -L ttySAC1 115200 vt100 # GENERIC_SERIAL
+ttySAC1::respawn:/sbin/getty ttySAC1 115200 -n -l /bin/autologin
 
 # Stuff to do for the 3-finger salute
 ::ctrlaltdel:/sbin/reboot
