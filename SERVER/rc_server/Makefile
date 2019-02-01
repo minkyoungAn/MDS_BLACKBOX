@@ -1,6 +1,5 @@
-obj-m := ultrasonic.o
+obj-m	:= ultrasonic.o pwm_dev.o
 
-KDIR := /work/linux
 
 CROSS_COMPILE=arm-none-linux-gnueabi-
 
