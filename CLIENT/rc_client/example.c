@@ -14,6 +14,19 @@
 
 #define MAXLINE 30
 
+void* mplayer_stream_thread(void* data)
+{
+    system("mplayer -demuxer mpeg4es rtp://@192.168.1.159:7000");
+    pthread_exit(NULL);
+}
+
+void mplayer_stream_thread_create(pthread_t mplayer_stream_t, int connect_server)
+{	
+	if (connect_server == 1)
+	{
+		pthread_create(&mplayer_stream_t, 0, mplayer_stream_thread, NULL);
+	}	
+}
 
 void itoa(int num, char *str){
     int i=0;
@@ -49,6 +62,10 @@ int main(int argc, char *argv[])
 	int client_len;
 	char buf[MAXLINE];
 
+	pthread_t mplayer_stream_t;
+	int connect_server = 0;
+	int result;
+
 	if((server_sockfd = socket(AF_INET, SOCK_STREAM, 0)) == -1)
 	{
 		perror("socket error ");
@@ -59,10 +76,18 @@ int main(int argc, char *argv[])
 	serveraddr.sin_addr.s_addr = inet_addr("192.168.1.158");
 	serveraddr.sin_port = htons(6000);
 	client_len = sizeof(serveraddr);   //client, serve
-/*	if(connect(server_sockfd, (struct sockaddr*)&serveraddr, client_len) == -1) {
+
+#if 0
+	if(connect(server_sockfd, (struct sockaddr*)&serveraddr, client_len) == -1) {
                 perror("connect error : ");
+                connect_server = 0;
                 return 1;
-        }*/
+    }else
+    {
+    	printf("connect success");
+    	connect_server =  1;
+    }
+#endif    
 
 	printf("TTF_Init\n");
 
@@ -118,6 +143,8 @@ int main(int argc, char *argv[])
 	SDL_BlitSurface(Name, NULL, screen, &dstrect_name);
 	SDL_BlitSurface(Logo, NULL, screen, &dstrect_logo);
 	SDL_Flip(screen); // 갱신
+
+	mplayer_stream_thread_create(mplayer_stream_t,connect_server);
 
     while(!loop)
     {
