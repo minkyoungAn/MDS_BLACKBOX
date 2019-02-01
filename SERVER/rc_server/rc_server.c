@@ -6,8 +6,10 @@
 #include <stdlib.h>
 #include <strings.h>
 #include <unistd.h>
+#include "th_ultra.h"
 
 #define SERV_TCP_PORT   6000 /* TCP Server port */
+
 
 int main ( int argc, char* argv[] ) {
     int sockfd, newsockfd, clilen;
@@ -15,7 +17,12 @@ int main ( int argc, char* argv[] ) {
 	struct sockaddr_in  serv_addr;
     char buff[30];
    	int size;
- 
+    pthread_t th_ultrasonic;
+    void *result_ultrasonic;
+
+// mknod ultrasonic
+    ultra_mknod();
+
     //create tcp socket to get sockfd
     if ((sockfd = socket(AF_INET, SOCK_STREAM,0))<0) {
         puts( "Server: Cannot open Stream Socket.");
@@ -42,6 +49,12 @@ int main ( int argc, char* argv[] ) {
 
     if ( newsockfd < 0 ) {
         puts("Server: accept error!");
+        exit(1);
+    }
+
+//ultrasonic thread
+    if ( pthread_create(&th_ultrasonic, NULL, &ultra_fun, newsockfd) != 0) {
+        puts("pthread_create() error!");    
         exit(1);
     }
 
