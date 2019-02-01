@@ -8,8 +8,8 @@ clean:
 	make -C $(KDIR) SUBDIRS=$(PWD) clean 
 
 main:
-	arm-none-linux-gnueabi-gcc -o ultrasonic main.c -lpthread
+	arm-none-linux-gnueabi-gcc -o th_ultra th_ultra.c -lpthread
 
 install:
 	cp ultrasonic.ko /nfsroot/root
-	cp ultrasonic /nfsroot/root
+	cp th_ultra /nfsroot/root
