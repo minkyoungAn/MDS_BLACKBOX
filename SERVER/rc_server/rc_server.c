@@ -6,7 +6,9 @@
 #include <stdlib.h>
 #include <strings.h>
 #include <unistd.h>
+
 #include "th_ultra.h"
+#include "moter_app.h"
 
 #define SERV_TCP_PORT   6000 /* TCP Server port */
 
@@ -22,7 +24,8 @@ int main ( int argc, char* argv[] ) {
 
 // mknod ultrasonic
     ultra_mknod();
-
+// mknod moter
+    moter_mknod();
     //create tcp socket to get sockfd
     if ((sockfd = socket(AF_INET, SOCK_STREAM,0))<0) {
         puts( "Server: Cannot open Stream Socket.");
@@ -72,18 +75,23 @@ int main ( int argc, char* argv[] ) {
         {
             case '1':
                 printf("front from server\n");
+		moter_func(1);
                 break;
             case '2':
                 printf("back from server\n");
+		moter_func(2);
                 break;
             case '3':
                 printf("right from server\n");
+		moter_func(5);
                 break;
             case '4':
                 printf("left from server\n");
+		moter_func(6);
                 break;
             case '5':
                 printf("stop from server\n");
+		moter_func(7);
                 break;
             default:
                 break;
