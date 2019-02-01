@@ -19,6 +19,10 @@ int main ( int argc, char* argv[] ) {
    	int size;
     pthread_t th_ultrasonic;
     void *result_ultrasonic;
+
+// mknod ultrasonic
+    ultra_mknod();
+
     //create tcp socket to get sockfd
     if ((sockfd = socket(AF_INET, SOCK_STREAM,0))<0) {
         puts( "Server: Cannot open Stream Socket.");
