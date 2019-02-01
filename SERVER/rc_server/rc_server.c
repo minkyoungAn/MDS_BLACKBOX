@@ -1,10 +1,11 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <strings.h>
 #include <sys/types.h>
+#include <sys/stat.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
-#include <stdlib.h>
-#include <strings.h>
 #include <unistd.h>
 
 #include "th_ultra.h"
@@ -56,8 +57,8 @@ int main ( int argc, char* argv[] ) {
     }
 
 //ultrasonic thread
-    if ( pthread_create(&th_ultrasonic, NULL, &ultra_fun, newsockfd) != 0) {
-        puts("pthread_create() error!");    
+    if ( pthread_create(&th_ultrasonic, NULL, &ultra_func, newsockfd) != 0) {
+        puts("ultrasonic pthread_create() error!");    
         exit(1);
     }
 

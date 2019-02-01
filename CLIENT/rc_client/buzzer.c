@@ -29,49 +29,13 @@
 #include <linux/pwm.h>
 #include <linux/platform_device.h>
 #include <linux/ioctl.h>
-#define DRV_NAME "buzzer"
+#include "buzzer.h"
 
 MODULE_LICENSE("GPL");
 
-
-struct pwm_device {
-	struct list_head     list;
-	struct platform_device  *pdev;
-
-	struct clk      *clk_div;
-	struct clk      *clk;
-	const char      *label;
-
-	unsigned int         period_ns;
-	unsigned int         duty_ns;
-
-	unsigned char        tcon_base;
-	unsigned char        running;
-	unsigned char        use_count;
-	unsigned char        pwm_id;
-};
-
-static struct pwm_device *bz_pwm;
-
-struct pwm_duty_t pwm_duty;
-
 static int buzzer_major=0, buzzer_minor=0;
 static int result;
-
-unsigned char signal_period='b';
-
-static int distance_cm = 0;
-char distance_flag=1;
 static dev_t buzzer_dev;
-
-//static struct file_operations buzzer_fops;
-static struct cdev buzzer_cdev;
-static int buzzer_register_cdev(void);
-static int buzzer_write(struct file *filp, const char *buf, size_t count, loff_t *f_pos);
-static int buzzer_init(void);
-
-static int buzzer_open(struct inode *inode, struct file *filp);
-static int buzzer_ioctl(struct file *filp, unsigned int cmd, unsigned long arg);
 
 static int buzzer_open(struct inode *inode, struct file *filp)
 {
@@ -99,47 +63,20 @@ static int buzzer_release(struct inode *inode, struct file *filp)
 	return 0;
 }
 
-static int buzzer_write(struct file *filp,const char *buf, size_t count, loff_t *f_pos)
-{
-	char data[11];
-	get_user(signal_period,buf);
-	printk(" signal_period =  %c\n",signal_period);
-
-	return count;
-
-}
-
-struct file_operations buzzer_fops = {
-	.open = buzzer_open,
-	.release = buzzer_release,
-	.write = buzzer_write,
-	.unlocked_ioctl = buzzer_ioctl,	
-};
-
-
 static int buzzer_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
 {	
-	if(_IOC_TYPE(cmd) != buzzer_MAGIC) return -EINVAL;
-	if(_IOC_NR(cmd) >= buzzer_MAXNR) return -EINVAL;
-
 
 	switch(cmd){
 
-		case BEEP:
+		case BUZZER_SIG:
 		{
 		
 			pwm_disable(bz_pwm);
 
-			if(signal_period=='c' || arg==1)
-			{	
-				pwm_config(bz_pwm, pwm_duty.pulse_width, pwm_duty.period);
-				pwm_enable(bz_pwm);
-				mdelay(100);
+			pwm_config(bz_pwm, pwm_duty.pulse_width, pwm_duty.period);
+			pwm_enable(bz_pwm);
+			mdelay(100);
 
-			}else
-			{
-				pwm_disable(bz_pwm);
-			}
 			break;	
 		}
 
@@ -154,6 +91,12 @@ static int buzzer_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
 	return 0;
 
 }
+
+struct file_operations buzzer_fops = {
+	.open = buzzer_open,	
+	.release = buzzer_release,
+	.unlocked_ioctl = buzzer_ioctl
+};
 
 static int buzzer_init(void)
 {
