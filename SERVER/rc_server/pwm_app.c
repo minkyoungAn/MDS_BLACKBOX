@@ -46,7 +46,7 @@ void *moter_func(int cmd)
 	struct pwm_pulse rpwm_pulse;
 
 	/*open DD*/
-	fd = open("/dev/",O_RDWR);
+	fd = open("/dev/PWM",O_RDWR);
 	printf("fd = %d\n",fd);
 
 	if (fd<0){
