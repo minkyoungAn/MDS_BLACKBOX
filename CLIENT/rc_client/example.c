@@ -19,7 +19,7 @@
 
 void* mplayer_stream_thread(void* data)
 {
-    system("mplayer -demuxer mpeg4es rtp://@192.168.1.159:7000");
+    system("mplayer -screenw 160 -screenh 120 -demuxer mpeg4es rtp://@192.168.1.159:7000");
     pthread_exit(NULL);
 }
 
@@ -29,6 +29,37 @@ void mplayer_stream_thread_create(pthread_t mplayer_stream_t, int connect_server
 	{
 		pthread_create(&mplayer_stream_t, 0, mplayer_stream_thread, NULL);
 	}	
+}
+
+
+void* buzzer_alarm_thread(void* arg)
+{
+	int socket = (int) *((int*)arg);
+	char buf[MAXLINE];
+
+	while(1)
+	{
+		read(socket, buf, MAXLINE);
+
+		swtich(buf[0])
+		{	
+			case '6':
+				break;
+
+			default:
+				break;
+		}
+	}
+
+	pthread_exit(NULL);
+}
+
+void buzzer_alarm_thread_create(pthread_t buzzer_alarm_t, int connect_server, int server_socket)
+{
+	if (connect_server ==1)
+	{
+		pthread_create(&buzzer_alarm_t, 0, buzzer_alarm_thread, (void*)&server_socket);
+	}
 }
 
 void itoa(int num, char *str){
@@ -66,6 +97,7 @@ int main(int argc, char *argv[])
 	char buf[MAXLINE];
 	pthread_t th_buzzer;
 	pthread_t mplayer_stream_t;
+	pthread_t buzzer_alarm_t;
 	int connect_server = 0;
 	int result;
 
@@ -83,7 +115,7 @@ int main(int argc, char *argv[])
 	serveraddr.sin_port = htons(6000);
 	client_len = sizeof(serveraddr);   //client, serve
 
-#if 0
+#if 1
 	if(connect(server_sockfd, (struct sockaddr*)&serveraddr, client_len) == -1) {
                 perror("connect error : ");
                 connect_server = 0;
@@ -160,6 +192,8 @@ int main(int argc, char *argv[])
 	SDL_Flip(screen); // 갱신
 
 	mplayer_stream_thread_create(mplayer_stream_t,connect_server);
+	buzzer_alarm_thread_create(buzzer_alarm_t, connect_server, server_sockfd );
+	
 
     while(!loop)
     {
@@ -189,15 +223,14 @@ int main(int argc, char *argv[])
 			SDL_BlitSurface(Name, NULL, screen, &dstrect_name);
 			SDL_BlitSurface(Logo, NULL, screen, &dstrect_logo);
 			SDL_Flip(screen);
-	
        
-	/*		memset(buf, 0x00, MAXLINE);
+			memset(buf, 0x00, MAXLINE);
 			strcpy(buf, "1");
 			printf("pressed %s button\n", buf);
 
 			write(server_sockfd, buf, MAXLINE);
-			printf("%d, %d \n", event.motion.x, event.motion.y);*/
-			
+			printf("%d, %d \n", event.motion.x, event.motion.y);
+		
 			}
 
 			else if((event.motion.x >=280) && (event.motion.x <=355) && (event.motion.y >=185) && (event.motion.y <=260)) // Down button click.
@@ -213,12 +246,12 @@ int main(int argc, char *argv[])
 			SDL_BlitSurface(Logo, NULL, screen, &dstrect_logo);
 			SDL_Flip(screen);
 			
-/*			memset(buf, 0x00, MAXLINE);
+			memset(buf, 0x00, MAXLINE);
 			strcpy(buf, "2");
 			printf("pressed %s button\n", buf);
 
 			write(server_sockfd, buf, MAXLINE);
-			printf("%d, %d \n", event.motion.x, event.motion.y);*/
+			printf("%d, %d \n", event.motion.x, event.motion.y);
 		
 			}
 
@@ -235,12 +268,12 @@ int main(int argc, char *argv[])
 			SDL_BlitSurface(Logo, NULL, screen, &dstrect_logo);
 			SDL_Flip(screen);
 
-/*			memset(buf, 0x00, MAXLINE);
+			memset(buf, 0x00, MAXLINE);
 			strcpy(buf, "3");
 			printf("pressed %s button\n", buf);
 
 			write(server_sockfd, buf, MAXLINE);
-			printf("%d, %d \n", event.motion.x, event.motion.y);*/
+			printf("%d, %d \n", event.motion.x, event.motion.y);
 			}
 
 			else if((event.motion.x >=200) && (event.motion.x <=270) && (event.motion.y >=105) && (event.motion.y <=175))  // Left button click.
@@ -256,12 +289,12 @@ int main(int argc, char *argv[])
 			SDL_BlitSurface(Logo, NULL, screen, &dstrect_logo);
 			SDL_Flip(screen);
 
-/*			memset(buf, 0x00, MAXLINE);
+			memset(buf, 0x00, MAXLINE);
 			strcpy(buf, "4");
 			printf("pressed %s button\n", buf);
 
 			write(server_sockfd, buf, MAXLINE);
-			printf("%d, %d \n", event.motion.x, event.motion.y);*/
+			printf("%d, %d \n", event.motion.x, event.motion.y);
 			}
 
 			else if((event.motion.x >=280) && (event.motion.x <=355) && (event.motion.y >=105) && (event.motion.y <=180)) // Stop button click.
@@ -277,12 +310,12 @@ int main(int argc, char *argv[])
 			SDL_BlitSurface(Logo, NULL, screen, &dstrect_logo);
 			SDL_Flip(screen);
 
-/*			memset(buf, 0x00, MAXLINE);
+			memset(buf, 0x00, MAXLINE);
 			strcpy(buf, "5");
 			printf("pressed %s button\n", buf);
 
 			write(server_sockfd, buf, MAXLINE);
-			printf("%d, %d \n", event.motion.x, event.motion.y);*/
+			printf("%d, %d \n", event.motion.x, event.motion.y);
 			}
 			
 			
