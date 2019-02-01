@@ -1,4 +1,4 @@
-obj-m	:= ultrasonic.o pwm_dev.o
+obj-m := ultrasonic.o pwm_dev.o
 
 
 CROSS_COMPILE=arm-none-linux-gnueabi-
@@ -13,7 +13,6 @@ all:
 install:
 	cp *.ko /nfsroot/root/
 	cp rc_server /nfsroot/root
-	cp ultrasonic.ko /nfsroot/root
 
 clean:
 	make -C $(KDIR) SUBDIRS=$(PWD) clean 

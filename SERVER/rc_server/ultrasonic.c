@@ -30,12 +30,13 @@
 
 #include "ultrasonic.h"
 
-static int ulstasonic_major=0, ulstasonic_minor=0;
+
+static int ultrasonic_major=DEV_ULTRA_MAJOR, ultrasonic_minor=0;
 static int result;
-static dev_t ulstasonic_dev;
+static dev_t ultrasonic_dev;
 static int distance_cm = 0;
 static int ultra_cnt = 0;
-static struct cdev ulstasonic_cdev;
+static struct cdev ultrasonic_cdev;
 
 static irqreturn_t ultra_echo_rising(int irq, void *dev_id, struct pt_regs *regs)
 {
@@ -125,7 +126,7 @@ void kerneltimer_exit(void)
     }    
 }
 
-static int ulstasonic_open(struct inode *inode, struct file *filp)
+static int ultrasonic_open(struct inode *inode, struct file *filp)
 {
   int ret;
 
@@ -152,16 +153,15 @@ static int ulstasonic_open(struct inode *inode, struct file *filp)
   return 0;
 }
 
-static int ulstasonic_release(struct inode *inode, struct file *filp)
+static int ultrasonic_release(struct inode *inode, struct file *filp)
 { 
-//  free_irq(IRQ_EINT0,NULL);
-//  free_irq(IRQ_EINT1,NULL);
+  //free_irq(IRQ_EINT10, NULL);
 
   printk("device has been closed .. \n");
   return 0;
 }
 
-static int ulstasonic_write(struct file *filp,const char *buf, size_t count, loff_t *f_pos)
+static int ultrasonic_write(struct file *filp,const char *buf, size_t count, loff_t *f_pos)
 {
   char data[11];
 //  copy_from_user(data,buf,count);
@@ -170,7 +170,7 @@ static int ulstasonic_write(struct file *filp,const char *buf, size_t count, lof
 
 }
 
-static int ulstasonic_read(struct file *filp,char *buf, size_t count,loff_t *f_pos)
+static int ultrasonic_read(struct file *filp,char *buf, size_t count,loff_t *f_pos)
 {
   //char data[20] = "this is read func...";
   int loop;
@@ -190,25 +190,25 @@ static int ulstasonic_read(struct file *filp,char *buf, size_t count,loff_t *f_p
   return 0;
 }
 
-struct file_operations ulstasonic_fops = {
-  .open = ulstasonic_open,
-  .release = ulstasonic_release,
-  .write = ulstasonic_write,
-  .read = ulstasonic_read
+struct file_operations ultrasonic_fops = {
+  .open = ultrasonic_open,
+  .release = ultrasonic_release,
+  .write = ultrasonic_write,
+  .read = ultrasonic_read
 };
 
-static int ulstasonic_init(void)
+static int ultrasonic_init(void)
 {
   
-  printk("ulstasonic MODULE is up ...\n");
-  if((result=ulstasonic_register_cdev())<0)
+  printk("ultrasonic MODULE is up ...\n");
+  if((result=ultrasonic_register_cdev())<0)
   {
     return result;
   }
   return 0;
 }
 
-static void ulstasonic_exit(void)
+static void ultrasonic_exit(void)
 { printk("the module is down...\n");
   
   kerneltimer_exit();
@@ -217,44 +217,44 @@ static void ulstasonic_exit(void)
   gpio_free(S3C2410_GPG(1));
   gpio_free(S3C2410_GPG(2));
 
-  free_irq(IRQ_EINT10, NULL);
 
-  cdev_del(&ulstasonic_cdev);
-  unregister_chrdev_region(ulstasonic_dev,1);
+  cdev_del(&ultrasonic_cdev);
+  unregister_chrdev_region(ultrasonic_dev,1);
 
 }
 
 
-static int ulstasonic_register_cdev(void)
+static int ultrasonic_register_cdev(void)
 {
   int error;
-  if(ulstasonic_major){
-    ulstasonic_dev=MKDEV(ulstasonic_major, ulstasonic_minor);
-    error = register_chrdev_region(ulstasonic_dev, 1, "ulstasonic");
+  
+  if(ultrasonic_major){
+    ultrasonic_dev=MKDEV(ultrasonic_major, ultrasonic_minor);
+    error = register_chrdev_region(ultrasonic_dev, 1, "ultrasonic");
   }else{
-    error = alloc_chrdev_region(&ulstasonic_dev, ulstasonic_minor,1,"ulstasonic");
-    ulstasonic_major = MAJOR(ulstasonic_dev);
+    error = alloc_chrdev_region(&ultrasonic_dev, ultrasonic_minor,1,"ultrasonic");
+    ultrasonic_major = MAJOR(ultrasonic_dev);
   }
   
   if(error <0){
-    printk(KERN_WARNING "ulstasonic: cant get major %d \n",ulstasonic_major);
+    printk(KERN_WARNING "ultrasonic: cant get major %d \n",ultrasonic_major);
     return result;
   }
-  
-  printk("major number = %d \n",ulstasonic_major);
+  printk("DEV_ULTRA_MAJOR: %d ultrasonic_major: %d\n", DEV_ULTRA_MAJOR, ultrasonic_major);
+  printk("major number = %d \n",ultrasonic_major);
 
-  cdev_init(&ulstasonic_cdev, &ulstasonic_fops);
-  ulstasonic_cdev.owner = THIS_MODULE;
-  ulstasonic_cdev.ops = &ulstasonic_fops;
-  error = cdev_add(&ulstasonic_cdev, ulstasonic_dev, 1);
+  cdev_init(&ultrasonic_cdev, &ultrasonic_fops);
+  ultrasonic_cdev.owner = THIS_MODULE;
+  ultrasonic_cdev.ops = &ultrasonic_fops;
+  error = cdev_add(&ultrasonic_cdev, ultrasonic_dev, 1);
 
   if(error)
-    printk(KERN_NOTICE "ulstasonic Register Error %d \n",error);
+    printk(KERN_NOTICE "ultrasonic Register Error %d \n",error);
   return 0;
 }
 
-module_init(ulstasonic_init);
-module_exit(ulstasonic_exit);
+module_init(ultrasonic_init);
+module_exit(ultrasonic_exit);
 
 MODULE_LICENSE("Dual BSD/GPL");
 
