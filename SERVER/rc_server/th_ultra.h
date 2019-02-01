@@ -6,6 +6,6 @@
 #define	DEV_ULTRA_MAJOR 	101
 
 void ultra_mknod(void);
-void *ultra_fun(void *data);
+void *ultra_func(void *data);
 
 #endif //__TH_ULTRA_H__
