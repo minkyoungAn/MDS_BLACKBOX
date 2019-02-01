@@ -13,7 +13,7 @@
 #include <arpa/inet.h>
 #include <pthread.h>
 
-
+#include "th_buzzer.h"
 
 #define MAXLINE 30
 
@@ -87,7 +87,7 @@ void itoa(int num, char *str){
 
 int main(int argc, char *argv[])
 {
-    	int loop = 0;
+    int loop = 0;
 	int on_off =0;
 	int retn;
 	int flag = 0;
@@ -95,11 +95,14 @@ int main(int argc, char *argv[])
 	int server_sockfd;
 	int client_len;
 	char buf[MAXLINE];
-
+	pthread_t th_buzzer;
 	pthread_t mplayer_stream_t;
 	pthread_t buzzer_alarm_t;
 	int connect_server = 0;
 	int result;
+
+// mknod buzzer
+    //buzzer_mknod();
 
 	if((server_sockfd = socket(AF_INET, SOCK_STREAM, 0)) == -1)
 	{
@@ -124,10 +127,19 @@ int main(int argc, char *argv[])
     }
 #endif    
 
+// buzzer thread 
+	// if(buf[0] == BUZZER_SIG) {
+
+	// 	if ( pthread_create(&th_buzzer, NULL, &buzzer_func, server_sockfd) != 0) {
+ //        puts("buzzer pthread_create() error!");    
+ //        exit(1);
+ //  		}
+	// }
+	
 	printf("TTF_Init\n");
 
-        SDL_Event event;
-        SDL_Surface *screen, *main, *bmp, *quitting, *Up, *Down, *Left, *Right, *Up2, *Down2, *Left2, *Right2, *Xbutton, *Stop, *Name, *Logo;
+    SDL_Event event;
+    SDL_Surface *screen, *main, *bmp, *quitting, *Up, *Down, *Left, *Right, *Up2, *Down2, *Left2, *Right2, *Xbutton, *Stop, *Name, *Logo;
 
 	SDL_Surface* message = NULL;
 
