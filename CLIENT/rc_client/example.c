@@ -44,6 +44,10 @@ void* buzzer_alarm_thread(void* arg)
 		swtich(buf[0])
 		{	
 			case '6':
+				if (pthread_create(&th_buzzer, NULL, &buzzer_func, server_sockfd) != 0) {
+					puts("buzzer pthread_create() error!");    
+					exit(1);
+				}
 				break;
 
 			default:
@@ -102,7 +106,7 @@ int main(int argc, char *argv[])
 	int result;
 
 // mknod buzzer
-    //buzzer_mknod();
+    buzzer_mknod();
 
 	if((server_sockfd = socket(AF_INET, SOCK_STREAM, 0)) == -1)
 	{
@@ -126,15 +130,6 @@ int main(int argc, char *argv[])
     	connect_server =  1;
     }
 #endif    
-
-// buzzer thread 
-	// if(buf[0] == BUZZER_SIG) {
-
-	// 	if ( pthread_create(&th_buzzer, NULL, &buzzer_func, server_sockfd) != 0) {
- //        puts("buzzer pthread_create() error!");    
- //        exit(1);
- //  		}
-	// }
 	
 	printf("TTF_Init\n");
 
