@@ -3,7 +3,7 @@
 
 #define   DRV_NAME            "ultrasonic"
 #define   ULTRA_SIG           6
-
+#define   DEV_ULTRA_MAJOR 	103
 #define   TIME_STEP           (HZ/100)
 
 typedef struct
@@ -27,7 +27,7 @@ int kerneltimer_init(void);
 void kerneltimer_exit(void);
 void kerneltimer_timeover(unsigned long arg );
 void kerneltimer_registertimer( KERNEL_TIMER_MANAGER *pdata, unsigned long timeover );
-static int ulstasonic_register_cdev(void);
+static int ultrasonic_register_cdev(void);
 static irqreturn_t ultra_echo_rising(int irq, void *dev_id, struct pt_regs *regs);
 
 #endif //__ULTRASONIC_H__
