@@ -36,15 +36,15 @@ void* buzzer_alarm_thread(void* arg)
 {
 	int socket = (int) *((int*)arg);
 	char buf[MAXLINE];
-
+	pthread_t th_buzzer;
 	while(1)
 	{
 		read(socket, buf, MAXLINE);
 
-		swtich(buf[0])
+		switch(buf[0])
 		{	
 			case '6':
-				if (pthread_create(&th_buzzer, NULL, &buzzer_func, server_sockfd) != 0) {
+				if (pthread_create(&th_buzzer, NULL, &buzzer_func, arg) != 0) {
 					puts("buzzer pthread_create() error!");    
 					exit(1);
 				}
@@ -99,7 +99,6 @@ int main(int argc, char *argv[])
 	int server_sockfd;
 	int client_len;
 	char buf[MAXLINE];
-	pthread_t th_buzzer;
 	pthread_t mplayer_stream_t;
 	pthread_t buzzer_alarm_t;
 	int connect_server = 0;
