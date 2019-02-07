@@ -32,6 +32,7 @@ int main ( int argc, char* argv[] ) {
 	struct sockaddr_in  serv_addr;
     char buff[30];
    	int size;
+    int val_set;
 
     pthread_t ff_stream_t;
 
