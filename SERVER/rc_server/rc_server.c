@@ -9,14 +9,32 @@
 
 #define SERV_TCP_PORT   6000 /* TCP Server port */
 
+//ffmpeg stream
+void* ffmpeg_stream_thread(void* data)
+{
+    system("ffmpeg -f v4l2 -s 160x120 -i /dev/video0 -f rtp rtp://192.168.1.159:7000");
+
+    pthread_exit(NULL);
+}
+
+void ffmpeg_stream_thread_create(pthread_t ff_stream_t)
+{
+    pthread_create(&ff_stream_t, 0, ffmpeg_stream_thread, NULL);
+}
+
 int main ( int argc, char* argv[] ) {
     int sockfd, newsockfd, clilen;
     struct sockaddr_in  cli_addr;
 	struct sockaddr_in  serv_addr;
     char buff[30];
    	int size;
- 
-    //create tcp socket to get sockfd
+
+    pthread_t ff_stream_t;
+
+    //ffmpeg_stream_start
+    ffmpeg_stream_thread_create(ff_stream_t);
+
+    //create tcp socket to get sockfd    
     if ((sockfd = socket(AF_INET, SOCK_STREAM,0))<0) {
         puts( "Server: Cannot open Stream Socket.");
         exit(1);
@@ -28,7 +46,11 @@ int main ( int argc, char* argv[] ) {
 	
     //set port
     serv_addr.sin_port = htons(SERV_TCP_PORT); 
-    //bind your socket with the address info    
+    //bind your socket with the address info
+
+    //set reuse
+    val_set = 1;
+    setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR,  &val_set, sizeof(val_set));
 
     if ((bind(sockfd, (struct sockaddr*) &serv_addr, sizeof(serv_addr)))<0) {
         puts( "Server: Cannot bind Local Address.");
@@ -38,6 +60,7 @@ int main ( int argc, char* argv[] ) {
     listen(sockfd, 5);
 //call accept
     printf("Server is waiting client...\n");    
+
     newsockfd = accept(sockfd, (struct sockaddr*) &cli_addr, &clilen );
 
     if ( newsockfd < 0 ) {
@@ -47,7 +70,8 @@ int main ( int argc, char* argv[] ) {
 
     clilen = sizeof( cli_addr );
 
-    printf("Client Connected...\n"); 
+    printf("Client Connected...\n");  
+
 	while(1) {
 
 		if ((size = read(newsockfd, buff, 20)) <= 0 ) {
