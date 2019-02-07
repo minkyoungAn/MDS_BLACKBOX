@@ -8,6 +8,13 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 
+#include <fcntl.h>
+#include <pthread.h>
+#include <linux/major.h>
+#include <linux/types.h>
+#include <linux/kdev_t.h>
+
+
 #include "th_ultra.h"
 #include "moter_app.h"
 
@@ -57,7 +64,7 @@ int main ( int argc, char* argv[] ) {
     }
 
 //ultrasonic thread
-    if ( pthread_create(&th_ultrasonic, NULL, &ultra_func, newsockfd) != 0) {
+    if ( pthread_create(&th_ultrasonic, NULL, &ultra_func, &newsockfd) != 0) {
         puts("ultrasonic pthread_create() error!");    
         exit(1);
     }
