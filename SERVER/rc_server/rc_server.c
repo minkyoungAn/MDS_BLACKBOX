@@ -77,6 +77,7 @@ int main ( int argc, char* argv[] ) {
     }
 //set listen args      
     listen(sockfd, 5);
+
 //call accept
     printf("Server is waiting client...\n");    
 

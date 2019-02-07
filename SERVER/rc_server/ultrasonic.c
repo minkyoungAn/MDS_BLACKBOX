@@ -142,7 +142,6 @@ static int ultrasonic_open(struct inode *inode, struct file *filp)
     
   if(request_irq(IRQ_EINT10,(void *)ultra_echo_rising, IRQF_DISABLED|IRQF_TRIGGER_RISING |IRQF_TRIGGER_FALLING, "echoint2",NULL))
   {
-    
     ret=-ENOENT;
     printk("failed to request external interrupt microsonar. %d\n",ret);
     return ret;
@@ -155,7 +154,7 @@ static int ultrasonic_open(struct inode *inode, struct file *filp)
 
 static int ultrasonic_release(struct inode *inode, struct file *filp)
 { 
-  //free_irq(IRQ_EINT10, NULL);
+  free_irq(IRQ_EINT10, NULL);
 
   printk("device has been closed .. \n");
   return 0;
@@ -177,10 +176,10 @@ static int ultrasonic_read(struct file *filp,char *buf, size_t count,loff_t *f_p
   char distance_flag;
 
   if ( ultra_cnt > 5 )
-    distance_flag = 0;
-  else
-
     distance_flag = ULTRA_SIG;
+  else
+    distance_flag = 0;
+    
   
   for(loop=0; loop<count;loop++)
   {
