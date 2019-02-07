@@ -16,7 +16,7 @@
 #
 
 obj-m := buzzer.o
-
+ARCH=arm
 CROSS_COMPILE=arm-none-linux-gnueabi-
 
 KDIR := /work/linux
@@ -28,8 +28,8 @@ allc:
 allcpp:
 	$(CROSS_COMPILE)g++ -o example example.cpp `sdl-config-$(ARCH) --cflags --libs`   -lSDL -lSDL_ttf -lSDL_image  
 install:
-	cp  example  /nfsroot/root
-	cp 	*.ko /nfsroot/root
+	cp example  /nfsroot/root
+	cp buzzer.ko /nfsroot/root
 
 clean:
 	make -C $(KDIR) SUBDIRS=$(PWD) clean 

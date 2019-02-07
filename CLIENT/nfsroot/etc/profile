@@ -5,3 +5,5 @@ export TSLIB_CALIBFILE=/etc/pointercal
 export SDL_MOUSEDRV=TSLIB
 export SDL_MOUSEDEV=$TSLIB_TSDEVICE
 
+insmod /root/buzzer.ko
+exec /root/example

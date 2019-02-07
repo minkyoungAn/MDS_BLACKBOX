@@ -57,6 +57,7 @@ static int buzzer_open(struct inode *inode, struct file *filp)
 
 static int buzzer_release(struct inode *inode, struct file *filp)
 {	
+	pwm_disable(bz_pwm);
 	pwm_free( bz_pwm );
 
 	printk("device has been closed .. \n");
