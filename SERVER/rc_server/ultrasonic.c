@@ -1,8 +1,3 @@
-/***************************************
- * Filename: kerneltimer.c
- * Title: Kernel Timer Handler
- * Desc: Timer Handler Module
- ***************************************/
 #include <linux/kernel.h>
 #include <linux/init.h>
 #include <linux/module.h>
@@ -35,43 +30,13 @@
 
 #include "ultrasonic.h"
 
-#define DRV_NAME "ultrasonic"
 
-#define   TIME_STEP           (HZ/100)
-
-typedef struct
-{
-        struct timer_list  timer;      
-} __attribute__ ((packed)) KERNEL_TIMER_MANAGER;
-static KERNEL_TIMER_MANAGER *ptrmng = NULL;
-
-struct ultra_detection
-{
-  int irq;
-  int pin;
-  int pin_setting;
-  char *name;
-  int last_state;
-};
-
-struct timeval before = {0,}, after = {0,};
-
-int kerneltimer_init(void);
-int ultrasonic_init(void);
-void kerneltimer_exit(void);
-void kerneltimer_timeover(unsigned long arg );
-void kerneltimer_registertimer( KERNEL_TIMER_MANAGER *pdata, unsigned long timeover );
-static int sk_register_cdev(void);
-static irqreturn_t ultra_echo_rising(int irq, void *dev_id, struct pt_regs *regs);
-
-
-static int sk_major=0, sk_minor=0;
+static int ultrasonic_major=DEV_ULTRA_MAJOR, ultrasonic_minor=0;
 static int result;
-static dev_t sk_dev;
+static dev_t ultrasonic_dev;
 static int distance_cm = 0;
 static int ultra_cnt = 0;
-static struct cdev sk_cdev;
-
+static struct cdev ultrasonic_cdev;
 
 static irqreturn_t ultra_echo_rising(int irq, void *dev_id, struct pt_regs *regs)
 {
@@ -88,7 +53,7 @@ static irqreturn_t ultra_echo_rising(int irq, void *dev_id, struct pt_regs *regs
     distance_cm = ((after.tv_sec - before.tv_sec) * 1000000 + (after.tv_usec - before.tv_usec ) ) /58;      
 
 //  printk(" cm : %d \n", distance_cm );
-    if ( distance_cm < 10 )
+    if ( distance_cm < 15 )
     {
       ultra_cnt++;
   
@@ -152,9 +117,21 @@ int kerneltimer_init(void)
     return 0;
 }
 
-int ultrasonic_init(void)
+void kerneltimer_exit(void)
+{
+    if( ptrmng != NULL ) 
+    {
+        del_timer( &(ptrmng->timer) );
+        kfree( ptrmng );
+    }    
+}
+
+static int ultrasonic_open(struct inode *inode, struct file *filp)
 {
   int ret;
+
+  kerneltimer_init();
+  
   /* ultrasonic sensor init */
     gpio_request(S3C2410_GPG(1), "TRIG");
     gpio_request(S3C2410_GPG(2), "ECHO");
@@ -170,51 +147,21 @@ int ultrasonic_init(void)
     printk("failed to request external interrupt microsonar. %d\n",ret);
     return ret;
   }
-
-  return 0;
-
-}
-
-void kerneltimer_exit(void)
-{
-    if( ptrmng != NULL ) 
-    {
-        del_timer( &(ptrmng->timer) );
-        kfree( ptrmng );
-    }    
-}
-
-void ultrasonic_exit(void)
-{
-  /* ultrasonic sensor free */
-  gpio_free(S3C2410_GPG(1));
-  gpio_free(S3C2410_GPG(2));
-
-  free_irq(IRQ_EINT10, NULL);
-}
-
-
-static int sk_open(struct inode *inode, struct file *filp)
-{
-  kerneltimer_init();
-  ultrasonic_init();
-
   kerneltimer_registertimer( ptrmng, TIME_STEP );
   printk("Device has been opened...\n");
 
   return 0;
 }
 
-static int sk_release(struct inode *inode, struct file *filp)
+static int ultrasonic_release(struct inode *inode, struct file *filp)
 { 
-//  free_irq(IRQ_EINT0,NULL);
-//  free_irq(IRQ_EINT1,NULL);
+  //free_irq(IRQ_EINT10, NULL);
 
   printk("device has been closed .. \n");
   return 0;
 }
 
-static int sk_write(struct file *filp,const char *buf, size_t count, loff_t *f_pos)
+static int ultrasonic_write(struct file *filp,const char *buf, size_t count, loff_t *f_pos)
 {
   char data[11];
 //  copy_from_user(data,buf,count);
@@ -223,7 +170,7 @@ static int sk_write(struct file *filp,const char *buf, size_t count, loff_t *f_p
 
 }
 
-static int sk_read(struct file *filp,char *buf, size_t count,loff_t *f_pos)
+static int ultrasonic_read(struct file *filp,char *buf, size_t count,loff_t *f_pos)
 {
   //char data[20] = "this is read func...";
   int loop;
@@ -233,76 +180,81 @@ static int sk_read(struct file *filp,char *buf, size_t count,loff_t *f_pos)
     distance_flag = 0;
   else
 
-    distance_flag = 1;
+    distance_flag = ULTRA_SIG;
   
   for(loop=0; loop<count;loop++)
   {
-    put_user(distance_flag,(char *)&buf[1]);
+    put_user(distance_flag,(char *)&buf[0]);
 
   }
   return 0;
 }
 
-struct file_operations sk_fops = {
-  .open = sk_open,
-  .release = sk_release,
-  .write = sk_write,
-  .read = sk_read
+struct file_operations ultrasonic_fops = {
+  .open = ultrasonic_open,
+  .release = ultrasonic_release,
+  .write = ultrasonic_write,
+  .read = ultrasonic_read
 };
 
-static int sk_init(void)
+static int ultrasonic_init(void)
 {
   
-  printk("SK MODULE is up ...\n");
-  if((result=sk_register_cdev())<0)
+  printk("ultrasonic MODULE is up ...\n");
+  if((result=ultrasonic_register_cdev())<0)
   {
     return result;
   }
   return 0;
 }
 
-static void sk_exit(void)
+static void ultrasonic_exit(void)
 { printk("the module is down...\n");
   
   kerneltimer_exit();
-  ultrasonic_exit();
 
-  cdev_del(&sk_cdev);
-  unregister_chrdev_region(sk_dev,1);
+  /* ultrasonic sensor free */
+  gpio_free(S3C2410_GPG(1));
+  gpio_free(S3C2410_GPG(2));
+
+
+  cdev_del(&ultrasonic_cdev);
+  unregister_chrdev_region(ultrasonic_dev,1);
 
 }
 
 
-static int sk_register_cdev(void)
+static int ultrasonic_register_cdev(void)
 {
   int error;
-  if(sk_major){
-    sk_dev=MKDEV(sk_major, sk_minor);
-    error = register_chrdev_region(sk_dev, 1, "sk");
+  
+  if(ultrasonic_major){
+    ultrasonic_dev=MKDEV(ultrasonic_major, ultrasonic_minor);
+    error = register_chrdev_region(ultrasonic_dev, 1, "ultrasonic");
   }else{
-    error = alloc_chrdev_region(&sk_dev, sk_minor,1,"sk");
-    sk_major = MAJOR(sk_dev);
+    error = alloc_chrdev_region(&ultrasonic_dev, ultrasonic_minor,1,"ultrasonic");
+    ultrasonic_major = MAJOR(ultrasonic_dev);
   }
   
   if(error <0){
-    printk(KERN_WARNING "sk: cant get major %d \n",sk_major);
+    printk(KERN_WARNING "ultrasonic: cant get major %d \n",ultrasonic_major);
     return result;
   }
-  
-  printk("major number = %d \n",sk_major);
+  printk("DEV_ULTRA_MAJOR: %d ultrasonic_major: %d\n", DEV_ULTRA_MAJOR, ultrasonic_major);
+  printk("major number = %d \n",ultrasonic_major);
 
-  cdev_init(&sk_cdev, &sk_fops);
-  sk_cdev.owner = THIS_MODULE;
-  sk_cdev.ops = &sk_fops;
-  error = cdev_add(&sk_cdev, sk_dev, 1);
+  cdev_init(&ultrasonic_cdev, &ultrasonic_fops);
+  ultrasonic_cdev.owner = THIS_MODULE;
+  ultrasonic_cdev.ops = &ultrasonic_fops;
+  error = cdev_add(&ultrasonic_cdev, ultrasonic_dev, 1);
 
   if(error)
-    printk(KERN_NOTICE "sk Register Error %d \n",error);
+    printk(KERN_NOTICE "ultrasonic Register Error %d \n",error);
   return 0;
 }
 
-module_init(sk_init);
-module_exit(sk_exit);
+module_init(ultrasonic_init);
+module_exit(ultrasonic_exit);
 
 MODULE_LICENSE("Dual BSD/GPL");
 

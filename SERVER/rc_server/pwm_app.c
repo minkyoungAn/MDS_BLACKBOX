@@ -35,7 +35,7 @@ void moter_mknod(void)
     return;
 }
 
-void *moter_func(void *cmd)
+void *moter_func(int cmd)
 {
 	int fd;
 	int retn_write;
@@ -46,7 +46,7 @@ void *moter_func(void *cmd)
 	struct pwm_pulse rpwm_pulse;
 
 	/*open DD*/
-	fd = open("/dev/",O_RDWR);
+	fd = open("/dev/PWM",O_RDWR);
 	printf("fd = %d\n",fd);
 
 	if (fd<0){
@@ -58,7 +58,7 @@ void *moter_func(void *cmd)
 	
 	/*ioctl*/
 	while(1){
-		switch (*(int *)cmd){
+		switch (cmd){
 			case FRONT : 
 			    lpwm_pulse.width = (10*MS);
 			    lpwm_pulse.period = (1*MS);
