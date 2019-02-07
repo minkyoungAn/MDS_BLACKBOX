@@ -27,12 +27,12 @@ void buzzer_mknod(void)
 	return;
 }
 
-void *buzzer_func(void *data)
+void *buzzer_func(void *data, int fd)
 {
-	int fd;
+	//int fd;
 	volatile int i;
 
-	fd = open("/dev/buzzer",O_RDWR);
+	//fd = open("/dev/buzzer",O_RDWR);
 
 	if(fd < 0){
 		perror("/dev/buzzer error");
@@ -46,10 +46,10 @@ void *buzzer_func(void *data)
 	if (*(int *)data == BUZZER_SIG)
 	{		
 		ioctl(fd,BUZZER_SIG);
-		sleep(0.9);			
+		sleep(0.9);
 	}
-		
-	close(fd);
+				
+	//close(fd);
 	return 0;
 }
 

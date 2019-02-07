@@ -6,6 +6,6 @@
 #define	DEV_BUZZER_MAJOR 	102
 
 void buzzer_mknod(void);
-void *buzzer_func(void *data);
+void *buzzer_func(void *data, int fd);
 
 #endif //__TH_BUZZER_H__

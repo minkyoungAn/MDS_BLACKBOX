@@ -33,7 +33,7 @@
 
 MODULE_LICENSE("GPL");
 
-static int buzzer_major=0, buzzer_minor=0;
+static int buzzer_major=102, buzzer_minor=0;
 static int result;
 static dev_t buzzer_dev;
 
@@ -57,6 +57,7 @@ static int buzzer_open(struct inode *inode, struct file *filp)
 
 static int buzzer_release(struct inode *inode, struct file *filp)
 {	
+	pwm_disable(bz_pwm);
 	pwm_free( bz_pwm );
 
 	printk("device has been closed .. \n");

@@ -32,37 +32,64 @@ void mplayer_stream_thread_create(pthread_t mplayer_stream_t, int connect_server
 }
 
 
-void* buzzer_alarm_thread(void* arg)
+void* tcp_read_thread(void* arg)
 {
-	int socket = (int) *((int*)arg);
+	int socket = *((int*)arg);
 	char buf[MAXLINE];
 	pthread_t th_buzzer;
+	int size;
+	int buzzersig;
+	int cnt;
+	int fd;
+	
+	#if 1
+	printf("tcp_read_thread start socket=%d\n",socket);
+	
+	fd = open("/dev/buzzer",O_RDWR); //open buzzer
+	
 	while(1)
 	{
-		read(socket, buf, MAXLINE);
-
-		switch(buf[0])
-		{	
-			case '6':
-				if (pthread_create(&th_buzzer, NULL, &buzzer_func, arg) != 0) {
-					puts("buzzer pthread_create() error!");    
-					exit(1);
-				}
-				break;
-
-			default:
-				break;
+		size = read(socket, buf, MAXLINE);
+		
+		if (size > 0)
+		{
+			switch(buf[0])
+			{
+				case 6:
+					cnt++;				
+					printf("buzzer activate!!!\n");
+					buzzersig = BUZZER_SIG;
+					#if 0
+					if (pthread_create(&th_buzzer, NULL, &buzzer_func, (void *)&buzzersig) != 0) {
+						puts("buzzer pthread_create() error!");    
+						exit(1);
+					}
+					#else
+					if (cnt >= 50)
+					{
+						buzzer_func(&buzzersig,fd);
+						cnt = 0;
+					}				
+					#endif
+					break;
+	
+				default:
+					break;
+			}
 		}
 	}
+	
+	close(fd);
+	#endif
 
 	pthread_exit(NULL);
 }
 
-void buzzer_alarm_thread_create(pthread_t buzzer_alarm_t, int connect_server, int server_socket)
+void tcp_read_thread_create(pthread_t tcp_read_t, int connect_server, int *server_socket)
 {
 	if (connect_server ==1)
 	{
-		pthread_create(&buzzer_alarm_t, 0, buzzer_alarm_thread, (void*)&server_socket);
+		pthread_create(&tcp_read_t, 0, tcp_read_thread, (void*)server_socket);
 	}
 }
 
@@ -100,7 +127,7 @@ int main(int argc, char *argv[])
 	int client_len;
 	char buf[MAXLINE];
 	pthread_t mplayer_stream_t;
-	pthread_t buzzer_alarm_t;
+	pthread_t tcp_read_t;
 	int connect_server = 0;
 	int result;
 
@@ -119,15 +146,23 @@ int main(int argc, char *argv[])
 	client_len = sizeof(serveraddr);   //client, serve
 
 #if 1
-	if(connect(server_sockfd, (struct sockaddr*)&serveraddr, client_len) == -1) {
-                perror("connect error : ");
-                connect_server = 0;
-                return 1;
-    }else
-    {
-    	printf("connect success");
-    	connect_server =  1;
-    }
+	while (1)
+	{
+		int result;
+		
+		result = connect(server_sockfd, (struct sockaddr*)&serveraddr, client_len);
+		if (result == 0) {			
+			printf("connect success!!!!!!! server_sockfd = %d\n",server_sockfd);
+	    	connect_server =  1;
+	    	break;	                
+	    }
+		else
+	    {
+			perror("connect error : ");
+	        connect_server = 0;	    
+	    	sleep(5);
+	    }
+	}
 #endif    
 	
 	printf("TTF_Init\n");
@@ -186,7 +221,7 @@ int main(int argc, char *argv[])
 	SDL_Flip(screen); // 갱신
 
 	mplayer_stream_thread_create(mplayer_stream_t,connect_server);
-	buzzer_alarm_thread_create(buzzer_alarm_t, connect_server, server_sockfd );
+	tcp_read_thread_create(tcp_read_t, connect_server, &server_sockfd );
 	
 
     while(!loop)
