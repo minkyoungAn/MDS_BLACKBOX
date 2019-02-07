@@ -5,3 +5,6 @@ export TSLIB_CALIBFILE=/etc/pointercal
 export SDL_MOUSEDRV=TSLIB
 export SDL_MOUSEDEV=$TSLIB_TSDEVICE
 
+insmod /root/pwm_dev.ko
+insmod /root/ultrasonic.ko
+exec /root/rc_server

@@ -39,6 +39,9 @@ int main ( int argc, char* argv[] ) {
     pthread_t th_ultrasonic;
     void *result_ultrasonic;
 
+	//ffmpeg_stream_start
+    ffmpeg_stream_thread_create(ff_stream_t);
+	
 // mknod ultrasonic
     ultra_mknod();
 // mknod moter
@@ -82,9 +85,6 @@ int main ( int argc, char* argv[] ) {
         puts("ultrasonic pthread_create() error!");    
         exit(1);
     }
-	
-	//ffmpeg_stream_start
-    ffmpeg_stream_thread_create(ff_stream_t);
 
     clilen = sizeof( cli_addr );
 
