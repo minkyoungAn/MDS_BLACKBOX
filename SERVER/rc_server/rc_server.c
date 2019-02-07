@@ -74,6 +74,7 @@ int main ( int argc, char* argv[] ) {
     }
 //set listen args      
     listen(sockfd, 5);
+
 //call accept
     printf("Server is waiting client...\n");    
 
@@ -84,11 +85,12 @@ int main ( int argc, char* argv[] ) {
         exit(1);
     }
 
-//ultrasonic thread
+     //ultrasonic thread
     if ( pthread_create(&th_ultrasonic, NULL, &ultra_func, &newsockfd) != 0) {
         puts("ultrasonic pthread_create() error!");    
         exit(1);
     }
+
 	
 	//ffmpeg_stream_start
     ffmpeg_stream_thread_create(ff_stream_t);
