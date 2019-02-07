@@ -44,7 +44,7 @@ void* buzzer_alarm_thread(void* arg)
 		switch(buf[0])
 		{	
 			case '6':
-				if (pthread_create(&th_buzzer, NULL, &buzzer_func, arg) != 0) {
+				if (pthread_create(&th_buzzer, NULL, &buzzer_func, &socket) != 0) {
 					puts("buzzer pthread_create() error!");    
 					exit(1);
 				}
