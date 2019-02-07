@@ -9,7 +9,7 @@ struct pwm_pulse{
 #define DEV_PWM_NAME	"PWM"
 #define DEV_PWM_MAJOR	100
 #define FRONT			1
-#define BACK			2
+#define BACK			8
 #define LEFTPWM			3
 #define RIGHTPWM		4
 #define LEFT			5

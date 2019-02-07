@@ -57,7 +57,7 @@ void *moter_func(int cmd)
 		printf("PWM has been detected...\n");
 	
 	/*ioctl*/
-	while(1){
+//	while(1){
 		switch (cmd){
 			case FRONT : 
 			    lpwm_pulse.width = (10*MS);
@@ -82,20 +82,20 @@ void *moter_func(int cmd)
 
 				
 			case LEFT :
-			    lpwm_pulse.width = (2*MS);
-			    lpwm_pulse.period = (10*MS);
+			    lpwm_pulse.width = (10*MS);
+			    lpwm_pulse.period = (1*MS);
 			    ioctl(fd, LEFTPWM, &lpwm_pulse);
-				rpwm_pulse.width = (7*MS);
+				rpwm_pulse.width = (1*MS);
 			    rpwm_pulse.period = (10*MS);
 			    ioctl(fd, RIGHTPWM, &rpwm_pulse);
 			    ioctl(fd,LEFT);
 			break;
 
 			case RIGHT :
-			    lpwm_pulse.width = (7*MS);
-			    lpwm_pulse.period = (10*MS);
+			    lpwm_pulse.width = (10*MS);
+			    lpwm_pulse.period = (1*MS);
 			    ioctl(fd, LEFTPWM, &lpwm_pulse);
-			    rpwm_pulse.width = (2*MS);
+			    rpwm_pulse.width = (1*MS);
 			    rpwm_pulse.period = (10*MS);
 			    ioctl(fd, RIGHTPWM, &rpwm_pulse);
 			    ioctl(fd,RIGHT);
@@ -106,7 +106,7 @@ void *moter_func(int cmd)
 			break;
 			default : break;
 		}	
-	}	
+//	}	
 	/*device release*/
 	close(fd);
 

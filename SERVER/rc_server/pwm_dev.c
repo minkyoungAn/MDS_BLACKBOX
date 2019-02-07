@@ -122,47 +122,47 @@ static int pwm_read(struct file *filp, char *buf, size_t count, loff_t *f_pos)
 
 static int pwm_ioctl(struct file *filp,unsigned int cmd, unsigned long arg)
 {
-	printk("pwm_ioctl : %d\n", cmd);
+//	printk("pwm_ioctl : %d\n", cmd);
 	switch(cmd){
 		case FRONT :{
-			//gpio_set_value(S3C2410_GPG(4), 1);	// EN-HIGH
-			//gpio_set_value(S3C2410_GPG(7), 0);	// EN-
+			gpio_set_value(S3C2410_GPG(4), 0);	// EN-HIGH
+			gpio_set_value(S3C2410_GPG(7), 0);	// EN-
 			gpio_set_value(S3C2410_GPG(5), 1);	// state
 			gpio_set_value(S3C2410_GPG(6), 0);
 			pwm_enable(left_pwm);
 			pwm_enable(right_pwm);
-			printk("dev.strit X1> LR pwm should be  enabled \n");
+			//printk("dev.strit X1> LR pwm should be  enabled \n");
 		}break;
 		
 		case BACK :{
-			//gpio_set_value(S3C2410_GPG(4), 0);	// EN-motor-on
-			//gpio_set_value(S3C2410_GPG(7), 0);	// EN_HIGH
-			gpio_set_value(S3C2410_GPG(5), 1);
-			gpio_set_value(S3C2410_GPG(6), 0);
+			gpio_set_value(S3C2410_GPG(4), 0);	// EN-motor-on
+			gpio_set_value(S3C2410_GPG(7), 0);	// EN_HIGH
+			gpio_set_value(S3C2410_GPG(5), 0);
+			gpio_set_value(S3C2410_GPG(6), 1);
 			pwm_enable(left_pwm);
 			pwm_enable(right_pwm);
-			printk("dev.strit X2> LR pwm should be  enabled \n");
+			//printk("dev.strit X2> LR pwm should be  enabled \n");
 		}break;
 		
 		case LEFT :{
-			gpio_set_value(S3C2410_GPG(4), 0);	// EN-motor-on
-			gpio_set_value(S3C2410_GPG(7), 1);	// 
-			gpio_set_value(S3C2410_GPG(5), 1);
-			gpio_set_value(S3C2410_GPG(6), 0);
+			gpio_set_value(S3C2410_GPG(4), 1);	// EN-motor-on
+			gpio_set_value(S3C2410_GPG(7), 0);	// 
+			//gpio_set_value(S3C2410_GPG(5), 1);
+			//gpio_set_value(S3C2410_GPG(6), 0);
 			pwm_enable(left_pwm);
 			pwm_enable(right_pwm);
-			printk("dev.strit X3> LR pwm should be  enabled \n");
-			printk("kcmd : %d\n", cmd);
+			//printk("dev.strit X3> LR pwm should be  enabled \n");
+			//printk("kcmd : %d\n", cmd);
 		}break;
 
 		case RIGHT :{
-			gpio_set_value(S3C2410_GPG(4), 1);	// EN-motor-on
-			gpio_set_value(S3C2410_GPG(7), 0);	// 
-			gpio_set_value(S3C2410_GPG(5), 1);
-			gpio_set_value(S3C2410_GPG(6), 0);
+			gpio_set_value(S3C2410_GPG(4), 0);	// EN-motor-on
+			gpio_set_value(S3C2410_GPG(7), 1);	// 
+			//gpio_set_value(S3C2410_GPG(5), 0);
+			//gpio_set_value(S3C2410_GPG(6), 1);
 			pwm_enable(left_pwm);
 			pwm_enable(right_pwm);
-			printk("dev.strit X4> LR pwm should be  enabled \n");
+			//printk("dev.strit X4> LR pwm should be  enabled \n");
 		}break;
 
 		case STOP :{
@@ -172,18 +172,18 @@ static int pwm_ioctl(struct file *filp,unsigned int cmd, unsigned long arg)
 			gpio_set_value(S3C2410_GPG(6), 0);
 			pwm_enable(left_pwm);
 			pwm_enable(right_pwm);
-			printk("dev.strit X5> LR pwm should be  enabled \n");
+			//printk("dev.strit X5> LR pwm should be  enabled \n");
 		}break;
 	
 		case LEFTPWM :{
 			copy_from_user((void *)&lpwm_pulse, (const void *)arg, sizeof( struct pwm_pulse ));
 			pwm_config(left_pwm, lpwm_pulse.width, lpwm_pulse.period);
-			printk("dev.ioctl L> Duty: %lu, Period: %lu\n", lpwm_pulse.width, lpwm_pulse.period );
+			//printk("dev.ioctl L> Duty: %lu, Period: %lu\n", lpwm_pulse.width, lpwm_pulse.period );
 		//}break;
 		//case RIGHTPWM :{
 			copy_from_user((void *)&rpwm_pulse, (const void *)arg, sizeof( struct pwm_pulse ));
 			pwm_config(right_pwm, rpwm_pulse.width, rpwm_pulse.period);
-			printk("dev.ioctl R> Duty: %lu, Period: %lu\n", rpwm_pulse.width, rpwm_pulse.period );
+			//printk("dev.ioctl R> Duty: %lu, Period: %lu\n", rpwm_pulse.width, rpwm_pulse.period );
 		}break;
 		default :
 			return 0;

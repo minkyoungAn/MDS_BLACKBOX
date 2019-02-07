@@ -113,7 +113,7 @@ int main ( int argc, char* argv[] ) {
                 break;
             case '2':
                 printf("back from server\n");
-		moter_func(2);
+		moter_func(8);
                 break;
             case '3':
                 printf("right from server\n");
