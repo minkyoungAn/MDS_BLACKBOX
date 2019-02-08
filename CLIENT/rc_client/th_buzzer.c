@@ -27,29 +27,10 @@ void buzzer_mknod(void)
 	return;
 }
 
-void *buzzer_func(void *data, int fd)
+void *buzzer_func(int fd)
 {
-	//int fd;
-	volatile int i;
+	ioctl(fd,BUZZER_SIG);
 
-	//fd = open("/dev/buzzer",O_RDWR);
-
-	if(fd < 0){
-		perror("/dev/buzzer error");
-		exit(-1);
-	}else
-	{
-		printf("buzzer has been detected ...\n");
-	}
-
-	
-	if (*(int *)data == BUZZER_SIG)
-	{		
-		ioctl(fd,BUZZER_SIG);
-		sleep(0.9);
-	}
-				
-	//close(fd);
 	return 0;
 }
 

@@ -16,5 +16,5 @@ install:
 
 clean:
 	make -C $(KDIR) SUBDIRS=$(PWD) clean 
-	rm -rf example
+	rm -rf rc_server
 	rm -rf *.o
