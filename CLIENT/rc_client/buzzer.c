@@ -41,7 +41,7 @@ static int buzzer_open(struct inode *inode, struct file *filp)
 {
 
 	bz_pwm = pwm_request(1, "bz_pwm"); // 1 : buzzer, 2 : TOUT2, 3 : TOUT3
-	if( NULL == bz_pwm )
+	if ( NULL == bz_pwm )
 	{
 		printk("Fail!!\n");
 		return -1;
@@ -62,37 +62,33 @@ static int buzzer_release(struct inode *inode, struct file *filp)
 	pwm_free( bz_pwm );
 
 	printk("device has been closed .. \n");
+	
 	return 0;
 }
 
 static int buzzer_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
 {	
 
-	switch(cmd){
+	switch(cmd)
+	{
 
-		case BUZZER_SIG:
+		case BUZZER_SIG :
 		{
-		
-//			pwm_disable(bz_pwm);
-
 			pwm_config(bz_pwm, pwm_duty.pulse_width, pwm_duty.period);
 			pwm_enable(bz_pwm);
 
-			mdelay(100);
+			mdelay(200);
 
 			break;	
 		}
 
-
 		default:
-			return 0;
-
+			break;
 	}	
 
 	pwm_disable(bz_pwm);
 
 	return 0;
-
 }
 
 struct file_operations buzzer_fops = {
@@ -103,41 +99,45 @@ struct file_operations buzzer_fops = {
 
 static int buzzer_init(void)
 {
-	
 	s3c_gpio_cfgpin(S3C2410_GPB(1), S3C_GPIO_SFN(2));
 	s3c_gpio_setpull(S3C2410_GPB(1), S3C_GPIO_PULL_UP);
 
 	printk("buzzer MODULE is up ...\n");
+	
 	if((result=buzzer_register_cdev())<0)
 	{
 		return result;
 	}
+	
 	return 0;
 }
 
 static void buzzer_exit(void)
-{	printk("the module is down...\n");
+{	
+	printk("the module is down...\n");
 
 	gpio_free(S3C2410_GPB(1));
 
 	cdev_del(&buzzer_cdev);
 	unregister_chrdev_region(buzzer_dev,1);
-
-
 }
 
 static int buzzer_register_cdev(void)
 {
 	int error;
-	if(buzzer_major){
+	if(buzzer_major)
+	{
 		buzzer_dev=MKDEV(buzzer_major, buzzer_minor);
 		error = register_chrdev_region(buzzer_dev, 1, "buzzer");
-	}else{
+	}
+	else
+	{
 		error = alloc_chrdev_region(&buzzer_dev, buzzer_minor,1,"buzzer");
 		buzzer_major = MAJOR(buzzer_dev);
 	}
 	
-	if(error <0){
+	if(error <0)
+	{
 		printk(KERN_WARNING "buzzer: cant get major %d \n",buzzer_major);
 		return result;
 	}
@@ -151,6 +151,7 @@ static int buzzer_register_cdev(void)
 
 	if(error)
 		printk(KERN_NOTICE "buzzer Register Error %d \n",error);
+		
 	return 0;
 }
 

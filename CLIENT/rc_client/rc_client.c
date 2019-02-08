@@ -41,9 +41,7 @@ void* tcp_read_thread(void* arg)
 	int cnt;
 	int fd;
 	
-	#if 1
 	printf("tcp_read_thread start socket=%d\n",socket);
-	
 	
 	fd = open("/dev/buzzer",O_RDWR); //open buzzer
 	while(1)
@@ -65,7 +63,6 @@ void* tcp_read_thread(void* arg)
 	}
 	
 	close(fd);
-	#endif
 
 	pthread_exit(NULL);
 }
@@ -84,7 +81,8 @@ void itoa(int num, char *str){
     int deg=1;
     int cnt = 0;
 
-    while(1){
+    while(1)
+	{
         if( (num/deg) > 0)
             cnt++;
         else
@@ -93,7 +91,7 @@ void itoa(int num, char *str){
     }
     deg /=radix; 
 
-    for(i=0; i<cnt; i++)    { 
+    for(i=0; i<cnt; i++) { 
         *(str+i) = num/deg + '0';
         num -= ((num/deg) * deg);
         deg /=radix;
@@ -116,7 +114,7 @@ int main(int argc, char *argv[])
 	int connect_server = 0;
 	int result;
 
-// mknod buzzer
+	// mknod buzzer
     buzzer_mknod();
 
 	if((server_sockfd = socket(AF_INET, SOCK_STREAM, 0)) == -1)
@@ -130,25 +128,23 @@ int main(int argc, char *argv[])
 	serveraddr.sin_port = htons(6000);
 	client_len = sizeof(serveraddr);   //client, serve
 
-#if 1
 	while (1)
 	{
 		int result;
 		
 		result = connect(server_sockfd, (struct sockaddr*)&serveraddr, client_len);
 		if (result == 0) {			
-			printf("connect success!!!!!!! server_sockfd = %d\n",server_sockfd);
+			printf("connect success! server_sockfd = %d\n",server_sockfd);
 	    	connect_server =  1;
 	    	break;	                
 	    }
 		else
 	    {
-		perror("connect error : ");
+			perror("connect error : ");
 	        connect_server = 0;	    
 	    	sleep(5);
 	    }
 	}
-#endif    
 	
 	printf("TTF_Init\n");
 
@@ -157,9 +153,7 @@ int main(int argc, char *argv[])
 
 	SDL_Surface* message = NULL;
 
-
 	SDL_Color textColor = {255, 255, 255};
-
 
 	SDL_Init(SDL_INIT_VIDEO);
 	SDL_ShowCursor(SDL_DISABLE);
@@ -170,7 +164,7 @@ int main(int argc, char *argv[])
 	itoa(time, str);
   	screen = SDL_SetVideoMode(480, 272, 16, SDL_HWSURFACE | SDL_HWPALETTE | SDL_DOUBLEBUF);
 
-        main = SDL_LoadBMP("image/Background.bmp");
+    main = SDL_LoadBMP("image/Background.bmp");
 	Up = SDL_LoadBMP("image/Up.bmp");
 	Up2= SDL_LoadBMP("image/Up2.bmp");	
 	Down = SDL_LoadBMP("image/Down.bmp");	
@@ -183,7 +177,7 @@ int main(int argc, char *argv[])
 	Name = SDL_LoadBMP("image/Name.bmp");
 	Logo = SDL_LoadBMP("image/Logo.bmp");
 
-	SDL_Rect dstrect_Up	= {280, 25, 65, 65};
+	SDL_Rect dstrect_Up		= {280, 25, 65, 65};
 	SDL_Rect dstrect_Down	= {280, 185, 65, 65};
 	SDL_Rect dstrect_Right	= {360, 105, 65, 65};
 	SDL_Rect dstrect_Left	= {200, 105, 65, 65};
@@ -215,118 +209,116 @@ int main(int argc, char *argv[])
             {
                 case SDL_QUIT:
                     loop = 1;
-                break;
+               		break;
 
-		case SDL_MOUSEBUTTONDOWN:
-			
-			time++;
-			itoa(time, str);
-
-			if((event.motion.x >=280) && (event.motion.x <=355) && (event.motion.y >=25) && (event.motion.y <=100))  // Up button click.
-			{
-			SDL_BlitSurface(main, NULL, screen, NULL);
-			SDL_BlitSurface(Up2, NULL, screen, &dstrect_Up);
-			SDL_BlitSurface(Down, NULL, screen, &dstrect_Down);
-			SDL_BlitSurface(Right, NULL, screen, &dstrect_Right);
-			SDL_BlitSurface(Left, NULL, screen, &dstrect_Left);
-			SDL_BlitSurface(Stop, NULL, screen, &dstrect_stop);
-			SDL_BlitSurface(Name, NULL, screen, &dstrect_name);
-			SDL_BlitSurface(Logo, NULL, screen, &dstrect_logo);
-			SDL_Flip(screen);
-       
-			memset(buf, 0x00, MAXLINE);
-			strcpy(buf, "1");
-			printf("pressed %s button\n", buf);
-
-			write(server_sockfd, buf, MAXLINE);
-			printf("%d, %d \n", event.motion.x, event.motion.y);
+				case SDL_MOUSEBUTTONDOWN:
+					
+					time++;
+					itoa(time, str);
 		
-			}
-
-			else if((event.motion.x >=280) && (event.motion.x <=355) && (event.motion.y >=185) && (event.motion.y <=260)) // Down button click.
-			{
-			SDL_BlitSurface(main, NULL, screen, NULL);
-			SDL_BlitSurface(Up, NULL, screen, &dstrect_Up);
-			SDL_BlitSurface(Down2, NULL, screen, &dstrect_Down);
-			SDL_BlitSurface(Right, NULL, screen, &dstrect_Right);
-			SDL_BlitSurface(Left, NULL, screen, &dstrect_Left);
-			SDL_BlitSurface(Stop, NULL, screen, &dstrect_stop);
-			SDL_BlitSurface(Name, NULL, screen, &dstrect_name);
-			SDL_BlitSurface(Logo, NULL, screen, &dstrect_logo);
-			SDL_Flip(screen);
-			
-			memset(buf, 0x00, MAXLINE);
-			strcpy(buf, "2");
-			printf("pressed %s button\n", buf);
-
-			write(server_sockfd, buf, MAXLINE);
-			printf("%d, %d \n", event.motion.x, event.motion.y);
+					if((event.motion.x >=280) && (event.motion.x <=355) && (event.motion.y >=25) && (event.motion.y <=100))  // Up button click.
+					{
+					SDL_BlitSurface(main, NULL, screen, NULL);
+					SDL_BlitSurface(Up2, NULL, screen, &dstrect_Up);
+					SDL_BlitSurface(Down, NULL, screen, &dstrect_Down);
+					SDL_BlitSurface(Right, NULL, screen, &dstrect_Right);
+					SDL_BlitSurface(Left, NULL, screen, &dstrect_Left);
+					SDL_BlitSurface(Stop, NULL, screen, &dstrect_stop);
+					SDL_BlitSurface(Name, NULL, screen, &dstrect_name);
+					SDL_BlitSurface(Logo, NULL, screen, &dstrect_logo);
+					SDL_Flip(screen);
+		       
+					memset(buf, 0x00, MAXLINE);
+					strcpy(buf, "1");
+					printf("pressed %s button\n", buf);
 		
-			}
-
-			else if((event.motion.x >=360) && (event.motion.x <= 435) && (event.motion.y >= 105) && (event.motion.y <= 180)) // Right button click.
-			{
-			SDL_BlitSurface(main, NULL, screen, NULL);
-			SDL_BlitSurface(Up, NULL, screen, &dstrect_Up);
-			SDL_BlitSurface(Down, NULL, screen, &dstrect_Down);
-			SDL_BlitSurface(Right2, NULL, screen, &dstrect_Right);
-			SDL_BlitSurface(Left, NULL, screen, &dstrect_Left);
-			SDL_BlitSurface(Stop, NULL, screen, &dstrect_stop);
-			SDL_BlitSurface(Name, NULL, screen, &dstrect_name);
-			SDL_BlitSurface(Logo, NULL, screen, &dstrect_logo);
-			SDL_Flip(screen);
-
-			memset(buf, 0x00, MAXLINE);
-			strcpy(buf, "3");
-			printf("pressed %s button\n", buf);
-
-			write(server_sockfd, buf, MAXLINE);
-			printf("%d, %d \n", event.motion.x, event.motion.y);
-			}
-
-			else if((event.motion.x >=200) && (event.motion.x <=270) && (event.motion.y >=105) && (event.motion.y <=175))  // Left button click.
-			{
-			SDL_BlitSurface(main, NULL, screen, NULL);
-			SDL_BlitSurface(Up, NULL, screen, &dstrect_Up);
-			SDL_BlitSurface(Down, NULL, screen, &dstrect_Down);
-			SDL_BlitSurface(Right, NULL, screen, &dstrect_Right);
-			SDL_BlitSurface(Left2, NULL, screen, &dstrect_Left);
-			SDL_BlitSurface(Stop, NULL, screen, &dstrect_stop);
-			SDL_BlitSurface(Name, NULL, screen, &dstrect_name);
-			SDL_BlitSurface(Logo, NULL, screen, &dstrect_logo);
-			SDL_Flip(screen);
-
-			memset(buf, 0x00, MAXLINE);
-			strcpy(buf, "4");
-			printf("pressed %s button\n", buf);
-
-			write(server_sockfd, buf, MAXLINE);
-			printf("%d, %d \n", event.motion.x, event.motion.y);
-			}
-
-			else if((event.motion.x >=280) && (event.motion.x <=355) && (event.motion.y >=105) && (event.motion.y <=180)) // Stop button click.
-			{
-			SDL_BlitSurface(main, NULL, screen, NULL);
-			SDL_BlitSurface(Up, NULL, screen, &dstrect_Up);
-			SDL_BlitSurface(Down, NULL, screen, &dstrect_Down);
-			SDL_BlitSurface(Right, NULL, screen, &dstrect_Right);
-			SDL_BlitSurface(Left, NULL, screen, &dstrect_Left);
-			SDL_BlitSurface(Stop, NULL, screen, &dstrect_stop);
-			SDL_BlitSurface(Name, NULL, screen, &dstrect_name);
-			SDL_BlitSurface(Logo, NULL, screen, &dstrect_logo);
-			SDL_Flip(screen);
-
-			memset(buf, 0x00, MAXLINE);
-			strcpy(buf, "5");
-			printf("pressed %s button\n", buf);
-
-			write(server_sockfd, buf, MAXLINE);
-			printf("%d, %d \n", event.motion.x, event.motion.y);
-			}
-			
-			
-
-			break;			
+					write(server_sockfd, buf, MAXLINE);
+					printf("%d, %d \n", event.motion.x, event.motion.y);
+				
+					}
+		
+					else if((event.motion.x >=280) && (event.motion.x <=355) && (event.motion.y >=185) && (event.motion.y <=260)) // Down button click.
+					{
+					SDL_BlitSurface(main, NULL, screen, NULL);
+					SDL_BlitSurface(Up, NULL, screen, &dstrect_Up);
+					SDL_BlitSurface(Down2, NULL, screen, &dstrect_Down);
+					SDL_BlitSurface(Right, NULL, screen, &dstrect_Right);
+					SDL_BlitSurface(Left, NULL, screen, &dstrect_Left);
+					SDL_BlitSurface(Stop, NULL, screen, &dstrect_stop);
+					SDL_BlitSurface(Name, NULL, screen, &dstrect_name);
+					SDL_BlitSurface(Logo, NULL, screen, &dstrect_logo);
+					SDL_Flip(screen);
+					
+					memset(buf, 0x00, MAXLINE);
+					strcpy(buf, "2");
+					printf("pressed %s button\n", buf);
+		
+					write(server_sockfd, buf, MAXLINE);
+					printf("%d, %d \n", event.motion.x, event.motion.y);
+				
+					}
+		
+					else if((event.motion.x >=360) && (event.motion.x <= 435) && (event.motion.y >= 105) && (event.motion.y <= 180)) // Right button click.
+					{
+					SDL_BlitSurface(main, NULL, screen, NULL);
+					SDL_BlitSurface(Up, NULL, screen, &dstrect_Up);
+					SDL_BlitSurface(Down, NULL, screen, &dstrect_Down);
+					SDL_BlitSurface(Right2, NULL, screen, &dstrect_Right);
+					SDL_BlitSurface(Left, NULL, screen, &dstrect_Left);
+					SDL_BlitSurface(Stop, NULL, screen, &dstrect_stop);
+					SDL_BlitSurface(Name, NULL, screen, &dstrect_name);
+					SDL_BlitSurface(Logo, NULL, screen, &dstrect_logo);
+					SDL_Flip(screen);
+		
+					memset(buf, 0x00, MAXLINE);
+					strcpy(buf, "3");
+					printf("pressed %s button\n", buf);
+		
+					write(server_sockfd, buf, MAXLINE);
+					printf("%d, %d \n", event.motion.x, event.motion.y);
+					}
+		
+					else if((event.motion.x >=200) && (event.motion.x <=270) && (event.motion.y >=105) && (event.motion.y <=175))  // Left button click.
+					{
+					SDL_BlitSurface(main, NULL, screen, NULL);
+					SDL_BlitSurface(Up, NULL, screen, &dstrect_Up);
+					SDL_BlitSurface(Down, NULL, screen, &dstrect_Down);
+					SDL_BlitSurface(Right, NULL, screen, &dstrect_Right);
+					SDL_BlitSurface(Left2, NULL, screen, &dstrect_Left);
+					SDL_BlitSurface(Stop, NULL, screen, &dstrect_stop);
+					SDL_BlitSurface(Name, NULL, screen, &dstrect_name);
+					SDL_BlitSurface(Logo, NULL, screen, &dstrect_logo);
+					SDL_Flip(screen);
+		
+					memset(buf, 0x00, MAXLINE);
+					strcpy(buf, "4");
+					printf("pressed %s button\n", buf);
+		
+					write(server_sockfd, buf, MAXLINE);
+					printf("%d, %d \n", event.motion.x, event.motion.y);
+					}
+		
+					else if((event.motion.x >=280) && (event.motion.x <=355) && (event.motion.y >=105) && (event.motion.y <=180)) // Stop button click.
+					{
+					SDL_BlitSurface(main, NULL, screen, NULL);
+					SDL_BlitSurface(Up, NULL, screen, &dstrect_Up);
+					SDL_BlitSurface(Down, NULL, screen, &dstrect_Down);
+					SDL_BlitSurface(Right, NULL, screen, &dstrect_Right);
+					SDL_BlitSurface(Left, NULL, screen, &dstrect_Left);
+					SDL_BlitSurface(Stop, NULL, screen, &dstrect_stop);
+					SDL_BlitSurface(Name, NULL, screen, &dstrect_name);
+					SDL_BlitSurface(Logo, NULL, screen, &dstrect_logo);
+					SDL_Flip(screen);
+		
+					memset(buf, 0x00, MAXLINE);
+					strcpy(buf, "5");
+					printf("pressed %s button\n", buf);
+		
+					write(server_sockfd, buf, MAXLINE);
+					printf("%d, %d \n", event.motion.x, event.motion.y);
+					}
+					
+					break;			
             }
 
         }
