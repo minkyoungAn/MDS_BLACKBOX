@@ -8,4 +8,4 @@ export SDL_MOUSEDEV=$TSLIB_TSDEVICE
 sleep 10
 insmod /root/buzzer.ko
 cd /root/
-./example
+./rc_client

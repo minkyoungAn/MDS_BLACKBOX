@@ -12,7 +12,6 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <pthread.h>
-
 #include "th_buzzer.h"
 
 #define MAXLINE 30
@@ -45,38 +44,24 @@ void* tcp_read_thread(void* arg)
 	#if 1
 	printf("tcp_read_thread start socket=%d\n",socket);
 	
-	fd = open("/dev/buzzer",O_RDWR); //open buzzer
 	
+	fd = open("/dev/buzzer",O_RDWR); //open buzzer
 	while(1)
 	{
 		size = read(socket, buf, MAXLINE);
-		
-		if (size > 0)
+
+		if (buf[0] == 6)
 		{
-			switch(buf[0])
+			cnt++;				
+			buzzersig = BUZZER_SIG;
+			
+			if (cnt >= 50)
 			{
-				case 6:
-					cnt++;				
-					printf("buzzer activate!!!\n");
-					buzzersig = BUZZER_SIG;
-					#if 0
-					if (pthread_create(&th_buzzer, NULL, &buzzer_func, (void *)&buzzersig) != 0) {
-						puts("buzzer pthread_create() error!");    
-						exit(1);
-					}
-					#else
-					if (cnt >= 50)
-					{
-						buzzer_func(&buzzersig,fd);
-						cnt = 0;
-					}				
-					#endif
-					break;
-	
-				default:
-					break;
+				buzzer_func(fd);
+				cnt = 0;
 			}
 		}
+
 	}
 	
 	close(fd);
@@ -158,7 +143,7 @@ int main(int argc, char *argv[])
 	    }
 		else
 	    {
-			perror("connect error : ");
+		perror("connect error : ");
 	        connect_server = 0;	    
 	    	sleep(5);
 	    }
@@ -194,7 +179,6 @@ int main(int argc, char *argv[])
 	Left2 = SDL_LoadBMP("image/Left2.bmp");	
 	Right = SDL_LoadBMP("image/Right.bmp");	
 	Right2 = SDL_LoadBMP("image/Right2.bmp");	
-	Xbutton = SDL_LoadBMP("image/Xbutton.bmp");
 	Stop = SDL_LoadBMP("image/Stop.bmp");
 	Name = SDL_LoadBMP("image/Name.bmp");
 	Logo = SDL_LoadBMP("image/Logo.bmp");
@@ -203,7 +187,6 @@ int main(int argc, char *argv[])
 	SDL_Rect dstrect_Down	= {280, 185, 65, 65};
 	SDL_Rect dstrect_Right	= {360, 105, 65, 65};
 	SDL_Rect dstrect_Left	= {200, 105, 65, 65};
-	SDL_Rect dstrect_button = {460, 0, 20, 20};
 	SDL_Rect dstrect_stop   = {280, 105, 130, 65};
 	SDL_Rect dstrect_name   = {10 , 230, 113, 35};
 	SDL_Rect dstrect_logo   = {10 , 190, 120, 35};
@@ -214,7 +197,6 @@ int main(int argc, char *argv[])
 	SDL_BlitSurface(Down, NULL, screen, &dstrect_Down);
 	SDL_BlitSurface(Right, NULL, screen, &dstrect_Right);
 	SDL_BlitSurface(Left, NULL, screen, &dstrect_Left);
-	SDL_BlitSurface(Xbutton, NULL, screen, &dstrect_button);
 	SDL_BlitSurface(Stop, NULL, screen, &dstrect_stop);
 	SDL_BlitSurface(Name, NULL, screen, &dstrect_name);
 	SDL_BlitSurface(Logo, NULL, screen, &dstrect_logo);
@@ -247,7 +229,6 @@ int main(int argc, char *argv[])
 			SDL_BlitSurface(Down, NULL, screen, &dstrect_Down);
 			SDL_BlitSurface(Right, NULL, screen, &dstrect_Right);
 			SDL_BlitSurface(Left, NULL, screen, &dstrect_Left);
-			SDL_BlitSurface(Xbutton, NULL, screen, &dstrect_button);
 			SDL_BlitSurface(Stop, NULL, screen, &dstrect_stop);
 			SDL_BlitSurface(Name, NULL, screen, &dstrect_name);
 			SDL_BlitSurface(Logo, NULL, screen, &dstrect_logo);
@@ -269,7 +250,6 @@ int main(int argc, char *argv[])
 			SDL_BlitSurface(Down2, NULL, screen, &dstrect_Down);
 			SDL_BlitSurface(Right, NULL, screen, &dstrect_Right);
 			SDL_BlitSurface(Left, NULL, screen, &dstrect_Left);
-			SDL_BlitSurface(Xbutton, NULL, screen, &dstrect_button);
 			SDL_BlitSurface(Stop, NULL, screen, &dstrect_stop);
 			SDL_BlitSurface(Name, NULL, screen, &dstrect_name);
 			SDL_BlitSurface(Logo, NULL, screen, &dstrect_logo);
@@ -291,7 +271,6 @@ int main(int argc, char *argv[])
 			SDL_BlitSurface(Down, NULL, screen, &dstrect_Down);
 			SDL_BlitSurface(Right2, NULL, screen, &dstrect_Right);
 			SDL_BlitSurface(Left, NULL, screen, &dstrect_Left);
-			SDL_BlitSurface(Xbutton, NULL, screen, &dstrect_button);
 			SDL_BlitSurface(Stop, NULL, screen, &dstrect_stop);
 			SDL_BlitSurface(Name, NULL, screen, &dstrect_name);
 			SDL_BlitSurface(Logo, NULL, screen, &dstrect_logo);
@@ -312,7 +291,6 @@ int main(int argc, char *argv[])
 			SDL_BlitSurface(Down, NULL, screen, &dstrect_Down);
 			SDL_BlitSurface(Right, NULL, screen, &dstrect_Right);
 			SDL_BlitSurface(Left2, NULL, screen, &dstrect_Left);
-			SDL_BlitSurface(Xbutton, NULL, screen, &dstrect_button);
 			SDL_BlitSurface(Stop, NULL, screen, &dstrect_stop);
 			SDL_BlitSurface(Name, NULL, screen, &dstrect_name);
 			SDL_BlitSurface(Logo, NULL, screen, &dstrect_logo);
@@ -333,7 +311,6 @@ int main(int argc, char *argv[])
 			SDL_BlitSurface(Down, NULL, screen, &dstrect_Down);
 			SDL_BlitSurface(Right, NULL, screen, &dstrect_Right);
 			SDL_BlitSurface(Left, NULL, screen, &dstrect_Left);
-			SDL_BlitSurface(Xbutton, NULL, screen, &dstrect_button);
 			SDL_BlitSurface(Stop, NULL, screen, &dstrect_stop);
 			SDL_BlitSurface(Name, NULL, screen, &dstrect_name);
 			SDL_BlitSurface(Logo, NULL, screen, &dstrect_logo);
@@ -349,13 +326,6 @@ int main(int argc, char *argv[])
 			
 			
 
-			if((event.motion.x >= 455) && (event.motion.y <=25))
-			{
-			SDL_BlitSurface(quitting, NULL, screen, NULL);
-			SDL_Flip(screen);
-			printf("program end\n");
-			loop =1;
-			}
 			break;			
             }
 

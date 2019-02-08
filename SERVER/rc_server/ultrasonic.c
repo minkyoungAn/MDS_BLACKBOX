@@ -67,9 +67,6 @@ static irqreturn_t ultra_echo_rising(int irq, void *dev_id, struct pt_regs *regs
   return IRQ_HANDLED;
 }
 
-/*
-  ok
-*/
 void kerneltimer_registertimer( KERNEL_TIMER_MANAGER *pdata, unsigned long timeover )
 {
      init_timer( &(pdata->timer) );
@@ -79,9 +76,6 @@ void kerneltimer_registertimer( KERNEL_TIMER_MANAGER *pdata, unsigned long timeo
      add_timer( &(pdata->timer) );
 }
 
-/*
-  ok
-*/
 void kerneltimer_timeover(unsigned long arg )
 {
    KERNEL_TIMER_MANAGER *pdata = NULL;     
@@ -171,7 +165,6 @@ static int ultrasonic_write(struct file *filp,const char *buf, size_t count, lof
 
 static int ultrasonic_read(struct file *filp,char *buf, size_t count,loff_t *f_pos)
 {
-  //char data[20] = "this is read func...";
   int loop;
   char distance_flag;
 

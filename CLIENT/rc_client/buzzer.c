@@ -50,8 +50,9 @@ static int buzzer_open(struct inode *inode, struct file *filp)
 	printk("Device has been opened..\n");
 	pwm_duty.pulse_width = 150000;
 	pwm_duty.period = 200000;
+	pwm_disable(bz_pwm);
 	pwm_config(bz_pwm, pwm_duty.pulse_width, pwm_duty.period);
-
+	
 	return 0;
 }
 
@@ -72,10 +73,11 @@ static int buzzer_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
 		case BUZZER_SIG:
 		{
 		
-			pwm_disable(bz_pwm);
+//			pwm_disable(bz_pwm);
 
 			pwm_config(bz_pwm, pwm_duty.pulse_width, pwm_duty.period);
 			pwm_enable(bz_pwm);
+
 			mdelay(100);
 
 			break;	
