@@ -12,21 +12,56 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <pthread.h>
+
 #include "th_buzzer.h"
 
 #define MAXLINE 30
+#define DUMP_DEBUG
+#define STREAM_DUMP
 
 void* mplayer_stream_thread(void* data)
 {
+	#ifdef STREAM_DUMP
+	mkfifo("/root/mplayer_fifo",S_IRUSR|S_IWUSR); //make fifo for mplayer control
+	system("mplayer -slave -input file=/root/mplayer_fifo -screenw 160 -screenh 120 -demuxer mpeg4es rtp://@192.168.1.159:7000");	
+	#else
     system("mplayer -screenw 160 -screenh 120 -demuxer mpeg4es rtp://@192.168.1.159:7000");
+	#endif
+
     pthread_exit(NULL);
 }
 
-void mplayer_stream_thread_create(pthread_t mplayer_stream_t, int connect_server)
-{	
+#ifdef STREAM_DUMP
+void* mplayer_dump_thread(void *data)
+{
+	perror("DUMP THREAD START\n");
+
+	#ifdef STREAM_DUMP
+	sleep(10);
+	perror("Exit origin mplayer\n");
+	system("mplayer_cmd quit");
+	sleep(30);
+
+	perror("DUMP START\n");
+	system("mplayer -slave -input file=/root/mplayer_fifo -screenw 160 -screenh 120 -demuxer mpeg4es rtp://@192.168.1.159:7000 -dumpstream -dumpfile /root/test.mp4");
+	sleep(10);
+	perror("DUMP QUIT\n");
+	#endif	
+}
+#endif
+
+void mplayer_stream_thread_create(pthread_t mplayer_stream_t, pthread_t mplayer_dump_t, int connect_server)
+{
+	perror("Mplayer THREAD Create\n");
+	#ifndef DUMP_DEBUG
 	if (connect_server == 1)
-	{
+	#endif
+	{		
 		pthread_create(&mplayer_stream_t, 0, mplayer_stream_thread, NULL);
+#ifdef STREAM_DUMP
+		perror("DUMP THREAD Create\n");
+		pthread_create(&mplayer_dump_t, 0, mplayer_dump_thread, NULL);
+#endif
 	}	
 }
 
@@ -110,6 +145,7 @@ int main(int argc, char *argv[])
 	int client_len;
 	char buf[MAXLINE];
 	pthread_t mplayer_stream_t;
+	pthread_t mplayer_dump_t;
 	pthread_t tcp_read_t;
 	int connect_server = 0;
 	int result;
@@ -128,6 +164,7 @@ int main(int argc, char *argv[])
 	serveraddr.sin_port = htons(6000);
 	client_len = sizeof(serveraddr);   //client, serve
 
+#ifndef DUMP_DEBUG
 	while (1)
 	{
 		int result;
@@ -145,6 +182,7 @@ int main(int argc, char *argv[])
 	    	sleep(5);
 	    }
 	}
+#endif //DUMP_DEBUG  
 	
 	printf("TTF_Init\n");
 
@@ -196,8 +234,11 @@ int main(int argc, char *argv[])
 	SDL_BlitSurface(Logo, NULL, screen, &dstrect_logo);
 	SDL_Flip(screen); // 갱신
 
-	mplayer_stream_thread_create(mplayer_stream_t,connect_server);
+	mplayer_stream_thread_create(mplayer_stream_t,mplayer_dump_t,connect_server);
+
+	#ifndef DUMP_DEBUG
 	tcp_read_thread_create(tcp_read_t, connect_server, &server_sockfd );
+	#endif
 	
 
     while(!loop)
@@ -232,7 +273,10 @@ int main(int argc, char *argv[])
 					strcpy(buf, "1");
 					printf("pressed %s button\n", buf);
 		
+					#ifndef DUMP_DEBUG
 					write(server_sockfd, buf, MAXLINE);
+					#endif
+
 					printf("%d, %d \n", event.motion.x, event.motion.y);
 				
 					}
@@ -252,8 +296,11 @@ int main(int argc, char *argv[])
 					memset(buf, 0x00, MAXLINE);
 					strcpy(buf, "2");
 					printf("pressed %s button\n", buf);
-		
+
+					#ifndef DUMP_DEBUG		
 					write(server_sockfd, buf, MAXLINE);
+					#endif
+
 					printf("%d, %d \n", event.motion.x, event.motion.y);
 				
 					}
@@ -273,8 +320,11 @@ int main(int argc, char *argv[])
 					memset(buf, 0x00, MAXLINE);
 					strcpy(buf, "3");
 					printf("pressed %s button\n", buf);
-		
+
+					#ifndef DUMP_DEBUG		
 					write(server_sockfd, buf, MAXLINE);
+					#endif
+
 					printf("%d, %d \n", event.motion.x, event.motion.y);
 					}
 		
@@ -293,8 +343,11 @@ int main(int argc, char *argv[])
 					memset(buf, 0x00, MAXLINE);
 					strcpy(buf, "4");
 					printf("pressed %s button\n", buf);
-		
+
+					#ifndef DUMP_DEBUG		
 					write(server_sockfd, buf, MAXLINE);
+					#endif
+
 					printf("%d, %d \n", event.motion.x, event.motion.y);
 					}
 		
@@ -313,8 +366,11 @@ int main(int argc, char *argv[])
 					memset(buf, 0x00, MAXLINE);
 					strcpy(buf, "5");
 					printf("pressed %s button\n", buf);
-		
+
+					#ifndef DUMP_DEBUG		
 					write(server_sockfd, buf, MAXLINE);
+					#endif
+					
 					printf("%d, %d \n", event.motion.x, event.motion.y);
 					}
 					
