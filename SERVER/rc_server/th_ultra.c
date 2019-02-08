@@ -35,11 +35,14 @@ void *ultra_func(void *data)
     int fd;
     fd = open("/dev/ultrasonic",O_RDWR);
 
-    if(fd<0) {
+    if(fd<0)
+	{
         perror("/dev/ultrasonic error");
 
         exit(-1);
-    } else {
+    }
+	else
+	{
         printf("ultrasonic has been detected ...\n");
     }
     
@@ -50,12 +53,11 @@ void *ultra_func(void *data)
 
         if(buff[0]==ULTRA_SIG)
         {
-        	printf("write!\n");
-            if ((size = write(newsockfd, buff, strlen(buff))) <= 0) {
+            if ((size = write(newsockfd, buff, strlen(buff))) <= 0)
+			{
                 puts( "Server: write error!");
             }
         }
-
     }
 
     return 0;
