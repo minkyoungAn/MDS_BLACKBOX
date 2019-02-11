@@ -39,13 +39,6 @@ static int secure_open(struct inode *inode, struct file *filp)
 {
 	printk("device has been opened...\n");
 
-	/*****GPG1,3 is output(becouse of SFN1)*****/
-	s3c_gpio_cfgpin(S3C2410_GPG(11), S3C_GPIO_SFN(1));
-	s3c_gpio_cfgpin(S3C2410_GPG(12), S3C_GPIO_SFN(1));
-
-	gpio_set_value(S3C2410_GPG(11), 0);
-	gpio_set_value(S3C2410_GPG(12), 0);
-
 	return 0;
 }
 
@@ -140,7 +133,14 @@ static struct file_operations secure_fops =
 static int __init secure_init(void)
 {
 	printk("Secure module is up... \n");
+		
+	/*****GPG1,3 is output(becouse of SFN1)*****/
+	s3c_gpio_cfgpin(S3C2410_GPG(11), S3C_GPIO_SFN(1));
+	s3c_gpio_cfgpin(S3C2410_GPG(12), S3C_GPIO_SFN(1));
 
+	gpio_set_value(S3C2410_GPG(11), 0);
+	gpio_set_value(S3C2410_GPG(12), 0);
+	
 	if((result = secure_register_cdev()) < 0)
 		return result;
 }
