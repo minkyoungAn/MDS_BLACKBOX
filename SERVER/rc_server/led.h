@@ -17,11 +17,13 @@ typedef struct {
 #define	SK_WRITE		_IOW(SK_MAGIC, 4, sk_info)
 #define	SK_RW			_IOWR(SK_MAGIC, 5, sk_info)
 
-#define DEV_SK_NAME	"SK"
 #define DEV_SK_MAJOR	241
+#define DEV_SK_NAME	"SK"
+
 
 void led_mknod(void);
 void *led_func(void *cmd);
+
 
 #endif	/* _LED_H_ */
 
