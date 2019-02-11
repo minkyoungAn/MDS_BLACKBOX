@@ -7,5 +7,6 @@ export SDL_MOUSEDEV=$TSLIB_TSDEVICE
 
 sleep 10
 insmod /root/buzzer.ko
+mount /dev/mmcblk0p1 /mnt/sdcard
 cd /root/
 ./rc_client
