@@ -6,6 +6,9 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <termio.h>
+#include <time.h>
+#include <signal.h>
+#include <sys/time.h>
 #include <sys/ioctl.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -22,6 +25,10 @@
 #ifdef STREAM_DUMP
 int dumping = 0;
 #endif
+
+timer_t buzzer_timer;
+int buzzer_onoff;
+int buzzer_fd;
 
 void* mplayer_stream_thread(void* data)
 {
@@ -111,10 +118,10 @@ void mplayer_dump_copy(vodi)
 
 void* mplayer_resume_thread(void *data)
 {
-	sleep(5);
+	sleep(10);
 	mplayer_close();
+	sleep(3);
 	mplayer_dump_copy();
-	sleep(1);	
 	dumping = 0;
 	system("mplayer -slave -input file=/root/mplayer_fifo -screenw 160 -screenh 120 -demuxer mpeg4es rtp://@192.168.1.159:7000");
 
@@ -134,33 +141,37 @@ void* tcp_read_thread(void* arg)
 #ifdef STREAM_DUMP
 	pthread_t mplayer_dump;
 	pthread_t mplayer_resume;
-#endif	
-	
+#endif
+
 	printf("tcp_read_thread start socket=%d\n",socket);
 	
 	fd = open("/dev/buzzer",O_RDWR); //open buzzer
+	buzzer_fd = fd;
 	while(1)
 	{
 		size = read(socket, buf, MAXLINE);
 
-		if (buf[0] == 6)
+		if (size > 0)
 		{
-			cnt++;				
-			buzzersig = BUZZER_SIG;
-			
-			if (cnt >= 50)
+			if (buf[0] == 6)
 			{
-				#ifdef STREAM_DUMP
-				if (dumping == 0)
+				cnt++;				
+				buzzersig = BUZZER_SIG;
+				
+				if (cnt >= 50)
 				{
-					dumping = 1;
-					printf("dump start!!\n");
-					pthread_create(&mplayer_dump, 0, mplayer_dump_thread, NULL);
-					pthread_create(&mplayer_resume, 0, mplayer_resume_thread, NULL);
+					#ifdef STREAM_DUMP
+					if (dumping == 0)
+					{
+						dumping = 1;
+						printf("dump start!!\n");
+						pthread_create(&mplayer_dump, 0, mplayer_dump_thread, NULL);
+						pthread_create(&mplayer_resume, 0, mplayer_resume_thread, NULL);
+					}
+					#endif
+					buzzer_onoff = 1;
+					cnt = 0;
 				}
-				#endif
-				buzzer_func(fd);
-				cnt = 0;
 			}
 		}
 	}
@@ -200,7 +211,49 @@ void itoa(int num, char *str){
         deg /=radix;
     }
     *(str+i) = '\0';
-} 
+}
+
+void buzzer_timer_func(void)
+{
+	printf("%s working\n",__func__);
+	if (buzzer_onoff == 1)
+	{
+		buzzer_onoff = 0;
+		buzzer_func(buzzer_fd);
+	}
+}
+
+void create_timer(void (*timer_func)(void), timer_t *timer_id,int sec)
+{
+	struct sigevent         te;  
+    struct itimerspec       its;  
+    struct sigaction        sa;  
+    int sigNo = SIGRTMIN;  
+   
+    /* Set up signal handler. */  
+    sa.sa_flags = SA_SIGINFO;  
+    sa.sa_sigaction = timer_func;  
+    sigemptyset(&sa.sa_mask);  
+  
+    if (sigaction(sigNo, &sa, NULL) == -1)  
+    {  
+        printf("sigaction error\n");
+        return;
+    }  
+   
+    /* Set and enable alarm */  
+    te.sigev_notify = SIGEV_SIGNAL;  
+    te.sigev_signo = sigNo;  
+    te.sigev_value.sival_ptr = timer_func;  
+    timer_create(CLOCK_REALTIME, &te, timer_id);  
+   
+    its.it_interval.tv_sec = sec;
+    its.it_interval.tv_nsec = 0;  
+    its.it_value.tv_sec = sec;
+    
+    its.it_value.tv_nsec = 0;
+    timer_settime(*timer_id, 0, &its, NULL);	
+}
 
 int main(int argc, char *argv[])
 {
@@ -307,7 +360,8 @@ int main(int argc, char *argv[])
 	#ifndef DUMP_DEBUG
 	tcp_read_thread_create(tcp_read_t, connect_server, &server_sockfd );
 	#endif
-	
+
+	create_timer(buzzer_timer_func,&buzzer_timer,1); //buzzer timer, 1s
 
     while(!loop)
     {

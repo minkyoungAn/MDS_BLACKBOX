@@ -23,7 +23,7 @@ KDIR := /work/linux
 
 allc:
 	make -C $(KDIR) SUBDIRS=$(PWD) modules 
-	$(CROSS_COMPILE)gcc -o rc_client rc_client.c th_buzzer.c  `sdl-config-$(ARCH) --cflags --libs`   -lSDL -lSDL_ttf -lSDL_image -lpthread 
+	$(CROSS_COMPILE)gcc -o rc_client rc_client.c th_buzzer.c  `sdl-config-$(ARCH) --cflags --libs`   -lSDL -lSDL_ttf -lSDL_image -lpthread -lrt
 
 allcpp:
 	$(CROSS_COMPILE)g++ -o rc_client rc_client.cpp `sdl-config-$(ARCH) --cflags --libs`   -lSDL -lSDL_ttf -lSDL_image  
