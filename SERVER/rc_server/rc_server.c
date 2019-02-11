@@ -15,6 +15,7 @@
 
 #include "th_ultra.h"
 #include "moter_app.h"
+#include "led.h"
 
 #define SERV_TCP_PORT   6000 /* TCP Server port */
 
@@ -42,17 +43,19 @@ int main ( int argc, char* argv[] )
     int val_set;
 
     pthread_t ff_stream_t;
-    
     pthread_t th_ultrasonic;
+    pthread_t th_led;
     void *result_ultrasonic;
 
 	//ffmpeg_stream_start
     ffmpeg_stream_thread_create(ff_stream_t);
 	
-	// mknod ultrasonic
+    // mknod ultrasonic
     ultra_mknod();
-	// mknod moter
+    // mknod moter
     moter_mknod();
+    // mknod led
+    led_mknod();
     //create tcp socket to get sockfd
     if ((sockfd = socket(AF_INET, SOCK_STREAM,0))<0)
 	{
@@ -112,7 +115,7 @@ int main ( int argc, char* argv[] )
 			puts( "Server: readn error!");
 			exit(1);
 		}
-
+	int cmd = 0;
         switch(buff[0])
         {
             case '1':
@@ -124,12 +127,16 @@ int main ( int argc, char* argv[] )
 				moter_func(8);
                 break;
             case '3':
+		cmd = 5;
                 printf("right from server\n");
 				moter_func(5);
+                pthread_create(&th_led, NULL, &led_func, &cmd);
                 break;
             case '4':
+		cmd = 6;
                 printf("left from server\n");
 				moter_func(6);
+                pthread_create(&th_led, NULL, &led_func, &cmd);
                 break;
             case '5':
                 printf("stop from server\n");

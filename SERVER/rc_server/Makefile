@@ -7,7 +7,7 @@ KDIR	:= /work/linux/
 
 all:
 	make -C $(KDIR) SUBDIRS=$(PWD) modules 
-	$(CROSS_COMPILE)gcc -o rc_server rc_server.c th_ultra.c pwm_app.c -lpthread
+	$(CROSS_COMPILE)gcc -o rc_server rc_server.c th_ultra.c pwm_app.c led.c -lpthread
 
 
 install:
