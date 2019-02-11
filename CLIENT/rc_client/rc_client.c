@@ -214,8 +214,7 @@ void itoa(int num, char *str){
 }
 
 void buzzer_timer_func(void)
-{
-	printf("%s working\n",__func__);
+{	
 	if (buzzer_onoff == 1)
 	{
 		buzzer_onoff = 0;
