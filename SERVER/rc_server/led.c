@@ -13,13 +13,16 @@
 #include <termio.h>
 #include <linux/ioctl.h>
 #include <linux/kdev_t.h> // MKDEV
+#include <netinet/in.h>
+#include <arpa/inet.h>
+
 
 #include <sys/stat.h>	//mknod inner
+#include <sys/types.h>
 
 #include <pthread.h>
 #include "led.h"
 #include "pwm_dev.h"
-//pthread_mutex_t pmutex = PTHREAD_MUTEX_INITIALIZER;
 
 void led_mknod(void)
 {
