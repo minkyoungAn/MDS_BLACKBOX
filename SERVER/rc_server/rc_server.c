@@ -56,6 +56,7 @@ int main ( int argc, char* argv[] )
     moter_mknod();
     // mknod led
     led_mknod();
+    printf("mknod sucess!\n");
     //create tcp socket to get sockfd
     if ((sockfd = socket(AF_INET, SOCK_STREAM,0))<0)
 	{
@@ -106,7 +107,8 @@ int main ( int argc, char* argv[] )
     clilen = sizeof( cli_addr );
 
     printf("Client Connected...\n");  
-
+    
+	int cmd = 0;
 	while(1)
 	{
 
@@ -115,37 +117,53 @@ int main ( int argc, char* argv[] )
 			puts( "Server: readn error!");
 			exit(1);
 		}
-	int cmd = 0;
+		
         switch(buff[0])
         {
             case '1':
+            	cmd = 0;
                 printf("front from server\n");
 				moter_func(1);
                 break;
             case '2':
+            	cmd = 0;
                 printf("back from server\n");
 				moter_func(8);
                 break;
             case '3':
-		cmd = 5;
+				cmd = 5;
                 printf("right from server\n");
 				moter_func(5);
-                pthread_create(&th_led, NULL, &led_func, &cmd);
                 break;
             case '4':
-		cmd = 6;
+				cmd = 6;
                 printf("left from server\n");
 				moter_func(6);
-                pthread_create(&th_led, NULL, &led_func, &cmd);
                 break;
             case '5':
+            	cmd = 0;
                 printf("stop from server\n");
 				moter_func(7);
                 break;
             default:
                 break;
         }
+        printf("led on off \n");
+        switch(cmd)
+        {
+        	case 5:
+        		printf("go to led left\n");
+        		pthread_create(&th_led, NULL, &led_func, &cmd);
+        		break;
+        	case 6:
+        		printf("go to led right\n");
+        		pthread_create(&th_led, NULL, &led_func, &cmd);
+        		break;
+        	default:
+        		break;
+		}
 	}
+	
 
     close( newsockfd );
     close( sockfd );

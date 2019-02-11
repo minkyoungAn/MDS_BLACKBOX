@@ -1,4 +1,4 @@
-obj-m := ultrasonic.o pwm_dev.o
+obj-m := ultrasonic.o pwm_dev.o secure.o
 
 
 CROSS_COMPILE=arm-none-linux-gnueabi-
