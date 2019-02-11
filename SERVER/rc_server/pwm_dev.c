@@ -29,10 +29,8 @@
 
 #include <linux/vmalloc.h>
 
-/*TODO : Information MACROS*/
+
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("GYEONGTAE_KIM");
-MODULE_DESCRIPTION("MOTOR_DEVICEDRIVER");
 
 
 /*TODO : Initialization*/
