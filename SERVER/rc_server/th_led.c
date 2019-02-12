@@ -31,8 +31,8 @@ void led_mknod(void)
 	bzero( dev_name, sizeof( dev_name ));
 	sprintf( dev_name, "/dev/%s", DEV_LED_NAME );
 	mknod( dev_name, S_IFCHR|S_IRWXU|S_IRWXG, MKDEV( DEV_LED_MAJOR, 0 ));
-        printf("Make Device file(%s)\n", dev_name );
-        return;
+    printf("Make Device file(%s)\n", dev_name );
+    return;
 }
 
 
@@ -43,7 +43,8 @@ void *led_func(void *cmd)
 	
 	fd = open("/dev/LED", O_RDWR);
 	
-	if (fd<0) {
+	if (fd<0) 
+	{
         perror("/dev/LED error");
         exit(-1);
     }

@@ -115,7 +115,6 @@ void kerneltimer_exit(void)
 	}    
 }
 
-
 static int led_open(struct inode *inode, struct file *filp)
 {
 	printk("led device has been opened...\n");
@@ -123,18 +122,12 @@ static int led_open(struct inode *inode, struct file *filp)
 	return 0;
 }
 
-
-
-
 static int led_release(struct inode *inode, struct file *filp)
 {
 	printk("Device has been closed..\n");
 
 	return 0;
 }
-
-
-
 
 static int led_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
 { 
@@ -159,18 +152,12 @@ static int led_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
 	return 0;
 }
 
-
-
-
-
-
 static struct file_operations led_fops = 
 {
 	.open           = led_open,
 	.release        = led_release,
 	.unlocked_ioctl = led_ioctl
 };
-
 
 /*****init module*****/
 static int __init led_init(void)
@@ -189,12 +176,9 @@ static int __init led_init(void)
 	
 	if((result = led_register_cdev()) < 0)
 		return result;
+		
 	return 0;
 }
-
-
-
-
 
 /*****exit module*****/
 static void __exit led_exit(void)
@@ -203,11 +187,6 @@ static void __exit led_exit(void)
 	cdev_del(&led_cdev);
 	unregister_chrdev_region(led_dev, 1);
 }
-
-
-
-
-
 
 static int led_register_cdev(void)
 {
@@ -232,13 +211,11 @@ static int led_register_cdev(void)
 
 	printk("major number=%d\n", led_major);
 
-
 	/* register chrdev */
 	cdev_init(&led_cdev, &led_fops);
 	led_cdev.owner = THIS_MODULE;
 	led_cdev.ops = &led_fops;
 	error = cdev_add(&led_cdev, led_dev, 1);
-
 
 	if(error)
 		printk(KERN_NOTICE "led Register Error %d\n", error);

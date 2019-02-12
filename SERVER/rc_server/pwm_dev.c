@@ -217,15 +217,19 @@ static int pwm_register_cdev(void)
 	int error;
 
 	/*allocation device number*/
-	if(pwm_major) {
+	if(pwm_major) 
+	{
 		pwm_dev = MKDEV(pwm_major,pwm_minor);	//num setting
 		error = register_chrdev_region(pwm_dev, 1, "pwm");		
-	} else {
+	} 
+	else 
+	{
 		error = alloc_chrdev_region(&pwm_dev,pwm_minor, 1, "pwm");
 		pwm_major = MAJOR(pwm_dev);
 	}
 
-	if(error<0){
+	if(error<0)
+	{
 		printk(KERN_WARNING "pwm_num Register Error %d\n", error);
 		return error;
 	}

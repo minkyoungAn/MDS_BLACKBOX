@@ -1,0 +1,1 @@
+cmd_/media/sf_final/git/SERVER/rc_server/led.ko := /usr/local/arm/4.4.1/bin/arm-none-linux-gnueabi-ld -EL -r  -T /home/mds/exercise/linux/teacher/linux-3.0.22/scripts/module-common.lds --build-id  -o /media/sf_final/git/SERVER/rc_server/led.ko /media/sf_final/git/SERVER/rc_server/led.o /media/sf_final/git/SERVER/rc_server/led.mod.o
