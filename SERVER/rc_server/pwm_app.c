@@ -21,7 +21,6 @@
 #include "moter_app.h"
 
 #define MS	1000000
-//pthread_mutex_t pmutex = PTHREAD_MUTEX_INITIALIZER;
 
 void moter_mknod(void)
 {
@@ -57,7 +56,6 @@ void *moter_func(int cmd)
 		printf("PWM has been detected...\n");
 	
 	/*ioctl*/
-//	while(1){
 		switch (cmd){
 			case FRONT : 
 			    lpwm_pulse.width = (10*MS);
@@ -76,7 +74,6 @@ void *moter_func(int cmd)
 			    rpwm_pulse.width = (1*MS);
 			    rpwm_pulse.period = (10*MS);
 			    ioctl(fd, RIGHTPWM, &rpwm_pulse);
-			    //printf("Dutyf: %lu, Periodf: %lu\n", rpwm_pulse.width, rpwm_pulse.period );
 			    ioctl(fd,BACK);
 				break;		
 
@@ -105,8 +102,7 @@ void *moter_func(int cmd)
 			    ioctl(fd,STOP);
 			break;
 			default : break;
-		}	
-//	}	
+		}		
 	/*device release*/
 	close(fd);
 
