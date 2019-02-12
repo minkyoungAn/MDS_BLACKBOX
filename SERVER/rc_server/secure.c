@@ -45,11 +45,12 @@ static int secure_open(struct inode *inode, struct file *filp);
 static int secure_release(struct inode *inode, struct file *filp);
 static int secure_ioctl(struct file *filp, unsigned int cmd, unsigned long arg);
 
+int led_high_low = 0;
 
 void kerneltimer_registertimer( KERNEL_TIMER_MANAGER *pdata, unsigned long timeover )
 {
 	init_timer( &(pdata->timer) );
-	pdata->timer.expires  = get_jiffies_64() + timeover;
+	pdata->timer.expires  = (get_jiffies_64() + timeover);
 	pdata->timer.data     = (unsigned long) pdata      ;
 	pdata->timer.function = kerneltimer_timeover       ;
 	add_timer( &(pdata->timer) );
@@ -60,26 +61,39 @@ void kerneltimer_timeover(unsigned long arg )
 	KERNEL_TIMER_MANAGER *pdata = NULL;     
    	if(led_flag == 5)
    	{
-   		gpio_set_value(S3C2410_GPG(12), 0);
-		mdelay(500);
-		gpio_set_value(S3C2410_GPG(12), 1);
-		mdelay(500);
-		gpio_set_value(S3C2410_GPG(12), 0);
+   		if(led_high_low == 0)
+   		{
+   			gpio_set_value(S3C2410_GPG(12), 1);	
+   			led_high_low = 1;
+		}
+		else 
+		{
+			gpio_set_value(S3C2410_GPG(12), 0);	
+			led_high_low = 0;
+		}
    	}
    	else if(led_flag == 6)
    	{
-   		gpio_set_value(S3C2410_GPG(11), 0);
-		mdelay(500);
-		gpio_set_value(S3C2410_GPG(11), 1);
-		mdelay(500);
-		gpio_set_value(S3C2410_GPG(11), 0);
+  	 	if(led_high_low == 0)
+   		{
+   			gpio_set_value(S3C2410_GPG(11), 1);	
+   			led_high_low = 1;
+		}
+		else 
+		{
+			gpio_set_value(S3C2410_GPG(11), 0);	
+			led_high_low = 0;
+		}
    	}
+   	
 	if( arg )
 	{
 		pdata = ( KERNEL_TIMER_MANAGER * ) arg;
 		/* create pulse to led */	
 		kerneltimer_registertimer( pdata , TIME_STEP );
 	}
+	
+	
 }
 
 int kerneltimer_init(void)
@@ -104,9 +118,8 @@ void kerneltimer_exit(void)
 
 static int secure_open(struct inode *inode, struct file *filp)
 {
-	printk("device has been opened...\n");
-	kerneltimer_init();
-	kerneltimer_registertimer( ptrmng , TIME_STEP );
+	printk("led device has been opened...\n");
+	
 	return 0;
 }
 
@@ -128,14 +141,20 @@ static int secure_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
 	switch(cmd) 
 	{
 		case LEFT :
-		{
 			led_flag=5;
-		}break;
+			gpio_set_value(S3C2410_GPG(11), 0);	
+			break;
 
 		case RIGHT :
-		{
 			led_flag=6;
-		}break;
+			gpio_set_value(S3C2410_GPG(12), 0);	
+			break;
+		
+		default :
+			led_flag=1;
+			gpio_set_value(S3C2410_GPG(11), 0);	
+			gpio_set_value(S3C2410_GPG(12), 0);	
+			break;
 	}
 	return 0;
 }
@@ -157,7 +176,10 @@ static struct file_operations secure_fops =
 static int __init secure_init(void)
 {
 	printk("Secure module is up... \n");
-		
+	
+	kerneltimer_init();
+	kerneltimer_registertimer( ptrmng , TIME_STEP );	
+	
 	/*****GPG1,3 is output(becouse of SFN1)*****/
 	s3c_gpio_cfgpin(S3C2410_GPG(11), S3C_GPIO_SFN(1));
 	s3c_gpio_cfgpin(S3C2410_GPG(12), S3C_GPIO_SFN(1));

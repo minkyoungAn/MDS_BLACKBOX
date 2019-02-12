@@ -40,7 +40,7 @@ void led_mknod(void)
 void *led_func(void *cmd)
 {
 	int fd;
-	printf("cmd value : %d\n", *(int *)cmd);
+	
 	fd = open("/dev/SK", O_RDWR);
 	
 	if (fd<0) {
@@ -50,6 +50,7 @@ void *led_func(void *cmd)
 			
 	switch(*(int *)cmd)
     {
+    	
         case LEFT:
         	printf("left led on\n");
 			ioctl(fd, LEFT);
@@ -59,6 +60,8 @@ void *led_func(void *cmd)
 			ioctl(fd, RIGHT);
             break;
         default:
+        	printf("led off\n");
+        	ioctl(fd, 1);
             break;
 	}
 	

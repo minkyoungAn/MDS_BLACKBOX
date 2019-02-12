@@ -111,7 +111,7 @@ int main ( int argc, char* argv[] )
 	int cmd = 0;
 	while(1)
 	{
-
+		printf("moter signal waiting...\n");
 		if ((size = read(newsockfd, buff, 20)) <= 0 )
 		{
 			puts( "Server: readn error!");
@@ -148,20 +148,9 @@ int main ( int argc, char* argv[] )
             default:
                 break;
         }
-        printf("led on off \n");
-        switch(cmd)
-        {
-        	case 5:
-        		printf("go to led left\n");
-        		pthread_create(&th_led, NULL, &led_func, &cmd);
-        		break;
-        	case 6:
-        		printf("go to led right\n");
-        		pthread_create(&th_led, NULL, &led_func, &cmd);
-        		break;
-        	default:
-        		break;
-		}
+        
+        pthread_create(&th_led, NULL, &led_func, &cmd);
+       
 	}
 	
 

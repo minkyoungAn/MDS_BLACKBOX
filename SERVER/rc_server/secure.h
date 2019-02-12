@@ -2,7 +2,7 @@
 #define	_SECURE_H_
 
 
-#define TIME_STEP       (HZ/100)
+#define TIME_STEP       (HZ)
 #define   ULTRA_SIG           6
 #define DEV_SK_MAJOR	241
 #define DEV_SK_NAME	"SK"
