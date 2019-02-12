@@ -47,16 +47,16 @@ static int secure_ioctl(struct file *filp, unsigned int cmd, unsigned long arg);
 
 int led_high_low = 0;
 
-void kerneltimer_registertimer( KERNEL_TIMER_MANAGER *pdata, unsigned long timeover )
+void led_kerneltimer_registertimer( KERNEL_TIMER_MANAGER *pdata, unsigned long timeover )
 {
 	init_timer( &(pdata->timer) );
 	pdata->timer.expires  = (get_jiffies_64() + timeover);
 	pdata->timer.data     = (unsigned long) pdata      ;
-	pdata->timer.function = kerneltimer_timeover       ;
+	pdata->timer.function = led_kerneltimer_timeover       ;
 	add_timer( &(pdata->timer) );
 }
 
-void kerneltimer_timeover(unsigned long arg )
+void led_kerneltimer_timeover(unsigned long arg )
 {
 	KERNEL_TIMER_MANAGER *pdata = NULL;     
    	if(led_flag == 5)
@@ -90,13 +90,13 @@ void kerneltimer_timeover(unsigned long arg )
 	{
 		pdata = ( KERNEL_TIMER_MANAGER * ) arg;
 		/* create pulse to led */	
-		kerneltimer_registertimer( pdata , TIME_STEP );
+		led_kerneltimer_registertimer( pdata , TIME_STEP );
 	}
 	
 	
 }
 
-int kerneltimer_init(void)
+int led_kerneltimer_init(void)
 {
 	ptrmng = kmalloc( sizeof( KERNEL_TIMER_MANAGER ), GFP_KERNEL );
 	if( ptrmng == NULL ) return -ENOMEM;
@@ -106,7 +106,7 @@ int kerneltimer_init(void)
 	return 0;
 }
 
-void kerneltimer_exit(void)
+void led_kerneltimer_exit(void)
 {
 	if( ptrmng != NULL ) 
 	{
@@ -177,8 +177,8 @@ static int __init secure_init(void)
 {
 	printk("Secure module is up... \n");
 	
-	kerneltimer_init();
-	kerneltimer_registertimer( ptrmng , TIME_STEP );	
+	led_kerneltimer_init();
+	led_kerneltimer_registertimer( ptrmng , TIME_STEP );	
 	
 	/*****GPG1,3 is output(becouse of SFN1)*****/
 	s3c_gpio_cfgpin(S3C2410_GPG(11), S3C_GPIO_SFN(1));

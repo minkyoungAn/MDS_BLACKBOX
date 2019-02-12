@@ -189,7 +189,8 @@ void tcp_read_thread_create(pthread_t tcp_read_t, int connect_server, int *serve
 	}
 }
 
-void itoa(int num, char *str){
+void itoa(int num, char *str)
+{
     int i=0;
     int radix = 10;
     int deg=1;
@@ -205,7 +206,8 @@ void itoa(int num, char *str){
     }
     deg /=radix; 
 
-    for(i=0; i<cnt; i++) { 
+    for(i=0; i<cnt; i++) 
+	{ 
         *(str+i) = num/deg + '0';
         num -= ((num/deg) * deg);
         deg /=radix;
@@ -290,7 +292,8 @@ int main(int argc, char *argv[])
 		int result;
 		
 		result = connect(server_sockfd, (struct sockaddr*)&serveraddr, client_len);
-		if (result == 0) {			
+		if (result == 0) 
+		{			
 			printf("connect success! server_sockfd = %d\n",server_sockfd);
 	    	connect_server =  1;
 	    	break;	                
