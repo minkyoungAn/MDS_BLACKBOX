@@ -8,17 +8,17 @@
 
 typedef struct
 {
-        struct timer_list  timer;      
+    struct timer_list  timer;      
 } __attribute__ ((packed)) KERNEL_TIMER_MANAGER;
 static KERNEL_TIMER_MANAGER *ptrmng = NULL;
 
 struct ultra_detection
 {
-  int irq;
-  int pin;
-  int pin_setting;
-  char *name;
-  int last_state;
+	int irq;
+	int pin;
+	int pin_setting;
+	char *name;
+	int last_state;
 };
 
 struct timeval before = {0,}, after = {0,};

@@ -53,6 +53,7 @@ void *ultra_func(void *data)
 
         if(buff[0]==ULTRA_SIG)
         {
+        	printf("write!\n");
             if ((size = write(newsockfd, buff, strlen(buff))) <= 0)
 			{
                 puts( "Server: write error!");

@@ -68,10 +68,8 @@ static int buzzer_release(struct inode *inode, struct file *filp)
 
 static int buzzer_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
 {	
-
 	switch(cmd)
 	{
-
 		case BUZZER_SIG :
 		{
 			pwm_config(bz_pwm, pwm_duty.pulse_width, pwm_duty.period);
@@ -85,7 +83,6 @@ static int buzzer_ioctl(struct file *filp, unsigned int cmd, unsigned long arg)
 		default:
 			break;
 	}	
-
 	pwm_disable(bz_pwm);
 
 	return 0;

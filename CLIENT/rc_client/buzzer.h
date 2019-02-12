@@ -3,12 +3,14 @@
 
 #define	BUZZER_SIG           6
 
-struct pwm_duty_t {
+struct pwm_duty_t 
+{
 	int pulse_width;		// nsec
 	int period;				// nsec
 };
 
-struct pwm_device {
+struct pwm_device 
+{
 	struct list_head     list;
 	struct platform_device  *pdev;
 

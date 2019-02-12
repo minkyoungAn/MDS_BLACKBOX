@@ -56,6 +56,7 @@ int main ( int argc, char* argv[] )
     moter_mknod();
     // mknod led
     led_mknod();
+    
     printf("mknod sucess!\n");
     //create tcp socket to get sockfd
     if ((sockfd = socket(AF_INET, SOCK_STREAM,0))<0)
@@ -148,11 +149,10 @@ int main ( int argc, char* argv[] )
             default:
                 break;
         }
-        
+        //led thread
         pthread_create(&th_led, NULL, &led_func, &cmd);
        
 	}
-	
 
     close( newsockfd );
     close( sockfd );
