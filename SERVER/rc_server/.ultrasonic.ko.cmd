@@ -1,1 +1,0 @@
-cmd_/media/sf_final/git/SERVER/rc_server/ultrasonic.ko := /usr/local/arm/4.4.1/bin/arm-none-linux-gnueabi-ld -EL -r  -T /home/mds/exercise/linux/teacher/linux-3.0.22/scripts/module-common.lds --build-id  -o /media/sf_final/git/SERVER/rc_server/ultrasonic.ko /media/sf_final/git/SERVER/rc_server/ultrasonic.o /media/sf_final/git/SERVER/rc_server/ultrasonic.mod.o
